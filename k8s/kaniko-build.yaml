@@ -1,0 +1,43 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ivotrans-website-build
+  namespace: prod
+spec:
+  backoffLimit: 2
+  ttlSecondsAfterFinished: 3600  # Auto-delete job after 1 hour
+  template:
+    metadata:
+      labels:
+        app: ivotrans-website-build
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: kaniko
+        image: gcr.io/kaniko-project/executor:latest
+        args:
+        - "--dockerfile=Dockerfile"
+        - "--context=git://github.com/staszekj/ivotrans-website.git#main"
+        - "--destination=docker-registry.eltrue/ivotrans-website:latest"
+        - "--destination=docker-registry.eltrue/ivotrans-website:v1.0.0"
+        - "--insecure-registry=docker-registry.eltrue"
+        - "--skip-tls-verify-registry=docker-registry.eltrue"
+        - "--cache=true"
+        - "--cache-repo=docker-registry.eltrue/ivotrans-website-cache"
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "2Gi"
+            cpu: "1000m"
+        volumeMounts:
+        - name: docker-config
+          mountPath: /kaniko/.docker/
+      volumes:
+      - name: docker-config
+        secret:
+          secretName: docker-registry-auth
+          items:
+          - key: .dockerconfigjson
+            path: config.json

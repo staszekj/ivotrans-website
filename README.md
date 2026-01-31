@@ -38,6 +38,41 @@ All commands are run from the root of the project, from a terminal:
 | `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
+## � Docker & Kubernetes
+
+### Build produkcyjny z Docker
+
+```bash
+docker build -t docker-registry.eltrue/ivotrans-website:latest .
+docker push docker-registry.eltrue/ivotrans-website:latest
+```
+
+### Build z Kaniko (w klastrze K8s)
+
+```bash
+# 1. Stwórz secret do registry
+kubectl apply -f k8s/docker-registry-secret.yaml
+
+# 2. Uruchom build (Kaniko zbuduje i wyśle obraz do registry)
+kubectl apply -f k8s/kaniko-build.yaml
+
+# 3. Sprawdź postęp buildu
+kubectl logs -n prod -l app=ivotrans-website-build -f
+
+# 4. Po zakończeniu buildu - uruchom aplikację
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+```
+
+### Pliki K8s
+
+| Plik | Opis |
+|------|------|
+| `k8s/docker-registry-secret.yaml` | Credentials do registry |
+| `k8s/kaniko-build.yaml` | Job budujący obraz |
+| `k8s/deployment.yaml` | Deployment aplikacji |
+| `k8s/service.yaml` | Service + Ingress |
+
+## �👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

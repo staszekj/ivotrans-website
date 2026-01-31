@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output (we copy from builder stage)
+dist/
+
+# Dev files
+.astro/
+.git/
+.gitignore
+.vscode/
+.devcontainer.json
+
+# Documentation
+*.md
+!README.md
+
+# Docker files (not needed inside container)
+Dockerfile
+docker-compose*.yml
+.dockerignore
