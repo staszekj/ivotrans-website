@@ -1,0 +1,66 @@
+---
+/**
+ * ServiceCard Component
+ * Reusable card for displaying services
+ */
+interface Props {
+  icon: string;
+  title: string;
+  description?: string;
+  href?: string;
+}
+
+const { icon, title, description, href } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+{href ? (
+  <a href={href} class="service-card">
+    <div class="service-icon">{icon}</div>
+    <h3>{title}</h3>
+    {description && <p>{description}</p>}
+  </a>
+) : (
+  <div class="service-card">
+    <div class="service-icon">{icon}</div>
+    <h3>{title}</h3>
+    {description && <p>{description}</p>}
+  </div>
+)}
+
+<style>
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--border-color);
+    display: block;
+    color: inherit;
+  }
+
+  a.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .service-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+</style>

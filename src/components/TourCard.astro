@@ -1,0 +1,166 @@
+---
+/**
+ * TourCard Component
+ * Reusable card for displaying tours and pilgrimages
+ */
+interface Props {
+  country: string;
+  title: string;
+  places: string[];
+  transport: string[];
+  days: number;
+  pdfUrl?: string;
+  lang?: 'pl' | 'it';
+  variant?: 'tour' | 'pilgrimage';
+}
+
+const { country, title, places, transport, days, pdfUrl, lang = 'pl', variant = 'tour' } = Astro.props;
+
+const labels = {
+  pl: { learnMore: 'Dowiedz się więcej', days: 'dni' },
+  it: { learnMore: 'Scopri di più', days: 'giorni' }
+};
+
+const t = labels[lang];
+const gradientClass = variant === 'pilgrimage' ? 'gradient-pilgrimage' : 'gradient-tour';
+---
+
+<article class="tour-card">
+  <div class:list={['card-header', gradientClass]}>
+    <h2>{country}</h2>
+    <h3>{title}</h3>
+  </div>
+  
+  <div class="card-body">
+    <div class="places">
+      {places.slice(0, 6).map((place) => (
+        <span class="place-tag">{place}</span>
+      ))}
+      {places.length > 6 && (
+        <span class="place-tag more">+{places.length - 6}</span>
+      )}
+    </div>
+    
+    <div class="card-meta">
+      <div class="meta-item">
+        <span class="meta-icon">
+          {transport.includes('samolot') || transport.includes('Samolot') || transport.includes('aereo') || transport.includes('Aereo') ? '✈️' : '🚌'}
+        </span>
+        <span>{transport.join(' + ')}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-icon">📅</span>
+        <span>{days} {t.days}</span>
+      </div>
+    </div>
+  </div>
+  
+  {pdfUrl && (
+    <a href={pdfUrl} target="_blank" rel="noopener" class="card-link">
+      {t.learnMore} →
+    </a>
+  )}
+</article>
+
+<style>
+  .tour-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-header {
+    color: white;
+    padding: 1.25rem;
+  }
+
+  .gradient-tour {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #3182ce 100%);
+  }
+
+  .gradient-pilgrimage {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  }
+
+  .card-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+    flex: 1;
+  }
+
+  .places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .place-tag {
+    background: var(--bg-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+  }
+
+  .place-tag.more {
+    background: var(--accent-color);
+    color: white;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  .meta-icon {
+    font-size: 1.1rem;
+  }
+
+  .card-link {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    background: var(--bg-light);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-top: 1px solid var(--border-color);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .card-link:hover {
+    background: var(--accent-color);
+    color: white;
+  }
+</style>

@@ -1,0 +1,249 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+
+const lang = 'pl';
+const currentPath = '/pl/destynacje/';
+---
+
+<Layout title="Destynacje" lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
+  
+  <Hero 
+    title="Destynacje"
+    subtitle="Odkryj świat z Ivotrans - wycieczki objazdowe i pielgrzymki"
+    backgroundImage="/images/zdjcienagaleriHOME1.jpg"
+  />
+  
+  <main>
+    <section class="tours-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Wycieczki objazdowe</h2>
+          <p>
+            Polecamy Państwu bogatą ofertę wycieczek objazdowych w Polsce, Europie i na świecie.
+          </p>
+        </div>
+        
+        <div class="content-block">
+          <p>
+            Zapraszamy do odwiedzenia tętniących życiem europejskich stolic i metropolii. 
+            Każdy kraj to odrębna historia, kultura i krajobraz jak również inne emocje, 
+            wspomnienia i cenne doświadczenie.
+          </p>
+          <p>
+            Dla tych z Państwa, którzy mają „apetyt" na świat, polecamy wyprawę do Australii, 
+            z bajeczną Wielką Rafą Koralową lub zaskakujące w swej odmienności i wyjątkowo 
+            urzekające Stany Zjednoczone.
+          </p>
+          <p>
+            Zapraszamy do zapoznania się z graficzną mapą naszych destynacji, w których 
+            realizujemy kompleksowe wycieczki oraz rezerwujemy pojedyncze świadczenia na zapytanie.
+          </p>
+        </div>
+        
+        <a href="/pl/wycieczki/" class="btn-primary">Zobacz wszystkie wycieczki →</a>
+      </div>
+    </section>
+    
+    <section class="pilgrimages-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Pielgrzymki</h2>
+          <p>
+            Podróżowanie do miejsc świętych ma szczególny cel.
+          </p>
+        </div>
+        
+        <div class="content-block">
+          <p>
+            To wspaniały czas, który każdy przeżywa indywidualnie niosąc ze sobą różne 
+            intencje, które nadają głębszy sens podróży. Pielgrzymowanie to także droga 
+            do odnowy duchowej, do pogłębienia wiary lub do jej odnalezienia.
+          </p>
+          <p>
+            Zachęcamy do zapoznania się z mapą najpiękniejszych destynacji pielgrzymkowych 
+            Europy, wiodących do Rzymu, Fatimy, Lourdes czy Santiago de Compostella. 
+            Do odwiedzenia Ziemi Świętej, Gruzji, Libanu oraz Matki Bożej z Guadalupe. 
+            Do podążania śladami: św. Pawła, św. Teresy od Jezusa, św. Patryka i wielu innych.
+          </p>
+          <p>
+            Na każdy z tych kierunków mamy w ofercie nie tylko kompletne programy, 
+            ale również pomagamy w organizacji pojedynczych świadczeń na zlecenie.
+          </p>
+        </div>
+        
+        <a href="/pl/pielgrzymki/" class="btn-primary">Zobacz wszystkie pielgrzymki →</a>
+      </div>
+    </section>
+    
+    <section class="destinations-map">
+      <div class="container">
+        <h2>Nasze kierunki</h2>
+        <div class="destinations-grid">
+          <div class="destination-region">
+            <h3>🇪🇺 Europa</h3>
+            <ul>
+              <li>Austria</li>
+              <li>Belgia, Holandia, Luksemburg</li>
+              <li>Chorwacja</li>
+              <li>Czechy</li>
+              <li>Francja</li>
+              <li>Grecja</li>
+              <li>Hiszpania</li>
+              <li>Irlandia</li>
+              <li>Litwa, Łotwa, Estonia</li>
+              <li>Malta i Sycylia</li>
+              <li>Niemcy</li>
+              <li>Norwegia</li>
+              <li>Portugalia</li>
+              <li>Rosja</li>
+              <li>Rumunia</li>
+              <li>Szkocja</li>
+              <li>Szwajcaria</li>
+              <li>Węgry</li>
+              <li>Wielka Brytania</li>
+              <li>Włochy</li>
+            </ul>
+          </div>
+          
+          <div class="destination-region">
+            <h3>🌍 Bliski Wschód i Azja</h3>
+            <ul>
+              <li>Gruzja i Armenia</li>
+              <li>Izrael</li>
+              <li>Jordania</li>
+              <li>Liban</li>
+              <li>Turcja</li>
+            </ul>
+          </div>
+          
+          <div class="destination-region">
+            <h3>🌎 Ameryka i Oceania</h3>
+            <ul>
+              <li>Australia</li>
+              <li>Meksyk</li>
+              <li>Stany Zjednoczone</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .tours-section,
+  .pilgrimages-section {
+    padding: 4rem 0;
+  }
+
+  .pilgrimages-section {
+    background: var(--bg-light);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+  }
+
+  .content-block {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+
+  .content-block p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+    margin: 0 auto;
+  }
+
+  .tours-section .container,
+  .pilgrimages-section .container {
+    text-align: center;
+  }
+
+  .btn-primary:hover {
+    background: #dd6b20;
+  }
+
+  .destinations-map {
+    padding: 4rem 0;
+  }
+
+  .destinations-map h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+  }
+
+  .destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .destination-region {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+  }
+
+  .destination-region h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+    font-size: 1.25rem;
+  }
+
+  .destination-region ul {
+    list-style: none;
+    columns: 2;
+    column-gap: 1rem;
+  }
+
+  .destination-region li {
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    break-inside: avoid;
+  }
+
+  @media (max-width: 768px) {
+    .destination-region ul {
+      columns: 1;
+    }
+  }
+</style>

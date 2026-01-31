@@ -1,0 +1,300 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroSlider from '../../components/HeroSlider.astro';
+
+const lang = 'pl';
+const currentPath = '/pl/';
+---
+
+<Layout title="Ivotrans Tour Operator" lang={lang}>
+  <Header lang={lang} currentPath={currentPath} transparent={true} />
+  
+  <HeroSlider 
+    title="Tour Operator"
+    subtitle="Organizator turystyki działający na polskim rynku od ponad 15 lat"
+    showLogo={true}
+  />
+  
+  <main>
+    <section class="about-section">
+      <div class="container">
+        <div class="about-content">
+          <p class="intro">
+            Ivotrans to organizator turystyki działający na polskim rynku od ponad 15 lat. 
+            Świadczymy pełen zakres usług turystycznych dla grup zorganizowanych. Nasza 
+            specjalność to kompleksowa organizacja wycieczek i pielgrzymek w Polsce, Europie 
+            i na świecie, a także rezerwacja noclegów, wyżywienia, transportu, pilotów i 
+            przewodników lokalnych, rezerwacja zwiedzań najpopularniejszych muzeów oraz 
+            biletów wstępu, check pointów oraz pozwoleń na wjazd do większości miast w 
+            Europie i na świecie, a także wynajem zestawów tour guide oraz wszelkich innych 
+            świadczeń na zlecenie.
+          </p>
+          
+          <p>
+            Dzięki strategii opartej na świadczeniu wysokiej jakości usług, współpracy ze 
+            sprawdzoną bazą hotelową oraz doświadczonym zespołem pilotów i przewodników, 
+            z roku na rok zdobywamy zaufanie i uznanie wśród wielu polskich biur podróży, 
+            zakładów pracy, organizacji turystycznych czy szkół. Jest to dla nas niezwykle 
+            cenne i jednocześnie zobowiązuje do kontynuowania naszej misji, tak aby 
+            rezerwacja świadczeń w naszym biurze spełniała wszystkie Państwa oczekiwania.
+          </p>
+          
+          <p class="cta-text">
+            <strong>Zapraszamy do współpracy !!!</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="services-section">
+      <div class="container">
+        <header class="section-title">
+          <h2>Nasze usługi</h2>
+        </header>
+        <div class="services-grid">
+          <a href="/pl/wycieczki/" class="service-card">
+            <div class="service-icon"><i class="fas fa-globe-europe"></i></div>
+            <h3>Wycieczki objazdowe</h3>
+            <p>Bogata oferta wycieczek objazdowych w Polsce, Europie i na świecie</p>
+          </a>
+          
+          <a href="/pl/pielgrzymki/" class="service-card">
+            <div class="service-icon"><i class="fas fa-church"></i></div>
+            <h3>Pielgrzymki</h3>
+            <p>Pielgrzymki do najważniejszych miejsc świętych na całym świecie</p>
+          </a>
+          
+          <a href="/pl/destynacje/" class="service-card">
+            <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h3>Destynacje</h3>
+            <p>Odkryj nasze kierunki podróży i zaplanuj swoją przygodę</p>
+          </a>
+          
+          <a href="/pl/nasza-oferta/" class="service-card">
+            <div class="service-icon"><i class="fas fa-star"></i></div>
+            <h3>Pełna oferta</h3>
+            <p>Kompleksowa organizacja wyjazdów i rezerwacja świadczeń</p>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <section class="highlights-section">
+      <div class="container">
+        <header class="section-title">
+          <h2>Dlaczego Ivotrans?</h2>
+        </header>
+        <div class="highlights-grid">
+          <div class="highlight-item">
+            <span class="highlight-number">15+</span>
+            <span class="highlight-label">lat doświadczenia</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number">100+</span>
+            <span class="highlight-label">destynacji</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number">24/7</span>
+            <span class="highlight-label">wsparcie telefoniczne</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number"><i class="fas fa-check"></i></span>
+            <span class="highlight-label">gwarancja ubezpieczeniowa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="contact-cta">
+      <div class="container">
+        <header class="section-title">
+          <h2>Skontaktuj się z nami</h2>
+        </header>
+        <p>Masz pytania? Chętnie pomożemy zaplanować Twoją podróż!</p>
+        <div class="contact-info">
+          <a href="tel:+48122673030" class="contact-btn">
+            <i class="fas fa-phone-alt"></i> +48 12 2673030
+          </a>
+          <a href="mailto:ivotrans@ivotrans.pl" class="contact-btn">
+            <i class="fas fa-envelope"></i> ivotrans@ivotrans.pl
+          </a>
+          <a href="/pl/kontakt/" class="tt_button">Formularz kontaktowy</a>``
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  /* About Section */
+  .about-section {
+    padding: 80px 0;
+  }
+
+  .about-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .about-content .intro {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+
+  .about-content p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-top: 2rem;
+  }
+
+  /* Services Section */
+  .services-section {
+    padding: 80px 0;
+    background-color: var(--bg-alt);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .service-card {
+    background: #fff;
+    padding: 40px 30px;
+    text-align: center;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-color);
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+  }
+
+  .service-icon {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--heading-color);
+  }
+
+  .service-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* Highlights Section */
+  .highlights-section {
+    padding: 80px 0;
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .highlight-item {
+    text-align: center;
+    padding: 30px;
+  }
+
+  .highlight-number {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+  }
+
+  .highlight-number i {
+    font-size: 48px;
+  }
+
+  .highlight-label {
+    font-size: 16px;
+    color: var(--text-light);
+  }
+
+  /* Contact CTA Section */
+  .contact-cta {
+    padding: 80px 0;
+    background-color: var(--bg-alt);
+    text-align: center;
+  }
+
+  .contact-cta p {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+
+  .contact-btn:hover {
+    background: var(--secondary-color);
+    color: #fff;
+  }
+
+  @media (max-width: 992px) {
+    .services-grid,
+    .highlights-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .services-grid,
+    .highlights-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

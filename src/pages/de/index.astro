@@ -1,0 +1,356 @@
+---
+/**
+ * German Homepage - Tour Operator
+ */
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import HeroSlider from '../../components/HeroSlider.astro';
+---
+
+<Layout title="Ivotrans - Reiseveranstalter" lang="de">
+  <Header lang="de" currentPath="/de/" transparent={true} />
+  
+  <HeroSlider
+    title="Reiseveranstalter"
+    subtitle="Ein Tourismusveranstalter mit über 15 Jahren Erfahrung auf dem polnischen Markt"
+    buttonText="Unser Angebot ansehen"
+    buttonUrl="/de/leistungen/"
+  />
+
+  <main>
+    <!-- About Section -->
+    <section class="about-section">
+      <div class="container">
+        <div class="about-content">
+          <h2>Willkommen bei Ivotrans</h2>
+          <p class="intro">
+            Ivotrans ist ein Reiseveranstalter, der sich auf die Organisation von Gruppenreisen auf dem polnischen und internationalen Markt spezialisiert hat. Seit über 15 Jahren bieten wir umfassende Dienstleistungen für Reisebüros, religiöse Organisationen, Schulen und Institutionen mit höchster Qualität.
+          </p>
+          <p>
+            Unsere Erfahrung und Leidenschaft für das Reisen ermöglichen es uns, unvergessliche Erlebnisse für alle unsere Kunden zu schaffen. Wir bieten ein breites Spektrum an Dienstleistungen - von Pilgerreisen zu den wichtigsten religiösen Stätten über Rundreisen in Polen und im Ausland bis hin zu maßgeschneiderten Reisen nach den Wünschen unserer Kunden.
+          </p>
+          <a href="/de/uber-uns/" class="tt_button tt_secondary_button">
+            Mehr über uns erfahren <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+      <div class="container">
+        <h2 class="section-title">Unsere Leistungen</h2>
+        <p class="section-subtitle">Entdecken Sie, was wir Ihnen anbieten können</p>
+        
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-bus"></i>
+            </div>
+            <h3>Rundreisen</h3>
+            <p>Organisierte Gruppenreisen zu den schönsten Ecken Europas und darüber hinaus.</p>
+            <a href="/de/rundreisen/" class="service-link">Mehr erfahren <i class="fas fa-chevron-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-church"></i>
+            </div>
+            <h3>Pilgerreisen</h3>
+            <p>Pilgerreisen zu den wichtigsten Heiligtümern und religiösen Stätten weltweit.</p>
+            <a href="/de/pilgerreisen/" class="service-link">Mehr erfahren <i class="fas fa-chevron-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-globe-europe"></i>
+            </div>
+            <h3>Reiseziele</h3>
+            <p>Erkunden Sie unser reichhaltiges Angebot an Reisezielen in Polen und im Ausland.</p>
+            <a href="/de/reiseziele/" class="service-link">Mehr erfahren <i class="fas fa-chevron-right"></i></a>
+          </div>
+          
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-suitcase"></i>
+            </div>
+            <h3>Gesamtangebot</h3>
+            <p>Sehen Sie den vollständigen Katalog unserer Dienstleistungen und Reisevorschläge.</p>
+            <a href="/de/leistungen/" class="service-link">Mehr erfahren <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights-section">
+      <div class="container">
+        <div class="highlights-grid">
+          <div class="highlight-item">
+            <span class="highlight-number">15+</span>
+            <span class="highlight-text">Jahre Erfahrung</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number">100+</span>
+            <span class="highlight-text">Reiseziele</span>
+          </div>
+          <div class="highlight-item">
+            <span class="highlight-number">24/7</span>
+            <span class="highlight-text">Kundenbetreuung</span>
+          </div>
+          <div class="highlight-item">
+            <i class="fas fa-shield-alt highlight-icon"></i>
+            <span class="highlight-text">Versicherungsgarantie</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+      <div class="container">
+        <h2>Haben Sie Fragen?</h2>
+        <p>Unser Expertenteam hilft Ihnen gerne bei der Planung Ihrer perfekten Reise</p>
+        <div class="cta-buttons">
+          <a href="tel:+48122673030" class="tt_button tt_primary_button">
+            <i class="fas fa-phone"></i> +48 12 267 30 30
+          </a>
+          <a href="mailto:ivotrans@ivotrans.pl" class="tt_button tt_secondary_button">
+            <i class="fas fa-envelope"></i> ivotrans@ivotrans.pl
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="de" />
+</Layout>
+
+<style>
+  /* About Section */
+  .about-section {
+    padding: 80px 0;
+    background-color: #fff;
+  }
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .about-content h2 {
+    color: var(--heading-color);
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+  }
+
+  .about-content .intro {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .about-content p {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  /* Services Section */
+  .services-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+  }
+
+  .section-title {
+    text-align: center;
+    color: var(--heading-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+
+  .service-card {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+  }
+
+  .service-icon i {
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  .service-card h3 {
+    color: var(--heading-color);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .service-card p {
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+
+  .service-link {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .service-link:hover {
+    color: var(--primary-color);
+  }
+
+  .service-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover i {
+    transform: translateX(5px);
+  }
+
+  /* Highlights Section */
+  .highlights-section {
+    padding: 60px 0;
+    background: var(--primary-color);
+  }
+
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    text-align: center;
+  }
+
+  .highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .highlight-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .highlight-icon {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+  }
+
+  .highlight-text {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  /* Contact CTA */
+  .contact-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--heading-color), var(--primary-color));
+    text-align: center;
+  }
+
+  .contact-cta h2 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .contact-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-buttons .tt_button i {
+    margin-right: 10px;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .highlights-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-content h2,
+    .section-title,
+    .contact-cta h2 {
+      font-size: 2rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .highlights-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-buttons .tt_button {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+</style>

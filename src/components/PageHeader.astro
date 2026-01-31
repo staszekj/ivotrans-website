@@ -1,0 +1,99 @@
+---
+/**
+ * PageHeader Component
+ * A hero-like header for subpages with background image and title
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundImage?: string;
+}
+
+const { 
+  title, 
+  subtitle,
+  backgroundImage = '/images/zdjcienagaleriHOME14.jpg'
+} = Astro.props;
+---
+
+<section class="page-header">
+  <div class="page-header-bg" style={`background-image: url('${backgroundImage}')`}></div>
+  <div class="page-header-overlay"></div>
+  <div class="container">
+    <h1 class="page-title">{title}</h1>
+    {subtitle && <p class="page-subtitle">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .page-header {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 80px; /* Height of navbar when not transparent */
+  }
+
+  .page-header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  .page-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 63, 101, 0.6),
+      rgba(0, 63, 101, 0.8)
+    );
+    z-index: 2;
+  }
+
+  .page-header .container {
+    position: relative;
+    z-index: 3;
+  }
+
+  .page-title {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .page-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .page-header {
+      height: 300px;
+    }
+
+    .page-title {
+      font-size: 32px;
+    }
+
+    .page-subtitle {
+      font-size: 16px;
+    }
+  }
+</style>

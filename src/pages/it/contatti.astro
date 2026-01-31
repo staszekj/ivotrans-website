@@ -1,0 +1,201 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import ContactSection from '../../components/ContactSection.astro';
+---
+
+<Layout title="Contatti - Ivotrans | Tour Operator Polonia" lang="it">
+  <Header lang="it" />
+  
+  <main>
+    <Hero 
+      title="Contatti"
+      subtitle="Siamo qui per aiutarti a pianificare il tuo viaggio in Polonia"
+      backgroundImage="/images/zdjcienagaleriHOME14.jpg"
+    />
+
+    <ContactSection lang="it" showMap={true} variant="full" />
+
+    <section class="faq-section">
+      <div class="container">
+        <h2>Domande frequenti</h2>
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Come posso prenotare un viaggio?</h3>
+            <p>
+              Puoi contattarci via email, telefono o compilando il modulo in questa pagina. 
+              Ti invieremo un preventivo dettagliato entro 24 ore.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Quanto tempo prima devo prenotare?</h3>
+            <p>
+              Consigliamo di prenotare almeno 2-3 mesi prima della partenza, 
+              specialmente per i periodi di alta stagione (maggio-settembre, Natale).
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>I prezzi includono i voli?</h3>
+            <p>
+              Sì, i nostri pacchetti possono includere i voli dalle principali città italiane. 
+              Offriamo anche soluzioni solo terra per chi preferisce organizzare il volo autonomamente.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Offrite viaggi personalizzati?</h3>
+            <p>
+              Assolutamente sì! Oltre ai nostri itinerari standard, creiamo viaggi su misura 
+              in base alle vostre preferenze, interessi e budget.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Le guide parlano italiano?</h3>
+            <p>
+              Tutte le nostre guide sono professionisti italofoni con profonda conoscenza 
+              della storia e cultura polacca.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Quali sono le modalità di pagamento?</h3>
+            <p>
+              Accettiamo bonifico bancario, carte di credito e PayPal. 
+              È richiesto un acconto del 30% alla prenotazione.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="social-section">
+      <div class="container">
+        <h2>Seguici sui social</h2>
+        <p class="section-subtitle">Resta aggiornato sulle nostre offerte e novità</p>
+        <div class="social-links">
+          <a href="https://facebook.com/ivotrans" target="_blank" rel="noopener" class="social-link facebook">
+            <span class="social-icon">📘</span>
+            <span>Facebook</span>
+          </a>
+          <a href="https://instagram.com/ivotrans" target="_blank" rel="noopener" class="social-link instagram">
+            <span class="social-icon">📸</span>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="it" />
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-item p {
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Social Section */
+  .social-section {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .social-section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-subtitle {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .social-link.facebook {
+    background: #1877f2;
+    color: white;
+  }
+
+  .social-link.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+  }
+
+  .social-icon {
+    font-size: 1.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .social-links {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

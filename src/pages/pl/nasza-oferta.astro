@@ -1,0 +1,243 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+
+const lang = 'pl';
+const currentPath = '/pl/nasza-oferta/';
+
+const services = [
+  {
+    icon: '🌍',
+    title: 'Kompleksowa organizacja wycieczek oraz pielgrzymek w Polsce i na świecie',
+    description: 'Pełna organizacja grupowych wyjazdów turystycznych i pielgrzymkowych'
+  },
+  {
+    icon: '🚌',
+    title: 'Wynajem autokarów w kraju i zagranicą',
+    description: 'Nowoczesne autokary z doświadczonymi kierowcami'
+  },
+  {
+    icon: '🏨',
+    title: 'Rezerwacja noclegów oraz wyżywienia',
+    description: 'Sprawdzona baza hotelowa i restauracyjna na całym świecie'
+  },
+  {
+    icon: '🎟️',
+    title: 'Pomoc przy zakupie biletów do muzeów i innych atrakcji turystycznych',
+    description: 'Rezerwacje bez kolejek do najpopularniejszych miejsc'
+  },
+  {
+    icon: '🎯',
+    title: 'Organizacja wyjazdów integracyjnych, konferencji oraz szkoleń w kraju i za granicą',
+    description: 'Kompleksowa obsługa eventów firmowych'
+  },
+  {
+    icon: '⛷️',
+    title: 'Wyjazdy i obozy narciarskie',
+    description: 'Organizacja zimowych wyjazdów sportowych'
+  },
+  {
+    icon: '🎧',
+    title: 'Wynajem zestawów słuchawkowych dla grup turystycznych',
+    description: 'Profesjonalne zestawy tour guide'
+  },
+  {
+    icon: '✨',
+    title: 'Oraz wszelkie inne świadczenia na zamówienie',
+    description: 'Indywidualne podejście do każdego zlecenia'
+  }
+];
+---
+
+<Layout title="Nasza oferta" lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
+  
+  <Hero 
+    title="Nasza oferta"
+    subtitle="Kompleksowe usługi turystyczne dla grup zorganizowanych"
+    backgroundImage="/images/zdjcienagaleriHOME14.jpg"
+  />
+  
+  <main>
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-content">
+          <p>
+            Nasza oferta skierowana jest przede wszystkim do organizatorów turystycznych, 
+            biur podróży oraz innych podmiotów organizujących wyjazdy grupowe, takich jak 
+            parafie, szkoły czy stowarzyszenia.
+          </p>
+          <p>
+            Zapewniamy profesjonalną obsługę i pomoc przy tworzeniu wyjazdów w kraju 
+            i zagranicą. Rezerwujemy wszystkie świadczenia konieczne do realizacji 
+            każdego rodzaju imprezy turystycznej.
+          </p>
+          <p>
+            Nasz zespół jest otwarty na uwagi i sugestie płynące z Państwa strony, 
+            a satysfakcja i zadowolenie Klientów są naszym priorytetem. Dobre świadczenia 
+            i optymalny program to połowa sukcesu, a dopełnia go współpraca ze specjalistami 
+            na każdym etapie tworzenia i realizacji wyjazdu.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="services-section">
+      <div class="container">
+        <h2>Co oferujemy</h2>
+        <div class="services-grid">
+          {services.map((service) => (
+            <div class="service-card">
+              <div class="service-icon">{service.icon}</div>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <section class="cta-section">
+      <div class="container">
+        <h2>Zainteresowany współpracą?</h2>
+        <p>Skontaktuj się z nami, aby omówić szczegóły Twojego wyjazdu</p>
+        <div class="cta-buttons">
+          <a href="tel:+48122673030" class="btn-primary">
+            📞 +48 12 2673030
+          </a>
+          <a href="/pl/kontakt/" class="btn-secondary">
+            Formularz kontaktowy
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .intro-section {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .intro-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+  }
+
+  .services-section {
+    padding: 4rem 0;
+  }
+
+  .services-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .service-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section > .container > p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: var(--accent-color);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: #dd6b20;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: var(--primary-color);
+  }
+</style>

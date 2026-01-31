@@ -1,0 +1,273 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const lang = 'pl';
+const currentPath = '/pl/o-nas/';
+---
+
+<Layout title="O nas - Ivotrans" lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
+  
+  <PageHeader 
+    title="O nas"
+    subtitle="Poznaj Ivotrans - Twojego partnera w organizacji podróży"
+    backgroundImage="/images/zdjcienagaleriONAS.jpg"
+  />
+  
+  <main>
+    <section class="about-section">
+      <div class="container">
+        <div class="about-content">
+          <p class="intro">
+            Od ponad 15 lat zajmujemy się organizacją rezerwacją świadczeń dla grup 
+            zorganizowanych oraz wycieczek i pielgrzymek w kraju, Europie i na świecie. 
+            Każde zlecenie traktujemy bardzo indywidualnie, wkładając w jego przygotowanie 
+            wiele serca i staranności o każdy najmniejszy szczegół.
+          </p>
+          
+          <p>
+            Wsłuchujemy się w potrzeby naszych Klientów zarówno na etapie tworzenia 
+            programu jak i podczas jego realizacji zapewniając całodobowe wsparcie 
+            telefoniczne.
+          </p>
+          
+          <div class="credentials">
+            <div class="credential-item">
+              <div class="credential-icon"><i class="fas fa-certificate"></i></div>
+              <div class="credential-content">
+                <strong>Organizator Turystyki</strong>
+                <p>Zaświadczenie o wpisie do Rejestru Organizatorów Turystyki i Pośredników 
+                Turystycznych nr Z/63/2008 wydane przez Marszałka Województwa Małopolskiego</p>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon"><i class="fas fa-shield-alt"></i></div>
+              <div class="credential-content">
+                <strong>Gwarancja Ubezpieczeniowa</strong>
+                <p>Posiadamy gwarancję ubezpieczeniową T.U. Signal Iduna</p>
+              </div>
+            </div>
+          </div>
+          
+          <blockquote class="quote">
+            <i class="fas fa-quote-left quote-icon"></i>
+            Serdecznie zapraszamy do współpracy i życzymy aby każda podróż dostarczała 
+            Państwu potrójnej przyjemności czerpanej: z oczekiwania na nią, z odkrywania 
+            fascynujących miejsc podczas jej trwania i z niezapomnianych wrażeń, które 
+            po niej pozostają !!!
+          </blockquote>
+        </div>
+        
+        <div class="features-section">
+          <header class="section-title">
+            <h2>Nasze atuty</h2>
+          </header>
+          <div class="features-grid">
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-clock"></i></div>
+              <h3>15+ lat doświadczenia</h3>
+              <p>Wieloletnia obecność na rynku turystycznym</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+              <h3>Indywidualne podejście</h3>
+              <p>Każde zlecenie traktujemy bardzo indywidualnie</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-headset"></i></div>
+              <h3>Wsparcie 24/7</h3>
+              <p>Całodobowe wsparcie telefoniczne</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-hotel"></i></div>
+              <h3>Sprawdzona baza hotelowa</h3>
+              <p>Współpraca z najlepszymi hotelami</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+              <h3>Doświadczeni piloci</h3>
+              <p>Profesjonalni piloci i przewodnicy</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+              <h3>Gwarancja ubezpieczeniowa</h3>
+              <p>Pełne bezpieczeństwo Twojej podróży</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .about-section {
+    padding: 80px 0;
+  }
+
+  .about-content {
+    max-width: 900px;
+    margin: 0 auto 60px;
+  }
+
+  .about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-color);
+  }
+
+  .intro {
+    font-size: 19px !important;
+    color: var(--heading-color) !important;
+  }
+
+  .credentials {
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .credential-item {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  .credential-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .credential-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .credential-content strong {
+    display: block;
+    color: var(--heading-color);
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .credential-content p {
+    margin: 0;
+    font-size: 14px !important;
+    color: var(--text-light);
+  }
+
+  .quote {
+    margin: 40px 0;
+    padding: 40px;
+    background: var(--primary-color);
+    color: #fff;
+    position: relative;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    opacity: 0.3;
+  }
+
+  .quote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--secondary-color);
+  }
+
+  .features-section {
+    background: var(--bg-alt);
+    padding: 60px;
+    margin-top: 40px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .feature-box {
+    text-align: center;
+    padding: 40px 30px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  .feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-box .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .feature-box h3 {
+    font-size: 18px;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+  }
+
+  .feature-box p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin: 0;
+  }
+
+  @media (max-width: 992px) {
+    .credentials {
+      grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-section {
+      padding: 40px 30px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

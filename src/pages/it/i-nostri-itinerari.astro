@@ -1,0 +1,418 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import TourCard from '../../components/TourCard.astro';
+
+const itineraries = [
+  {
+    title: 'Innamorarsi di Cracovia',
+    places: ['Cracovia', 'Wieliczka', 'Wadowice', 'Auschwitz'],
+    transport: ['aereo', 'bus'],
+    days: 4,
+  },
+  {
+    title: 'Le quattro capitali',
+    places: ['Cracovia', 'Varsavia', 'Danzica', 'Breslavia'],
+    transport: ['aereo', 'bus'],
+    days: 6,
+  },
+  {
+    title: 'Meravigliosa Polonia del sud',
+    places: ['Cracovia', 'Zakopane', 'Wieliczka', 'Auschwitz', 'Częstochowa'],
+    transport: ['aereo', 'bus'],
+    days: 7,
+  },
+  {
+    title: 'Meravigliosa Polonia del nord',
+    places: ['Varsavia', 'Toruń', 'Malbork', 'Danzica', 'Sopot'],
+    transport: ['aereo', 'bus'],
+    days: 6,
+  },
+  {
+    title: 'Grand tour della Polonia',
+    places: ['Cracovia', 'Varsavia', 'Danzica', 'Breslavia', 'Poznań'],
+    transport: ['aereo', 'bus'],
+    days: 9,
+  },
+  {
+    title: 'Sulle orme di San Giovanni Paolo II',
+    places: ['Cracovia', 'Wadowice', 'Częstochowa', 'Łagiewniki', 'Kalwaria'],
+    transport: ['aereo', 'bus'],
+    days: 9,
+  },
+  {
+    title: 'Polonia religiosa',
+    places: ['Cracovia', 'Częstochowa', 'Łagiewniki', 'Licheń', 'Toruń'],
+    transport: ['aereo', 'bus'],
+    days: 7,
+  },
+  {
+    title: 'Pasqua in Polonia',
+    places: ['Cracovia', 'Wieliczka', 'Zakopane', 'Wadowice'],
+    transport: ['aereo', 'bus'],
+    days: 6,
+  },
+  {
+    title: 'Le perle del rinascimento',
+    places: ['Cracovia', 'Zamość', 'Kazimierz Dolny', 'Lublino'],
+    transport: ['aereo', 'bus'],
+    days: 7,
+  },
+  {
+    title: 'Masuria e Podlachia',
+    places: ['Varsavia', 'Masuria', 'Białowieża', 'Supraśl'],
+    transport: ['aereo', 'bus'],
+    days: 7,
+  },
+  {
+    title: 'Mercatini di Natale a Cracovia',
+    places: ['Cracovia', 'Wieliczka', 'Zakopane'],
+    transport: ['aereo', 'bus'],
+    days: 4,
+  },
+  {
+    title: 'Polin - La Polonia Ebraica',
+    places: ['Cracovia', 'Varsavia', 'Lublino', 'Kazimierz'],
+    transport: ['aereo', 'bus'],
+    days: 8,
+  },
+  {
+    title: 'Slow Tour',
+    places: ['Cracovia', 'Zakopane', 'Dunajec', 'Wieliczka'],
+    transport: ['aereo', 'bus'],
+    days: 7,
+  },
+  {
+    title: 'Auschwitz-Birkenau',
+    places: ['Cracovia', 'Auschwitz', 'Birkenau'],
+    transport: ['aereo', 'bus'],
+    days: 3,
+  },
+  {
+    title: 'Splendida Cracovia, stupenda Breslavia e magica Praga',
+    places: ['Cracovia', 'Breslavia', 'Praga'],
+    transport: ['aereo', 'bus'],
+    days: 6,
+  },
+  {
+    title: 'Polonia e Lituania',
+    places: ['Cracovia', 'Varsavia', 'Vilnius', 'Trakai'],
+    transport: ['aereo', 'bus'],
+    days: 8,
+  },
+  {
+    title: "Via Baltica, Via Dell'ambra",
+    places: ['Danzica', 'Kaliningrad', 'Klaipėda', 'Riga', 'Tallinn'],
+    transport: ['aereo', 'bus'],
+    days: 10,
+  },
+  {
+    title: 'Viaggio in Polonia con tappe in Slovacchia e Repubblica Ceca',
+    places: ['Cracovia', 'Bratislava', 'Praga', 'Brno'],
+    transport: ['aereo', 'bus'],
+    days: 7,
+  },
+];
+---
+
+<Layout title="I nostri itinerari - Ivotrans | Tour in Polonia" lang="it">
+  <Header lang="it" />
+  
+  <main>
+    <Hero 
+      title="I nostri itinerari"
+      subtitle="18 percorsi unici per scoprire la Polonia"
+      backgroundImage="/images/zdjcienagaleriHOME11.jpg"
+    />
+
+    <section class="intro-section">
+      <div class="container">
+        <h2>Scopri la Polonia con noi</h2>
+        <p class="intro-text">
+          Abbiamo creato 18 itinerari unici che coprono ogni angolo della Polonia: 
+          dalle città storiche ai parchi naturali, dai santuari ai castelli medievali. 
+          Ogni percorso è studiato nei minimi dettagli per offrirvi un'esperienza indimenticabile.
+        </p>
+        <div class="filter-info">
+          <div class="info-item">
+            <span class="info-icon">📅</span>
+            <span>Da 3 a 10 giorni</span>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">✈️</span>
+            <span>Volo + bus inclusi</span>
+          </div>
+          <div class="info-item">
+            <span class="info-icon">🎤</span>
+            <span>Guide italofone</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="itineraries-section">
+      <div class="container">
+        <div class="itineraries-grid">
+          {itineraries.map((tour, index) => (
+            <TourCard 
+              country="Polonia"
+              title={tour.title}
+              places={tour.places}
+              transport={tour.transport}
+              days={tour.days}
+              lang="it"
+              variant="tour"
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="container">
+        <h2>Cosa include ogni viaggio</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-card-icon">✈️</div>
+            <h3>Voli</h3>
+            <p>Voli diretti dalle principali città italiane</p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🚌</div>
+            <h3>Trasporti</h3>
+            <p>Autobus GT con aria condizionata e WiFi</p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🏨</div>
+            <h3>Hotel</h3>
+            <p>Sistemazione in hotel 3-4 stelle</p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🍽️</div>
+            <h3>Pasti</h3>
+            <p>Mezza pensione con cena tipica polacca</p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🎤</div>
+            <h3>Guide</h3>
+            <p>Accompagnatore italiano per tutto il viaggio</p>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">🎫</div>
+            <h3>Ingressi</h3>
+            <p>Tutti gli ingressi ai musei e monumenti</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Vuoi saperne di più?</h2>
+        <p>Contattaci per ricevere il programma dettagliato e un preventivo personalizzato</p>
+        <div class="cta-buttons">
+          <a href="/it/contatti/" class="btn-primary">Richiedi preventivo</a>
+          <a href="mailto:biuro@ivotrans.pl" class="btn-secondary">biuro@ivotrans.pl</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="it" />
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Intro Section */
+  .intro-section {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .intro-section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .filter-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-color);
+  }
+
+  .info-icon {
+    font-size: 1.25rem;
+  }
+
+  /* Itineraries Section */
+  .itineraries-section {
+    padding: 2rem 0 4rem;
+    background: var(--bg-light);
+  }
+
+  .itineraries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Info Section */
+  .info-section {
+    padding: 4rem 0;
+  }
+
+  .info-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
+
+  .info-card {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.3s;
+  }
+
+  .info-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .info-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .info-card h3 {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .info-card p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: white;
+    color: var(--primary-color);
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: var(--bg-light);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    border: 2px solid white;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: var(--primary-color);
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .info-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 992px) {
+    .itineraries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .itineraries-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-info {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

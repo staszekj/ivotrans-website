@@ -1,0 +1,19 @@
+{
+  "name": "ivotrans-astro",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "remoteUser": "node",
+  "updateRemoteUserUID": true,
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  },
+  "forwardPorts": [4321, 3000],
+  "postCreateCommand": "npm install -g pnpm && sudo corepack enable && ([ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ] || git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k) && ([ -d ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ] || git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions) && ([ -d ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting) && sed -i 's/^ZSH_THEME=.*/ZSH_THEME=\"powerlevel10k\\/powerlevel10k\"/' ~/.zshrc && sed -i 's/^plugins=.*/plugins=(git node npm pnpm zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc && sudo chsh -s $(which zsh) node && (grep -q 'exec /usr/bin/zsh' ~/.bashrc || echo '[ -t 1 ] && exec /usr/bin/zsh' >> ~/.bashrc)"
+}

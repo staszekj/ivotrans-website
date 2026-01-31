@@ -1,0 +1,265 @@
+---
+/**
+ * PilgrimageRow Component
+ * Matches original WordPress Ekko theme layout:
+ * - Image on left (25% width)
+ * - Content on right (75% width)
+ * - Alternating background colors
+ */
+interface Props {
+  country: string;
+  title: string;
+  places: string[];
+  transport: string[];
+  days: number;
+  pdfUrl?: string;
+  imageUrl?: string;
+  index: number;
+  lang?: 'pl' | 'it';
+}
+
+const { 
+  country, 
+  title, 
+  places, 
+  transport, 
+  days, 
+  pdfUrl, 
+  imageUrl, 
+  index,
+  lang = 'pl' 
+} = Astro.props;
+
+const labels = {
+  pl: { learnMore: 'Dowiedz się więcej', days: 'dni' },
+  it: { learnMore: 'Scopri di più', days: 'giorni' }
+};
+
+const t = labels[lang];
+const isAlt = index % 2 === 1;
+
+// Transport icons
+const transportIcons: Record<string, string> = {
+  'samolot': 'fa-plane',
+  'Samolot': 'fa-plane',
+  'aereo': 'fa-plane',
+  'Aereo': 'fa-plane',
+  'autobus': 'fa-bus',
+  'Autobus': 'fa-bus',
+  'bus': 'fa-bus',
+  'Bus': 'fa-bus',
+};
+
+// Place icons (simplified - using building for most)
+const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
+---
+
+<section class:list={["pilgrimage-row", { "alt-bg": isAlt }]}>
+  <div class="container">
+    <div class="row">
+      <!-- Image Column -->
+      <div class="image-column">
+        {imageUrl ? (
+          <div class="image-wrapper" style={`background-image: url('${imageUrl}')`}></div>
+        ) : (
+          <div class="image-wrapper placeholder"></div>
+        )}
+      </div>
+      
+      <!-- Content Column -->
+      <div class="content-column">
+        <header class="section-header">
+          <h2 class="separator_off">{country}</h2>
+          <h6 class="subtitle">{title}</h6>
+        </header>
+        
+        <div class="content-grid">
+          <!-- Places -->
+          <div class="places-column">
+            <ul class="kd-icon-list">
+              {places.map((place) => (
+                <li class="kd-icon-list-item">
+                  <i class="far fa-building"></i>
+                  <span>{place}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <!-- Transport & Duration -->
+          <div class="transport-column">
+            <ul class="kd-icon-list">
+              {transport.map((t) => (
+                <li class="kd-icon-list-item">
+                  <i class={`fas ${getTransportIcon(t)}`}></i>
+                  <span>{t}</span>
+                </li>
+              ))}
+              <li class="kd-icon-list-item">
+                <i class="far fa-calendar-check"></i>
+                <span>{days} {labels[lang].days}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        {pdfUrl && (
+          <div class="button-wrapper">
+            <a href={pdfUrl} target="_blank" rel="noopener" class="tt_button tt_secondary_button">
+              <i class="far fa-file"></i>
+              <span>{labels[lang].learnMore}</span>
+            </a>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pilgrimage-row {
+    padding: 20px 0;
+  }
+
+  .pilgrimage-row.alt-bg {
+    background-color: var(--bg-alt);
+  }
+
+  .row {
+    display: flex;
+    align-items: stretch;
+    gap: 15px;
+    min-height: 280px;
+  }
+
+  .image-column {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0;
+  }
+
+  .image-wrapper.placeholder {
+    background-color: var(--primary-color);
+    background-image: linear-gradient(135deg, var(--primary-color) 0%, #005580 100%);
+  }
+
+  .content-column {
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding: 20px 0;
+  }
+
+  .section-header {
+    margin-bottom: 20px;
+  }
+
+  .section-header h2 {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 5px;
+    color: var(--heading-color);
+  }
+
+  .section-header .subtitle {
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .content-grid {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+
+  .places-column,
+  .transport-column {
+    flex: 1;
+  }
+
+  .kd-icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .kd-icon-list-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 0;
+    font-size: 15px;
+    color: var(--text-color);
+  }
+
+  .kd-icon-list-item i {
+    color: var(--primary-color);
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+  }
+
+  .button-wrapper {
+    margin-top: 15px;
+  }
+
+  .tt_button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 35px;
+    border-radius: 30px;
+    border: 2px solid var(--secondary-color);
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .tt_button:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+
+    .image-column,
+    .content-column {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .image-wrapper {
+      min-height: 200px;
+    }
+
+    .content-grid {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .section-header h2 {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+</style>

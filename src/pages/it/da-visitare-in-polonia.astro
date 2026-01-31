@@ -1,0 +1,585 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+
+const cities = [
+  {
+    name: 'Cracovia',
+    description: 'La capitale culturale della Polonia, con il suo magnifico centro storico patrimonio UNESCO, il Castello del Wawel e il quartiere ebraico di Kazimierz.',
+    highlights: ['Centro storico UNESCO', 'Castello del Wawel', 'Quartiere Kazimierz', 'Basilica di Santa Maria'],
+  },
+  {
+    name: 'Varsavia',
+    description: 'La capitale polacca, ricostruita dopo la Seconda Guerra Mondiale, unisce storia e modernità con il suo centro storico UNESCO e i moderni grattacieli.',
+    highlights: ['Città Vecchia UNESCO', 'Palazzo della Cultura', 'Museo dell\'Insurrezione', 'Parco Łazienki'],
+  },
+  {
+    name: 'Danzica',
+    description: 'Perla del Baltico, città portuale con una storia millenaria, architettura anseatica e le magnifiche spiagge della costa baltica.',
+    highlights: ['Via Reale', 'Museo della Seconda Guerra Mondiale', 'Molo di Sopot', 'Basilica di Santa Maria'],
+  },
+  {
+    name: 'Breslavia',
+    description: 'La città delle cento ponti sull\'Oder, famosa per i suoi nani sparsi per la città e la spettacolare Sala del Centenario UNESCO.',
+    highlights: ['Isola della Cattedrale', 'Rynek (Piazza del Mercato)', 'Sala del Centenario UNESCO', 'Nani di Breslavia'],
+  },
+  {
+    name: 'Poznań',
+    description: 'Culla della nazione polacca, con una piazza del mercato colorata e i famosi capretti meccanici che ogni giorno si scontrano sulla torre del municipio.',
+    highlights: ['Piazza del Mercato', 'Cattedrale sull\'Isola', 'Palazzo Imperiale', 'Capretti meccanici'],
+  },
+  {
+    name: 'Toruń',
+    description: 'Città natale di Copernico, con un centro storico gotico perfettamente conservato e famosa per il suo pan di spezie tradizionale.',
+    highlights: ['Centro storico gotico UNESCO', 'Casa di Copernico', 'Pan di spezie', 'Torre pendente'],
+  },
+  {
+    name: 'Lublino',
+    description: 'Città orientale polacca con influenze multicuturali, il magnifico castello e il centro storico rinascimentale.',
+    highlights: ['Castello di Lublino', 'Centro storico', 'Porta di Cracovia', 'Museo di Majdanek'],
+  },
+  {
+    name: 'Zakopane',
+    description: 'Capitale invernale della Polonia ai piedi dei Monti Tatra, centro della cultura highlander e paradiso per gli amanti della natura.',
+    highlights: ['Monti Tatra', 'Via Krupówki', 'Architettura in legno', 'Funivia per Kasprowy'],
+  },
+];
+
+const attractions = [
+  {
+    name: 'Wieliczka',
+    description: 'Le miniere di sale più antiche d\'Europa, patrimonio UNESCO, con cappelle e statue interamente scolpite nel sale.',
+    type: 'UNESCO',
+  },
+  {
+    name: 'Auschwitz-Birkenau',
+    description: 'Museo e memoriale dell\'Olocausto, uno dei luoghi più importanti per la memoria storica dell\'umanità.',
+    type: 'Memoria',
+  },
+  {
+    name: 'Częstochowa',
+    description: 'Il Santuario di Jasna Góra con l\'icona della Madonna Nera, meta di pellegrinaggio per milioni di fedeli.',
+    type: 'Religioso',
+  },
+  {
+    name: 'Malbork',
+    description: 'Il più grande castello gotico del mondo, sede dell\'Ordine Teutonico, patrimonio UNESCO.',
+    type: 'UNESCO',
+  },
+  {
+    name: 'Masuria',
+    description: 'La terra dei mille laghi, paradiso per gli amanti della natura, del kayak e della vela.',
+    type: 'Natura',
+  },
+  {
+    name: 'Białowieża',
+    description: 'L\'ultima foresta primordiale d\'Europa, patrimonio UNESCO, habitat naturale del bisonte europeo.',
+    type: 'UNESCO',
+  },
+];
+---
+
+<Layout title="Da visitare in Polonia - Ivotrans | Guida turistica" lang="it">
+  <Header lang="it" />
+  
+  <main>
+    <Hero 
+      title="Da visitare in Polonia"
+      subtitle="Le città più belle e le attrazioni imperdibili"
+      backgroundImage="/images/zdjcienagaleriHOME12.jpg"
+    />
+
+    <section class="intro-section">
+      <div class="container">
+        <h2>Scopri le meraviglie della Polonia</h2>
+        <p class="intro-text">
+          La Polonia offre un patrimonio culturale straordinario: 17 siti UNESCO, 
+          città storiche affascinanti, natura incontaminata e tradizioni millenarie. 
+          Ecco le destinazioni che non potete perdere.
+        </p>
+      </div>
+    </section>
+
+    <section class="cities-section">
+      <div class="container">
+        <h2>Le città principali</h2>
+        <div class="cities-grid">
+          {cities.map(city => (
+            <div class="city-card">
+              <div class="city-header">
+                <h3>{city.name}</h3>
+              </div>
+              <div class="city-content">
+                <p>{city.description}</p>
+                <div class="city-highlights">
+                  {city.highlights.map(highlight => (
+                    <span class="highlight-tag">{highlight}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="attractions-section">
+      <div class="container">
+        <h2>Attrazioni imperdibili</h2>
+        <div class="attractions-grid">
+          {attractions.map(attraction => (
+            <div class="attraction-card">
+              <div class="attraction-type">{attraction.type}</div>
+              <h3>{attraction.name}</h3>
+              <p>{attraction.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="unesco-section">
+      <div class="container">
+        <div class="unesco-content">
+          <div class="unesco-text">
+            <h2>17 siti UNESCO</h2>
+            <p>
+              La Polonia vanta 17 siti iscritti nella lista del Patrimonio Mondiale UNESCO, 
+              tra cui centri storici, miniere, foreste primordiali e chiese in legno. 
+              I nostri itinerari vi porteranno a scoprire molti di questi tesori dell'umanità.
+            </p>
+            <ul class="unesco-list">
+              <li>Centro storico di Cracovia</li>
+              <li>Centro storico di Varsavia</li>
+              <li>Miniere di sale di Wieliczka</li>
+              <li>Campo di concentramento di Auschwitz-Birkenau</li>
+              <li>Foresta di Białowieża</li>
+              <li>Città vecchia di Toruń</li>
+              <li>Castello di Malbork</li>
+              <li>Kalwaria Zebrzydowska</li>
+              <li>Chiese della Pace</li>
+              <li>Chiese in legno della Małopolska</li>
+            </ul>
+          </div>
+          <div class="unesco-badge">
+            <div class="badge">
+              <span class="badge-number">17</span>
+              <span class="badge-text">Siti UNESCO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tips-section">
+      <div class="container">
+        <h2>Consigli pratici</h2>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-icon">🌡️</div>
+            <h3>Quando andare</h3>
+            <p>
+              La primavera (maggio-giugno) e l'autunno (settembre-ottobre) sono i periodi migliori. 
+              L'estate è perfetta per la costa baltica, l'inverno per i mercatini di Natale.
+            </p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">💶</div>
+            <h3>Valuta</h3>
+            <p>
+              La valuta è lo złoty polacco (PLN). 1 EUR ≈ 4,3 PLN. 
+              Le carte di credito sono accettate ovunque.
+            </p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">🔌</div>
+            <h3>Prese elettriche</h3>
+            <p>
+              Le prese sono di tipo C ed E (europee), 230V. 
+              Non è necessario un adattatore per i viaggiatori italiani.
+            </p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">🗣️</div>
+            <h3>Lingua</h3>
+            <p>
+              La lingua ufficiale è il polacco. L'inglese è diffuso nelle città turistiche. 
+              Le nostre guide parlano italiano!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Pronto a esplorare la Polonia?</h2>
+        <p>Scopri i nostri itinerari e lasciati guidare alla scoperta delle meraviglie polacche</p>
+        <div class="cta-buttons">
+          <a href="/it/i-nostri-itinerari/" class="btn-primary">Vedi gli itinerari</a>
+          <a href="/it/contatti/" class="btn-secondary">Contattaci</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="it" />
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Intro Section */
+  .intro-section {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .intro-section h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  /* Cities Section */
+  .cities-section {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .cities-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .cities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .city-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+  }
+
+  .city-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .city-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 1rem 1.5rem;
+  }
+
+  .city-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .city-content {
+    padding: 1.5rem;
+  }
+
+  .city-content p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .city-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .highlight-tag {
+    display: inline-block;
+    background: var(--bg-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+  }
+
+  /* Attractions Section */
+  .attractions-section {
+    padding: 4rem 0;
+  }
+
+  .attractions-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .attractions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .attraction-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .attraction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .attraction-type {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .attraction-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .attraction-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* UNESCO Section */
+  .unesco-section {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .unesco-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .unesco-text h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .unesco-text p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .unesco-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .unesco-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-color);
+  }
+
+  .unesco-list li::before {
+    content: '🏛️';
+    position: absolute;
+    left: 0;
+  }
+
+  .unesco-badge {
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 3rem;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    justify-content: center;
+  }
+
+  .badge-number {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .badge-text {
+    font-size: 1rem;
+  }
+
+  /* Tips Section */
+  .tips-section {
+    padding: 4rem 0;
+  }
+
+  .tips-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .tip-card {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+  }
+
+  .tip-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tip-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: white;
+    color: var(--primary-color);
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: var(--bg-light);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    border: 2px solid white;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: var(--primary-color);
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .cities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .attractions-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .unesco-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .unesco-list {
+      grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .attractions-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tips-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

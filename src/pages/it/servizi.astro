@@ -1,0 +1,424 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/Hero.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+---
+
+<Layout title="Servizi - Ivotrans | Tour Operator Polonia" lang="it">
+  <Header lang="it" />
+  
+  <main>
+    <Hero 
+      title="I nostri servizi"
+      subtitle="Tutto ciò che serve per un viaggio perfetto in Polonia"
+      backgroundImage="/images/zdjcienagaleriHOME9.jpg"
+    />
+
+    <section class="services-intro">
+      <div class="container">
+        <h2>Servizi completi per il vostro viaggio</h2>
+        <p class="intro-text">
+          Ivotrans offre una gamma completa di servizi turistici per garantire un'esperienza 
+          di viaggio indimenticabile in Polonia. Dalla pianificazione all'esecuzione, 
+          ci occupiamo di ogni dettaglio.
+        </p>
+      </div>
+    </section>
+
+    <section class="main-services">
+      <div class="container">
+        <h2>Servizi principali</h2>
+        <div class="services-grid">
+          <ServiceCard 
+            icon="🚌"
+            title="Trasporto turistico"
+            description="Autobus moderni e confortevoli con aria condizionata, WiFi e tutti i comfort per viaggiare in sicurezza."
+          />
+          <ServiceCard 
+            icon="🏨"
+            title="Prenotazioni alberghiere"
+            description="Hotel selezionati da 3 a 5 stelle in tutte le principali città polacche."
+          />
+          <ServiceCard 
+            icon="🎤"
+            title="Guide turistiche"
+            description="Guide professionali italofone con profonda conoscenza della storia e cultura polacca."
+          />
+          <ServiceCard 
+            icon="🍽️"
+            title="Servizi di ristorazione"
+            description="Ristoranti tipici e cucina tradizionale polacca per scoprire i sapori locali."
+          />
+          <ServiceCard 
+            icon="🎫"
+            title="Biglietteria e ingressi"
+            description="Prenotazione prioritaria per musei, concerti, spettacoli e attrazioni."
+          />
+          <ServiceCard 
+            icon="✈️"
+            title="Transfer aeroportuali"
+            description="Servizio di trasferimento da e per tutti gli aeroporti polacchi."
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="specialized-services">
+      <div class="container">
+        <h2>Servizi specializzati</h2>
+        <div class="specialized-grid">
+          <div class="specialized-card">
+            <div class="card-icon">✝️</div>
+            <h3>Turismo religioso</h3>
+            <p>
+              Organizziamo pellegrinaggi sulle orme di San Giovanni Paolo II, 
+              visitando i luoghi più significativi della sua vita: Wadowice, 
+              Cracovia, Częstochowa e il Santuario della Divina Misericordia.
+            </p>
+            <ul>
+              <li>Wadowice - Casa natale di Giovanni Paolo II</li>
+              <li>Częstochowa - Santuario di Jasna Góra</li>
+              <li>Cracovia - Lagiewniki, Santuario della Divina Misericordia</li>
+              <li>Kalwaria Zebrzydowska - Via Crucis monumentale</li>
+            </ul>
+          </div>
+          <div class="specialized-card">
+            <div class="card-icon">🏛️</div>
+            <h3>Turismo culturale</h3>
+            <p>
+              Itinerari alla scoperta del patrimonio UNESCO della Polonia, 
+              castelli medievali, città storiche e musei di fama mondiale.
+            </p>
+            <ul>
+              <li>Centro storico di Cracovia e Varsavia</li>
+              <li>Miniere di sale di Wieliczka</li>
+              <li>Castelli dell'Ordine Teutonico</li>
+              <li>Museo della Seconda Guerra Mondiale</li>
+            </ul>
+          </div>
+          <div class="specialized-card">
+            <div class="card-icon">🏔️</div>
+            <h3>Turismo naturalistico</h3>
+            <p>
+              Escursioni nei parchi nazionali, i Monti Tatra, la Masuria 
+              con i suoi mille laghi e la foresta primordiale di Białowieża.
+            </p>
+            <ul>
+              <li>Monti Tatra e Zakopane</li>
+              <li>I mille laghi della Masuria</li>
+              <li>Foresta di Białowieża (UNESCO)</li>
+              <li>Costa baltica e dune mobili</li>
+            </ul>
+          </div>
+          <div class="specialized-card">
+            <div class="card-icon">📋</div>
+            <h3>Viaggi di gruppo e aziendali</h3>
+            <p>
+              Organizziamo viaggi per gruppi, congressi, incentive e team building 
+              con programmi personalizzati e servizi su misura.
+            </p>
+            <ul>
+              <li>Congressi e conferenze</li>
+              <li>Viaggi incentive</li>
+              <li>Team building</li>
+              <li>Eventi aziendali</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quality-section">
+      <div class="container">
+        <div class="quality-content">
+          <div class="quality-text">
+            <h2>Garanzia di qualità</h2>
+            <p>
+              Tutti i nostri servizi sono garantiti dal <strong>Premio Sicurezza</strong> 
+              conferito dall'Istituto per il Turismo della Polonia. Questo riconoscimento 
+              certifica i nostri elevati standard di qualità e sicurezza.
+            </p>
+            <ul class="quality-list">
+              <li>✓ Assicurazione completa inclusa</li>
+              <li>✓ Assistenza 24/7 durante il viaggio</li>
+              <li>✓ Veicoli regolarmente controllati</li>
+              <li>✓ Guide certificate e assicurate</li>
+              <li>✓ Hotel verificati e selezionati</li>
+            </ul>
+          </div>
+          <div class="quality-badge">
+            <div class="badge">
+              <span class="badge-icon">🏆</span>
+              <span class="badge-text">Premio Sicurezza<br/>Turismo Polonia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Richiedi un preventivo</h2>
+        <p>Contattaci per un preventivo personalizzato per il tuo viaggio in Polonia</p>
+        <div class="cta-buttons">
+          <a href="/it/i-nostri-itinerari/" class="btn-primary">Vedi gli itinerari</a>
+          <a href="/it/contatti/" class="btn-secondary">Contattaci</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang="it" />
+</Layout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Services Intro */
+  .services-intro {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .services-intro h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro-text {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  /* Main Services */
+  .main-services {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .main-services h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* Specialized Services */
+  .specialized-services {
+    padding: 4rem 0;
+  }
+
+  .specialized-services h2 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .specialized-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .specialized-card {
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .specialized-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .specialized-card p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .specialized-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .specialized-card li {
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .specialized-card li:last-child {
+    border-bottom: none;
+  }
+
+  /* Quality Section */
+  .quality-section {
+    padding: 4rem 0;
+    background: var(--bg-light);
+  }
+
+  .quality-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .quality-text h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .quality-text p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .quality-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .quality-list li {
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+
+  .quality-badge {
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+  }
+
+  .badge-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .badge-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: white;
+    color: var(--primary-color);
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .btn-primary:hover {
+    background: var(--bg-light);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    border: 2px solid white;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: var(--primary-color);
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .specialized-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .quality-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

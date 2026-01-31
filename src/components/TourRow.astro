@@ -1,0 +1,251 @@
+---
+/**
+ * TourRow Component
+ * Display tour with image on left, content on right - matching Ekko theme
+ */
+interface Props {
+  country: string;
+  title: string;
+  places: string[];
+  transport: string[];
+  days: number;
+  pdfUrl?: string;
+  imageUrl?: string;
+  index: number;
+  lang?: 'pl' | 'it';
+}
+
+const { 
+  country, 
+  title, 
+  places, 
+  transport, 
+  days, 
+  pdfUrl, 
+  imageUrl, 
+  index,
+  lang = 'pl' 
+} = Astro.props;
+
+const labels = {
+  pl: {
+    places: 'Trasa',
+    transport: 'Transport',
+    days: 'dni',
+    download: 'Pobierz program'
+  },
+  it: {
+    places: 'Percorso',
+    transport: 'Trasporto',
+    days: 'giorni',
+    download: 'Scarica programma'
+  }
+};
+
+const t = labels[lang];
+const isEven = index % 2 === 0;
+const defaultImage = `/images/tours/${index + 1}.jpg`;
+---
+
+<article class:list={['tour-row', { 'alt-bg': isEven }]}>
+  <div class="container">
+    <div class="tour-inner">
+      <div class="tour-image">
+        <img src={imageUrl || defaultImage} alt={`${country} - ${title}`} loading="lazy" />
+      </div>
+      
+      <div class="tour-content">
+        <header class="tour-header">
+          <span class="tour-country">{country}</span>
+          <h2 class="tour-title">{title}</h2>
+        </header>
+        
+        <div class="tour-info">
+          <div class="info-group">
+            <h4><i class="fas fa-map-marker-alt"></i> {t.places}</h4>
+            <ul class="places-list">
+              {places.map((place) => (
+                <li><i class="fas fa-check"></i> {place}</li>
+              ))}
+            </ul>
+          </div>
+          
+          <div class="info-group">
+            <h4><i class="fas fa-bus"></i> {t.transport}</h4>
+            <ul class="transport-list">
+              {transport.map((mode) => (
+                <li>
+                  {mode === 'Samolot' || mode === 'Aereo' ? (
+                    <><i class="fas fa-plane"></i> {mode}</>
+                  ) : (
+                    <><i class="fas fa-bus"></i> {mode}</>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div class="info-group days-info">
+            <span class="days-number">{days}</span>
+            <span class="days-label">{t.days}</span>
+          </div>
+        </div>
+        
+        {pdfUrl && (
+          <a href={pdfUrl} target="_blank" rel="noopener" class="tt_button">
+            <i class="fas fa-file-pdf"></i> {t.download}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .tour-row {
+    padding: 60px 0;
+  }
+
+  .tour-row.alt-bg {
+    background-color: var(--bg-alt);
+  }
+
+  .tour-inner {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .tour-image {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tour-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tour-content {
+    padding: 20px 0;
+  }
+
+  .tour-header {
+    margin-bottom: 25px;
+  }
+
+  .tour-country {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .tour-title {
+    font-size: 28px;
+    color: var(--heading-color);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .tour-info {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+  }
+
+  .info-group h4 {
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-group h4 i {
+    color: var(--secondary-color);
+  }
+
+  .places-list,
+  .transport-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .places-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 20px;
+  }
+
+  .places-list li,
+  .transport-list li {
+    font-size: 14px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .places-list li i,
+  .transport-list li i {
+    color: var(--primary-color);
+    font-size: 12px;
+  }
+
+  .transport-list li {
+    margin-bottom: 6px;
+  }
+
+  .days-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 20px 30px;
+    text-align: center;
+  }
+
+  .days-number {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .days-label {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 992px) {
+    .tour-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .tour-image img {
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .places-list {
+      grid-template-columns: 1fr;
+    }
+
+    .tour-info {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+</style>

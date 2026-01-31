@@ -1,0 +1,452 @@
+---
+/**
+ * Header Component - matching Ekko theme exactly
+ * Supports multiple languages: pl, it, en, de, es, pt
+ */
+interface Props {
+  lang?: 'pl' | 'it' | 'en' | 'de' | 'es' | 'pt';
+  currentPath?: string;
+  transparent?: boolean;
+}
+
+const { lang = 'pl', currentPath = '', transparent = false } = Astro.props;
+
+// All supported languages with their flags and labels
+const languages = [
+  { code: 'pl', flag: '/images/flag-pl.png', label: 'Polski', home: '/pl/' },
+  { code: 'it', flag: '/images/flag-it.png', label: 'Italiano', home: '/it/' },
+  { code: 'en', flag: '/images/flag-en.png', label: 'English', home: '/en/' },
+  { code: 'de', flag: '/images/flag-de.png', label: 'Deutsch', home: '/de/' },
+  { code: 'es', flag: '/images/flag-es.png', label: 'Español', home: '/es/' },
+  { code: 'pt', flag: '/images/flag-pt.png', label: 'Português', home: '/pt/' },
+];
+
+// Navigation items per language
+const navigation: Record<string, { name: string; href: string }[]> = {
+  pl: [
+    { name: 'Home', href: '/pl/' },
+    { name: 'O nas', href: '/pl/o-nas/' },
+    { name: 'Nasza oferta', href: '/pl/nasza-oferta/' },
+    { name: 'Destynacje', href: '/pl/destynacje/' },
+    { name: 'Pielgrzymki', href: '/pl/pielgrzymki/' },
+    { name: 'Wycieczki', href: '/pl/wycieczki/' },
+    { name: 'Kontakt', href: '/pl/kontakt/' },
+  ],
+  it: [
+    { name: 'Home', href: '/it/' },
+    { name: 'Chi siamo', href: '/it/chi-siamo/' },
+    { name: 'Servizi', href: '/it/servizi/' },
+    { name: 'Destinazioni', href: '/it/destinazioni/' },
+    { name: 'Itinerari', href: '/it/i-nostri-itinerari/' },
+    { name: 'Da visitare', href: '/it/da-visitare-in-polonia/' },
+    { name: 'Contatti', href: '/it/contatti/' },
+  ],
+  en: [
+    { name: 'Home', href: '/en/' },
+    { name: 'About us', href: '/en/about/' },
+    { name: 'Our services', href: '/en/services/' },
+    { name: 'Destinations', href: '/en/destinations/' },
+    { name: 'Pilgrimages', href: '/en/pilgrimages/' },
+    { name: 'Tours', href: '/en/tours/' },
+    { name: 'Contact', href: '/en/contact/' },
+  ],
+  de: [
+    { name: 'Home', href: '/de/' },
+    { name: 'Über uns', href: '/de/uber-uns/' },
+    { name: 'Unsere Leistungen', href: '/de/leistungen/' },
+    { name: 'Reiseziele', href: '/de/reiseziele/' },
+    { name: 'Pilgerreisen', href: '/de/pilgerreisen/' },
+    { name: 'Rundreisen', href: '/de/rundreisen/' },
+    { name: 'Kontakt', href: '/de/kontakt/' },
+  ],
+  es: [
+    { name: 'Home', href: '/es/' },
+    { name: 'Nosotros', href: '/es/nosotros/' },
+    { name: 'Servicios', href: '/es/servicios/' },
+    { name: 'Destinos', href: '/es/destinos/' },
+    { name: 'Peregrinaciones', href: '/es/peregrinaciones/' },
+    { name: 'Circuitos', href: '/es/circuitos/' },
+    { name: 'Contacto', href: '/es/contacto/' },
+  ],
+  pt: [
+    { name: 'Home', href: '/pt/' },
+    { name: 'Sobre nós', href: '/pt/sobre-nos/' },
+    { name: 'Serviços', href: '/pt/servicos/' },
+    { name: 'Destinos', href: '/pt/destinos/' },
+    { name: 'Peregrinações', href: '/pt/peregrinacoes/' },
+    { name: 'Circuitos', href: '/pt/circuitos/' },
+    { name: 'Contacto', href: '/pt/contacto/' },
+  ],
+};
+
+const contactLabels: Record<string, string> = {
+  pl: 'Kontakt',
+  it: 'Contattaci',
+  en: 'Contact us',
+  de: 'Kontakt',
+  es: 'Contacto',
+  pt: 'Contacto',
+};
+
+const contactLinks: Record<string, string> = {
+  pl: '/pl/kontakt/',
+  it: '/it/contatti/',
+  en: '/en/contact/',
+  de: '/de/kontakt/',
+  es: '/es/contacto/',
+  pt: '/pt/contacto/',
+};
+
+const navItems = navigation[lang] || navigation.pl;
+const contactLabel = contactLabels[lang] || 'Contact';
+const contactLink = contactLinks[lang] || '/pl/kontakt/';
+const currentLang = languages.find(l => l.code === lang);
+const otherLanguages = languages.filter(l => l.code !== lang);
+---
+
+<nav class:list={["navbar", "navbar-default", "navbar-fixed-top", { "nav-transparent": transparent }]} id="navbar">
+  <div class="menubar main-nav-center">
+    <div class="container">
+      <div id="logo">
+        <a class="logo" href={`/${lang}/`}>
+          <img class="nav-logo" src="/images/logo_white.svg" width="250" alt="Ivotrans" />
+        </a>
+      </div>
+      
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" id="menu-toggle" aria-label="Toggle menu">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      
+      <div id="main-menu" class="navbar-collapse underline-effect">
+        <ul class="nav navbar-nav">
+          {navItems.map((item) => (
+            <li class:list={["menu-item", { 
+              active: currentPath === item.href || 
+                      (item.href !== `/${lang}/` && currentPath.startsWith(item.href)) ||
+                      (item.href === `/${lang}/` && currentPath === `/${lang}/`)
+            }]}>
+              <a href={item.href} title={item.name}>{item.name}</a>
+            </li>
+          ))}
+          
+          <!-- Language flags -->
+          <li class="menu-item wpml-ls-item wpml-ls-current">
+            <a href={`/${lang}/`} class="lang-active" title={currentLang?.label}>
+              <img class="wpml-ls-flag" src={currentLang?.flag} alt={currentLang?.label} />
+            </a>
+          </li>
+          {otherLanguages.map((language) => (
+            <li class="menu-item wpml-ls-item">
+              <a href={language.home} title={language.label}>
+                <img class="wpml-ls-flag" src={language.flag} alt={language.label} />
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="main-nav-extra-content">
+        <div class="header-bttn-wrapper">
+          <a href={contactLink} class="tt_button tt_primary_button">
+            {contactLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainMenu = document.getElementById('main-menu');
+  
+  function handleScroll() {
+    if (window.scrollY > 100) {
+      navbar?.classList.add('navbar-shrink');
+    } else {
+      navbar?.classList.remove('navbar-shrink');
+    }
+  }
+  
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+  
+  menuToggle?.addEventListener('click', () => {
+    mainMenu?.classList.toggle('open');
+    menuToggle.classList.toggle('active');
+  });
+</script>
+
+<style>
+  /* Navbar - matching Ekko theme */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+    transition: all 0.4s ease;
+  }
+
+  .navbar .menubar {
+    transition: all 0.4s ease;
+  }
+
+  /* Default (solid) navbar */
+  .navbar .menubar {
+    background-color: var(--primary-color);
+  }
+
+  /* Transparent navbar for hero pages */
+  .navbar.nav-transparent .menubar {
+    background-color: transparent;
+  }
+
+  .navbar.nav-transparent.navbar-shrink .menubar {
+    background-color: var(--primary-color);
+  }
+
+  /* Shrink effect on scroll */
+  .navbar.navbar-shrink .menubar {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Container layout */
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: all 0.4s ease;
+  }
+
+  .navbar.navbar-shrink .container {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  /* Logo */
+  #logo {
+    flex-shrink: 0;
+  }
+
+  #logo .logo {
+    display: block;
+  }
+
+  #logo .nav-logo {
+    height: 45px;
+    width: auto;
+    max-width: 200px;
+    transition: all 0.4s ease;
+  }
+
+  .navbar.navbar-shrink #logo .nav-logo {
+    height: 38px;
+  }
+
+  /* Main Menu */
+  #main-menu {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav.navbar-nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+  }
+
+  .menu-item {
+    position: relative;
+  }
+
+  .menu-item > a {
+    display: block;
+    padding: 12px 14px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  /* Underline effect like Ekko theme */
+  .underline-effect .menu-item:not(.wpml-ls-item) > a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    background: var(--secondary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .underline-effect .menu-item:not(.wpml-ls-item):hover > a::after,
+  .underline-effect .menu-item:not(.wpml-ls-item).active > a::after {
+    transform: scaleX(1);
+  }
+
+  .menu-item:hover > a,
+  .menu-item.active > a {
+    color: var(--secondary-color);
+  }
+
+  /* Language flags */
+  .wpml-ls-item a {
+    padding: 12px 6px;
+  }
+
+  .wpml-ls-flag {
+    display: block;
+    width: 22px;
+    height: auto;
+    border-radius: 2px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .wpml-ls-item:hover .wpml-ls-flag,
+  .wpml-ls-current .wpml-ls-flag,
+  .lang-active .wpml-ls-flag {
+    opacity: 1;
+  }
+
+  /* Extra content - Contact button */
+  .main-nav-extra-content {
+    flex-shrink: 0;
+    margin-left: 15px;
+  }
+
+  .header-bttn-wrapper .tt_button {
+    padding: 12px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    background: var(--secondary-color);
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .header-bttn-wrapper .tt_button:hover {
+    background: #fff;
+    color: var(--primary-color);
+  }
+
+  /* Mobile toggle */
+  .navbar-header {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .navbar-toggle .icon-bar {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-toggle.active .icon-bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar-toggle.active .icon-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active .icon-bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .menu-item > a {
+      padding: 12px 10px;
+      font-size: 12px;
+    }
+    .wpml-ls-item a {
+      padding: 12px 4px;
+    }
+    .wpml-ls-flag {
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .navbar-header {
+      display: block;
+    }
+
+    #main-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--primary-color);
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    #main-menu.open {
+      display: flex;
+    }
+
+    .nav.navbar-nav {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .menu-item:not(.wpml-ls-item) > a {
+      padding: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+    }
+
+    .underline-effect .menu-item > a::after {
+      display: none;
+    }
+
+    .wpml-ls-item {
+      display: inline-block;
+    }
+
+    .wpml-ls-item a {
+      padding: 15px 8px;
+    }
+
+    .main-nav-extra-content {
+      display: none;
+    }
+
+    .navbar .container {
+      flex-wrap: wrap;
+    }
+  }
+</style>

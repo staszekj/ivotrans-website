@@ -1,0 +1,323 @@
+---
+interface Props {
+  lang?: 'pl' | 'it' | 'en' | 'de' | 'es' | 'pt';
+}
+
+const { lang = 'pl' } = Astro.props;
+
+const content = {
+  pl: {
+    contact: 'Kontakt',
+    forClients: 'Dla klientów',
+    usefulLinks: 'Przydatne Linki',
+    company: 'Ivotrans Sp. z o.o.',
+    address: 'ul. Zakopiańska 2b/35',
+    city: '30-418 Kraków',
+    phone: '+48 12 2673030',
+    email: 'ivotrans@ivotrans.pl',
+    clients: [
+      { name: 'Destynacje', href: '/pl/destynacje/' },
+      { name: 'Pielgrzymki', href: '/pl/pielgrzymki/' },
+      { name: 'Wycieczki', href: '/pl/wycieczki/' },
+      { name: 'Polityka Prywatności', href: '/pl/polityka-prywatnosci/' },
+    ],
+    links: [
+      { name: 'Home', href: '/pl/' },
+      { name: 'O nas', href: '/pl/o-nas/' },
+      { name: 'Nasza oferta', href: '/pl/nasza-oferta/' },
+      { name: 'Kontakt', href: '/pl/kontakt/' },
+    ],
+  },
+  it: {
+    contact: 'Contatti',
+    forClients: 'Per i clienti',
+    usefulLinks: 'Link utili',
+    company: 'Ivotrans Sp. z o.o.',
+    address: 'ul. Zakopiańska 2b/35',
+    city: '30-418 Kraków',
+    phone: '+48 12 2673030',
+    email: 'ivotrans@ivotrans.pl',
+    clients: [
+      { name: 'Destinazioni', href: '/it/destinazioni/' },
+      { name: 'Itinerari', href: '/it/i-nostri-itinerari/' },
+      { name: 'Da visitare', href: '/it/da-visitare-in-polonia/' },
+      { name: 'Privacy Policy', href: '/it/privacy-policy/' },
+    ],
+    links: [
+      { name: 'Home', href: '/it/' },
+      { name: 'Chi siamo', href: '/it/chi-siamo/' },
+      { name: 'Servizi', href: '/it/servizi/' },
+      { name: 'Contatti', href: '/it/contatti/' },
+    ],
+  },
+  en: {
+    contact: 'Contact',
+    forClients: 'For Clients',
+    usefulLinks: 'Useful Links',
+    company: 'Ivotrans Sp. z o.o.',
+    address: 'ul. Zakopiańska 2b/35',
+    city: '30-418 Kraków, Poland',
+    phone: '+48 12 2673030',
+    email: 'ivotrans@ivotrans.pl',
+    clients: [
+      { name: 'Destinations', href: '/en/destinations/' },
+      { name: 'Pilgrimages', href: '/en/pilgrimages/' },
+      { name: 'Tours', href: '/en/tours/' },
+      { name: 'Privacy Policy', href: '/en/privacy-policy/' },
+    ],
+    links: [
+      { name: 'Home', href: '/en/' },
+      { name: 'About us', href: '/en/about/' },
+      { name: 'Our services', href: '/en/services/' },
+      { name: 'Contact', href: '/en/contact/' },
+    ],
+  },
+  de: {
+    contact: 'Kontakt',
+    forClients: 'Für Kunden',
+    usefulLinks: 'Nützliche Links',
+    company: 'Ivotrans Sp. z o.o.',
+    address: 'ul. Zakopiańska 2b/35',
+    city: '30-418 Kraków, Polen',
+    phone: '+48 12 2673030',
+    email: 'ivotrans@ivotrans.pl',
+    clients: [
+      { name: 'Reiseziele', href: '/de/reiseziele/' },
+      { name: 'Pilgerreisen', href: '/de/pilgerreisen/' },
+      { name: 'Rundreisen', href: '/de/rundreisen/' },
+      { name: 'Datenschutz', href: '/de/datenschutz/' },
+    ],
+    links: [
+      { name: 'Home', href: '/de/' },
+      { name: 'Über uns', href: '/de/uber-uns/' },
+      { name: 'Unsere Leistungen', href: '/de/leistungen/' },
+      { name: 'Kontakt', href: '/de/kontakt/' },
+    ],
+  },
+  es: {
+    contact: 'Contacto',
+    forClients: 'Para Clientes',
+    usefulLinks: 'Enlaces Útiles',
+    company: 'Ivotrans Sp. z o.o.',
+    address: 'ul. Zakopiańska 2b/35',
+    city: '30-418 Kraków, Polonia',
+    phone: '+48 12 2673030',
+    email: 'ivotrans@ivotrans.pl',
+    clients: [
+      { name: 'Destinos', href: '/es/destinos/' },
+      { name: 'Peregrinaciones', href: '/es/peregrinaciones/' },
+      { name: 'Circuitos', href: '/es/circuitos/' },
+      { name: 'Política de Privacidad', href: '/es/politica-privacidad/' },
+    ],
+    links: [
+      { name: 'Home', href: '/es/' },
+      { name: 'Nosotros', href: '/es/nosotros/' },
+      { name: 'Servicios', href: '/es/servicios/' },
+      { name: 'Contacto', href: '/es/contacto/' },
+    ],
+  },
+  pt: {
+    contact: 'Contacto',
+    forClients: 'Para Clientes',
+    usefulLinks: 'Links Úteis',
+    company: 'Ivotrans Sp. z o.o.',
+    address: 'ul. Zakopiańska 2b/35',
+    city: '30-418 Kraków, Polónia',
+    phone: '+48 12 2673030',
+    email: 'ivotrans@ivotrans.pl',
+    clients: [
+      { name: 'Destinos', href: '/pt/destinos/' },
+      { name: 'Peregrinações', href: '/pt/peregrinacoes/' },
+      { name: 'Circuitos', href: '/pt/circuitos/' },
+      { name: 'Política de Privacidade', href: '/pt/politica-privacidade/' },
+    ],
+    links: [
+      { name: 'Home', href: '/pt/' },
+      { name: 'Sobre nós', href: '/pt/sobre-nos/' },
+      { name: 'Serviços', href: '/pt/servicos/' },
+      { name: 'Contacto', href: '/pt/contacto/' },
+    ],
+  },
+};
+
+const t = content[lang] || content.pl;
+---
+
+<footer class="footer">
+  <div class="upper-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section first-widget-area">
+          <h4 class="widget-title">{t.contact}</h4>
+          <address>
+            <p><strong>{t.company}</strong></p>
+            <p>{t.address}</p>
+            <p>{t.city}</p>
+            <p>
+              <i class="fas fa-phone-alt"></i> 
+              <a href={`tel:${t.phone.replace(/\s/g, '')}`}>{t.phone}</a>
+            </p>
+            <p>
+              <i class="fas fa-envelope"></i> 
+              <a href={`mailto:${t.email}`}>{t.email}</a>
+            </p>
+          </address>
+          
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="widget-title">{t.forClients}</h4>
+          <ul class="footer-menu">
+            {t.clients.map((item) => (
+              <li><a href={item.href}>{item.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="widget-title">{t.usefulLinks}</h4>
+          <ul class="footer-menu">
+            {t.links.map((item) => (
+              <li><a href={item.href}>{item.name}</a></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="lower-footer">
+    <div class="container">
+      <p>IvoTrans © {new Date().getFullYear()}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .upper-footer {
+    background-color: var(--primary-color);
+    padding: 50px 0 40px;
+    color: #E8E8E8;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .widget-title {
+    color: var(--secondary-color);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-section address {
+    font-style: normal;
+    line-height: 1.8;
+  }
+
+  .footer-section address p {
+    margin-bottom: 5px;
+  }
+
+  .footer-section address i {
+    color: var(--secondary-color);
+    width: 20px;
+    margin-right: 8px;
+  }
+
+  .footer-section a {
+    color: #E8E8E8;
+    transition: color 0.3s ease;
+  }
+
+  .footer-section a:hover {
+    color: var(--secondary-color) !important;
+  }
+
+  .footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-menu li {
+    margin-bottom: 10px;
+  }
+
+  .footer-menu a {
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-links i {
+    font-size: 24px;
+    color: var(--secondary-color);
+    transition: opacity 0.3s ease;
+  }
+
+  .social-links a:hover i {
+    opacity: 0.7;
+  }
+
+  .first-widget-area {
+    max-width: 90%;
+  }
+
+  .lower-footer {
+    background-color: var(--primary-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    text-align: center;
+    color: #E8E8E8;
+    font-size: 14px;
+  }
+
+  .lower-footer a {
+    color: #E8E8E8;
+  }
+
+  .lower-footer a:hover {
+    color: var(--secondary-color) !important;
+  }
+
+  @media (max-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .first-widget-area {
+      max-width: 100%;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+  }
+</style>
