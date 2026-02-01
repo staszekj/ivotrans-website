@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 const gitSha = process.env.GIT_SHA || 'dev';
+const buildDate = new Date().toISOString();
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
   vite: {
     define: {
       __GIT_SHA__: JSON.stringify(gitSha),
+      __BUILD_DATE__: JSON.stringify(buildDate),
     },
   },
 });

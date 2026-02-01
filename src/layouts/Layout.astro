@@ -6,13 +6,16 @@ interface Props {
 
 const { title, lang = 'pl' } = Astro.props;
 declare const __GIT_SHA__: string;
+declare const __BUILD_DATE__: string;
 const buildSha = typeof __GIT_SHA__ !== 'undefined' ? __GIT_SHA__ : 'dev';
+const buildDate = typeof __BUILD_DATE__ !== 'undefined' ? __BUILD_DATE__ : 'dev';
 ---
 
 <!doctype html>
-<html lang={lang} data-build={buildSha}>
+<html lang={lang} data-build={buildSha} data-build-date={buildDate}>
   <head>
     <meta name="build-sha" content={buildSha} />
+    <meta name="build-date" content={buildDate} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
