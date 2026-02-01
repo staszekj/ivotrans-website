@@ -22,6 +22,9 @@ COPY . .
 # Build the site with GIT_SHA available
 RUN pnpm build
 
+# Create version file
+RUN echo "$GIT_SHA" > /app/dist/version.txt
+
 # Stage 2: Production
 FROM nginx:alpine AS production
 
