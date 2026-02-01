@@ -11,7 +11,7 @@ export default defineConfig({
   },
   vite: {
     define: {
-      'import.meta.env.GIT_SHA': JSON.stringify(gitSha),
+      __GIT_SHA__: JSON.stringify(gitSha),
     },
   },
 });

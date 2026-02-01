@@ -5,13 +5,14 @@ interface Props {
 }
 
 const { title, lang = 'pl' } = Astro.props;
-const buildSha = import.meta.env.GIT_SHA || 'dev';
+declare const __GIT_SHA__: string;
+const buildSha = typeof __GIT_SHA__ !== 'undefined' ? __GIT_SHA__ : 'dev';
 ---
 
 <!doctype html>
-<!-- BUILD: {buildSha} -->
-<html lang={lang}>
+<html lang={lang} data-build={buildSha}>
   <head>
+    <meta name="build-sha" content={buildSha} />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
