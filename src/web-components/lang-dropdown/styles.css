@@ -1,0 +1,121 @@
+/**
+ * Language Dropdown Styles
+ */
+
+lang-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+lang-dropdown .lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+lang-dropdown .lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+lang-dropdown .lang-toggle:focus {
+  outline: 2px solid var(--secondary-color, #f0b323);
+  outline-offset: 2px;
+}
+
+lang-dropdown .lang-flag {
+  display: block;
+  width: 24px;
+  height: auto;
+  border-radius: 2px;
+}
+
+lang-dropdown .lang-arrow {
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+lang-dropdown.open .lang-arrow {
+  transform: rotate(180deg);
+}
+
+lang-dropdown .lang-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+lang-dropdown.open .lang-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+lang-dropdown .lang-menu li {
+  margin: 0;
+}
+
+lang-dropdown .lang-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  color: var(--text-color, #333);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+lang-dropdown .lang-menu a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+lang-dropdown .lang-menu a:focus {
+  outline: 2px solid var(--secondary-color, #f0b323);
+  outline-offset: -2px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  lang-dropdown .lang-toggle {
+    padding: 8px 10px;
+  }
+  lang-dropdown .lang-flag {
+    width: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  lang-dropdown {
+    margin-top: 15px;
+    align-self: center;
+  }
+
+  lang-dropdown .lang-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  lang-dropdown.open .lang-menu {
+    transform: translateX(-50%) translateY(0);
+  }
+}

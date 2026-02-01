@@ -133,19 +133,27 @@ const otherLanguages = languages.filter(l => l.code !== lang);
             </li>
           ))}
           
-          <!-- Language flags -->
-          <li class="menu-item wpml-ls-item wpml-ls-current">
-            <a href={`/${lang}/`} class="lang-active" title={currentLang?.label}>
-              <img class="wpml-ls-flag" src={currentLang?.flag} alt={currentLang?.label} />
-            </a>
+          <!-- Language selector dropdown -->
+          <li class="menu-item lang-dropdown-wrapper">
+            <lang-dropdown>
+              <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="true">
+                <img class="lang-flag" src={currentLang?.flag} alt={currentLang?.label} />
+                <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                </svg>
+              </button>
+              <ul class="lang-menu">
+                {otherLanguages.map((language) => (
+                  <li>
+                    <a href={language.home} title={language.label}>
+                      <img class="lang-flag" src={language.flag} alt={language.label} />
+                      <span>{language.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </lang-dropdown>
           </li>
-          {otherLanguages.map((language) => (
-            <li class="menu-item wpml-ls-item">
-              <a href={language.home} title={language.label}>
-                <img class="wpml-ls-flag" src={language.flag} alt={language.label} />
-              </a>
-            </li>
-          ))}
         </ul>
       </div>
       
@@ -308,23 +316,16 @@ const otherLanguages = languages.filter(l => l.code !== lang);
   }
 
   /* Language flags */
-  .wpml-ls-item a {
-    padding: 12px 6px;
-  }
-
   .wpml-ls-flag {
     display: block;
     width: 22px;
     height: auto;
     border-radius: 2px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
   }
 
-  .wpml-ls-item:hover .wpml-ls-flag,
-  .wpml-ls-current .wpml-ls-flag,
-  .lang-active .wpml-ls-flag {
-    opacity: 1;
+  /* Language dropdown wrapper */
+  .lang-dropdown-wrapper {
+    margin-left: 10px;
   }
 
   /* Extra content - Contact button */
@@ -390,9 +391,6 @@ const otherLanguages = languages.filter(l => l.code !== lang);
       padding: 12px 10px;
       font-size: 12px;
     }
-    .wpml-ls-item a {
-      padding: 12px 4px;
-    }
     .wpml-ls-flag {
       width: 18px;
     }
@@ -423,7 +421,7 @@ const otherLanguages = languages.filter(l => l.code !== lang);
       width: 100%;
     }
 
-    .menu-item:not(.wpml-ls-item) > a {
+    .menu-item:not(.lang-dropdown-wrapper) > a {
       padding: 15px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       text-align: center;
@@ -433,12 +431,10 @@ const otherLanguages = languages.filter(l => l.code !== lang);
       display: none;
     }
 
-    .wpml-ls-item {
-      display: inline-block;
-    }
-
-    .wpml-ls-item a {
-      padding: 15px 8px;
+    .lang-dropdown-wrapper {
+      margin-top: 15px;
+      margin-left: 0;
+      align-self: center;
     }
 
     .main-nav-extra-content {
