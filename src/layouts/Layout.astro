@@ -5,10 +5,11 @@ interface Props {
 }
 
 const { title, lang = 'pl' } = Astro.props;
+const buildSha = import.meta.env.GIT_SHA || 'dev';
 ---
 
 <!doctype html>
-<!-- BUILD: __GIT_SHA__ -->
+<!-- BUILD: {buildSha} -->
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />

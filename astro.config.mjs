@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+const gitSha = process.env.GIT_SHA || 'dev';
+
 // https://astro.build/config
 export default defineConfig({
   server: {
@@ -9,7 +11,7 @@ export default defineConfig({
   },
   vite: {
     define: {
-      __GIT_SHA__: JSON.stringify(process.env.GIT_SHA || 'dev'),
+      'import.meta.env.GIT_SHA': JSON.stringify(gitSha),
     },
   },
 });
