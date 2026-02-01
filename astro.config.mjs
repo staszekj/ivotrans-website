@@ -6,6 +6,9 @@ const buildDate = new Date().toISOString();
 
 // https://astro.build/config
 export default defineConfig({
+  redirects: {
+    '/': '/pl/',
+  },
   server: {
     port: 4321,
     strictPort: true, // Fail if port 4321 is already in use

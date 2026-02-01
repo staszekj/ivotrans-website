@@ -49,9 +49,9 @@ lang-dropdown .lang-menu {
   top: calc(100% + 8px);
   right: 0;
   min-width: 160px;
-  background: #fff;
+  background: var(--primary-color, #003F65);
   border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
@@ -77,7 +77,7 @@ lang-dropdown .lang-menu a {
   align-items: center;
   gap: 12px;
   padding: 10px 16px;
-  color: var(--text-color, #333);
+  color: #fff;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -85,7 +85,8 @@ lang-dropdown .lang-menu a {
 }
 
 lang-dropdown .lang-menu a:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--secondary-color, #EB960B);
 }
 
 lang-dropdown .lang-menu a:focus {
