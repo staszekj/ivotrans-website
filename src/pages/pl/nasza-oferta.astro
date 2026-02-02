@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import Hero from '../../components/Hero.astro';
+import PageHeader from '../../components/PageHeader.astro';
 
 const lang = 'pl';
 const currentPath = '/pl/nasza-oferta/';
@@ -54,12 +54,12 @@ const services = [
 <Layout title="Nasza oferta" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
   
-  <Hero 
+  <PageHeader 
     title="Nasza oferta"
     subtitle="Kompleksowe usługi turystyczne dla grup zorganizowanych"
-    backgroundImage="/images/zdjcienagaleriHOME14.jpg"
+    backgroundImage="/images/zdjcienagaleriHOME2.jpg"
   />
-  
+
   <main>
     <section class="intro-section">
       <div class="container">
@@ -98,21 +98,7 @@ const services = [
         </div>
       </div>
     </section>
-    
-    <section class="cta-section">
-      <div class="container">
-        <h2>Zainteresowany współpracą?</h2>
-        <p>Skontaktuj się z nami, aby omówić szczegóły Twojego wyjazdu</p>
-        <div class="cta-buttons">
-          <a href="tel:+48122673030" class="btn-primary">
-            📞 +48 12 2673030
-          </a>
-          <a href="/pl/kontakt/" class="btn-secondary">
-            Formularz kontaktowy
-          </a>
-        </div>
-      </div>
-    </section>
+
   </main>
   
   <Footer lang={lang} />
@@ -127,7 +113,6 @@ const services = [
   .intro-content {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
   }
 
   .intro-content p {

@@ -43,7 +43,7 @@ const navigation: Record<string, { name: string; href: string }[]> = {
   ],
   en: [
     { name: 'Home', href: '/en/' },
-    { name: 'About us', href: '/en/about/' },
+    { name: 'About us', href: '/en/about-us/' },
     { name: 'Our services', href: '/en/services/' },
     { name: 'Destinations', href: '/en/destinations/' },
     { name: 'Pilgrimages', href: '/en/pilgrimages/' },
@@ -61,7 +61,7 @@ const navigation: Record<string, { name: string; href: string }[]> = {
   ],
   es: [
     { name: 'Home', href: '/es/' },
-    { name: 'Nosotros', href: '/es/nosotros/' },
+    { name: 'Sobre nosotros', href: '/es/sobre-nosotros/' },
     { name: 'Servicios', href: '/es/servicios/' },
     { name: 'Destinos', href: '/es/destinos/' },
     { name: 'Peregrinaciones', href: '/es/peregrinaciones/' },
@@ -96,6 +96,46 @@ const contactLinks: Record<string, string> = {
   es: '/es/contacto/',
   pt: '/pt/contacto/',
 };
+
+// Page slug mapping between languages (same page in different languages)
+// Key is the page identifier, values are slugs for each language
+const pageMapping: Record<string, Record<string, string>> = {
+  home: { pl: '', it: '', en: '', de: '', es: '', pt: '' },
+  about: { pl: 'o-nas', it: 'chi-siamo', en: 'about-us', de: 'uber-uns', es: 'sobre-nosotros', pt: 'sobre-nos' },
+  services: { pl: 'nasza-oferta', it: 'servizi', en: 'services', de: 'leistungen', es: 'servicios', pt: 'servicos' },
+  destinations: { pl: 'destynacje', it: 'destinazioni', en: 'destinations', de: 'reiseziele', es: 'destinos', pt: 'destinos' },
+  pilgrimages: { pl: 'pielgrzymki', it: 'i-nostri-itinerari', en: 'pilgrimages', de: 'pilgerreisen', es: 'peregrinaciones', pt: 'peregrinacoes' },
+  tours: { pl: 'wycieczki', it: 'da-visitare-in-polonia', en: 'tours', de: 'rundreisen', es: 'circuitos', pt: 'circuitos' },
+  contact: { pl: 'kontakt', it: 'contatti', en: 'contact', de: 'kontakt', es: 'contacto', pt: 'contacto' },
+};
+
+// Find current page identifier based on currentPath
+function getCurrentPageId(path: string, langCode: string): string {
+  // Remove language prefix and trailing slash
+  const slug = path.replace(`/${langCode}/`, '').replace(/\/$/, '');
+  
+  if (!slug) return 'home';
+  
+  // Find which page this slug belongs to
+  for (const [pageId, slugs] of Object.entries(pageMapping)) {
+    if (slugs[langCode] === slug) {
+      return pageId;
+    }
+  }
+  
+  return 'home'; // fallback to home if not found
+}
+
+// Get the URL for a specific language based on current page
+function getLanguageUrl(targetLang: string, currentPageId: string): string {
+  const slug = pageMapping[currentPageId]?.[targetLang];
+  if (slug === undefined || slug === '') {
+    return `/${targetLang}/`;
+  }
+  return `/${targetLang}/${slug}/`;
+}
+
+const currentPageId = getCurrentPageId(currentPath, lang);
 
 const navItems = navigation[lang] || navigation.pl;
 const contactLabel = contactLabels[lang] || 'Contact';
@@ -145,7 +185,7 @@ const otherLanguages = languages.filter(l => l.code !== lang);
               <ul class="lang-menu">
                 {otherLanguages.map((language) => (
                   <li>
-                    <a href={language.home} title={language.label}>
+                    <a href={getLanguageUrl(language.code, currentPageId)} title={language.label}>
                       <img class="lang-flag" src={language.flag} alt={language.label} />
                       <span>{language.label}</span>
                     </a>

@@ -2,409 +2,270 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import Hero from '../../components/Hero.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const lang = 'it';
+const currentPath = '/it/chi-siamo/';
 ---
 
-<Layout title="Chi siamo - Ivotrans | Tour Operator Polonia" lang="it">
-  <Header lang="it" />
+<Layout title="Chi siamo - Ivotrans" lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
+  
+  <PageHeader 
+    title="Chi siamo"
+    subtitle="Scopri Ivotrans - Il tuo partner nell'organizzazione dei viaggi"
+    backgroundImage="/images/zdjcienagaleriHOME1.jpg"
+  />
   
   <main>
-    <Hero 
-      title="Chi siamo"
-      subtitle="Specialisti in viaggi in Polonia dal 2003"
-      backgroundImage="/images/zdjcienagaleriONAS.jpg"
-    />
-
-    <section class="about-intro">
+    <section class="about-section">
       <div class="container">
-        <div class="intro-content">
-          <div class="intro-text">
-            <h2>Benvenuti in Ivotrans</h2>
-            <p>
-              <strong>IVOTRANS</strong> è un'agenzia di viaggi e tour operator con sede a Nowy Targ, 
-              nel cuore dei Monti Tatra polacchi. Da oltre 20 anni ci occupiamo di organizzare 
-              viaggi indimenticabili per visitatori italiani che desiderano scoprire le meraviglie della Polonia.
-            </p>
-            <p>
-              La nostra missione è far conoscere la ricchezza culturale, storica e naturale della 
-              Polonia attraverso itinerari studiati nei minimi dettagli, con guide esperte e 
-              servizi di alta qualità.
-            </p>
-          </div>
-          <div class="intro-badge">
-            <div class="badge-content">
-              <div class="badge-icon">🏆</div>
-              <h3>Premio Sicurezza</h3>
-              <p>Certificazione dall'Istituto per il Turismo della Polonia</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="our-story">
-      <div class="container">
-        <h2>La nostra storia</h2>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2003</div>
-            <div class="timeline-content">
-              <h3>Fondazione</h3>
-              <p>Nasce Ivotrans a Nowy Targ, con la missione di promuovere il turismo in Polonia.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2008</div>
-            <div class="timeline-content">
-              <h3>Espansione</h3>
-              <p>Iniziamo a specializzarci nel turismo religioso sulle orme di Giovanni Paolo II.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2015</div>
-            <div class="timeline-content">
-              <h3>Riconoscimento</h3>
-              <p>Riceviamo il Premio Sicurezza dall'Istituto per il Turismo della Polonia.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">Oggi</div>
-            <div class="timeline-content">
-              <h3>Crescita continua</h3>
-              <p>Offriamo 18 itinerari unici e continuiamo a crescere con passione e dedizione.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="our-values">
-      <div class="container">
-        <h2>I nostri valori</h2>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">🎯</div>
-            <h3>Professionalità</h3>
-            <p>Ogni dettaglio è curato con attenzione per garantire un'esperienza perfetta.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">❤️</div>
-            <h3>Passione</h3>
-            <p>Amiamo la nostra terra e vogliamo condividerla con voi.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🤝</div>
-            <h3>Affidabilità</h3>
-            <p>Promettiamo solo ciò che possiamo mantenere.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🌟</div>
-            <h3>Qualità</h3>
-            <p>Solo i migliori hotel, ristoranti e servizi per i nostri clienti.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="team-section">
-      <div class="container">
-        <h2>Il nostro team</h2>
-        <p class="section-subtitle">
-          Un team di professionisti appassionati pronti ad accogliervi in Polonia
-        </p>
-        <div class="team-info">
-          <p>
-            Il nostro team è composto da guide turistiche certificate, esperti di logistica 
-            e personale dedicato all'assistenza clienti. Tutti parlano italiano fluentemente 
-            e conoscono a fondo la storia e la cultura polacca.
+        <div class="about-content">
+          <p class="intro">
+            Da oltre 15 anni ci occupiamo dell'organizzazione e prenotazione di servizi per gruppi 
+            organizzati, nonché di escursioni e pellegrinaggi in Polonia, Europa e nel mondo. 
+            Trattiamo ogni incarico in modo molto individuale, mettendo nella sua preparazione 
+            molto cuore e cura per ogni minimo dettaglio.
           </p>
+          
           <p>
-            Il fondatore, <strong>Ivo Siejka</strong>, guida l'azienda con passione e 
-            dedizione, assicurandosi che ogni viaggio sia un'esperienza unica e memorabile.
+            Ascoltiamo le esigenze dei nostri Clienti sia nella fase di creazione del programma 
+            che durante la sua realizzazione, garantendo supporto telefonico 24 ore su 24.
           </p>
+          
+          <div class="credentials">
+            <div class="credential-item">
+              <div class="credential-icon"><i class="fas fa-certificate"></i></div>
+              <div class="credential-content">
+                <strong>Tour Operator</strong>
+                <p>Certificato di iscrizione al Registro degli Organizzatori Turistici e 
+                Intermediari Turistici n. Z/63/2008 rilasciato dal Maresciallo del Voivodato della Piccola Polonia</p>
+              </div>
+            </div>
+            <div class="credential-item">
+              <div class="credential-icon"><i class="fas fa-shield-alt"></i></div>
+              <div class="credential-content">
+                <strong>Garanzia Assicurativa</strong>
+                <p>Disponiamo di garanzia assicurativa T.U. Signal Iduna</p>
+              </div>
+            </div>
+          </div>
+          
+          <blockquote class="quote">
+            <i class="fas fa-quote-left quote-icon"></i>
+            Vi invitiamo cordialmente a collaborare e vi auguriamo che ogni viaggio vi porti 
+            un triplo piacere: dall'attesa, dalla scoperta di luoghi affascinanti durante 
+            il viaggio e dalle impressioni indimenticabili che rimangono dopo !!!
+          </blockquote>
         </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <div class="container">
-        <h2>Pronti a partire?</h2>
-        <p>Contattateci per pianificare il vostro viaggio in Polonia</p>
-        <div class="cta-buttons">
-          <a href="/it/i-nostri-itinerari/" class="btn-primary">Scopri gli itinerari</a>
-          <a href="/it/contatti/" class="btn-secondary">Contattaci</a>
+        
+        <div class="features-section">
+          <header class="section-title">
+            <h2>I nostri punti di forza</h2>
+          </header>
+          <div class="features-grid">
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-clock"></i></div>
+              <h3>15+ anni di esperienza</h3>
+              <p>Presenza pluriennale nel mercato turistico</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-user-check"></i></div>
+              <h3>Approccio individuale</h3>
+              <p>Trattiamo ogni incarico in modo molto individuale</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-headset"></i></div>
+              <h3>Supporto 24/7</h3>
+              <p>Supporto telefonico 24 ore su 24</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-hotel"></i></div>
+              <h3>Hotel selezionati</h3>
+              <p>Collaborazione con i migliori hotel</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+              <h3>Guide esperte</h3>
+              <p>Guide e accompagnatori professionisti</p>
+            </div>
+            <div class="feature-box">
+              <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+              <h3>Garanzia assicurativa</h3>
+              <p>Sicurezza completa del tuo viaggio</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   </main>
-
-  <Footer lang="it" />
+  
+  <Footer lang={lang} />
 </Layout>
 
 <style>
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  .about-section {
+    padding: 80px 0;
   }
 
-  /* About Intro */
-  .about-intro {
-    padding: 5rem 0;
+  .about-content {
+    max-width: 900px;
+    margin: 0 auto 60px;
   }
 
-  .intro-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  .intro-text h2 {
-    color: var(--primary-color);
-    font-size: 2rem;
+  .about-content p {
     margin-bottom: 1.5rem;
-  }
-
-  .intro-text p {
-    color: var(--text-light);
+    font-size: 17px;
     line-height: 1.8;
-    margin-bottom: 1rem;
+    color: var(--text-color);
   }
 
-  .intro-badge {
-    text-align: center;
+  .intro {
+    font-size: 19px !important;
+    color: var(--heading-color) !important;
   }
 
-  .badge-content {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
-    padding: 2rem;
-    border-radius: 12px;
-  }
-
-  .badge-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .badge-content h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  .badge-content p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-  }
-
-  /* Our Story */
-  .our-story {
-    padding: 5rem 0;
-    background: var(--bg-light);
-  }
-
-  .our-story h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .timeline {
+  .credentials {
+    margin: 40px 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 
-  .timeline-item {
-    text-align: center;
-    padding: 1.5rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  }
-
-  .timeline-year {
-    display: inline-block;
-    background: var(--primary-color);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-
-  .timeline-content h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-  }
-
-  .timeline-content p {
-    color: var(--text-light);
-    font-size: 0.9rem;
-  }
-
-  /* Our Values */
-  .our-values {
-    padding: 5rem 0;
-  }
-
-  .our-values h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-
-  .value-card {
-    text-align: center;
-    padding: 2rem;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .value-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  .value-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .value-card h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
-  }
-
-  .value-card p {
-    color: var(--text-light);
-    font-size: 0.9rem;
-  }
-
-  /* Team Section */
-  .team-section {
-    padding: 5rem 0;
-    background: var(--bg-light);
-  }
-
-  .team-section h2 {
-    text-align: center;
-    color: var(--primary-color);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-subtitle {
-    text-align: center;
-    color: var(--text-light);
-    margin-bottom: 2rem;
-  }
-
-  .team-info {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .team-info p {
-    color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  /* CTA Section */
-  .cta-section {
-    padding: 5rem 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-    color: white;
-    text-align: center;
-  }
-
-  .cta-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .cta-section p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-
-  .cta-buttons {
+  .credential-item {
     display: flex;
-    gap: 1rem;
+    gap: 20px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  .credential-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .credential-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 24px;
+    flex-shrink: 0;
   }
 
-  .btn-primary {
-    display: inline-block;
-    background: white;
-    color: var(--primary-color);
-    padding: 0.875rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s;
+  .credential-content strong {
+    display: block;
+    color: var(--heading-color);
+    font-size: 18px;
+    margin-bottom: 8px;
   }
 
-  .btn-primary:hover {
-    background: var(--bg-light);
+  .credential-content p {
+    margin: 0;
+    font-size: 14px !important;
+    color: var(--text-light);
   }
 
-  .btn-secondary {
-    display: inline-block;
-    background: transparent;
-    color: white;
-    padding: 0.875rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    border: 2px solid white;
-    transition: all 0.3s;
+  .quote {
+    margin: 40px 0;
+    padding: 40px;
+    background: var(--primary-color);
+    color: #fff;
+    position: relative;
+    font-size: 18px;
+    line-height: 1.8;
   }
 
-  .btn-secondary:hover {
-    background: white;
-    color: var(--primary-color);
+  .quote-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    opacity: 0.3;
   }
 
-  /* Responsive */
+  .quote::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--secondary-color);
+  }
+
+  .features-section {
+    background: var(--bg-alt);
+    padding: 60px;
+    margin-top: 40px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .feature-box {
+    text-align: center;
+    padding: 40px 30px;
+    background: #fff;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+  }
+
+  .feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-box .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .feature-box h3 {
+    font-size: 18px;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+  }
+
+  .feature-box p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin: 0;
+  }
+
   @media (max-width: 992px) {
-    .timeline {
+    .credentials {
+      grid-template-columns: 1fr;
+    }
+
+    .features-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .values-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .features-section {
+      padding: 40px 30px;
     }
   }
 
-  @media (max-width: 768px) {
-    .intro-content {
+  @media (max-width: 576px) {
+    .features-grid {
       grid-template-columns: 1fr;
-    }
-
-    .timeline {
-      grid-template-columns: 1fr;
-    }
-
-    .values-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .cta-buttons {
-      flex-direction: column;
-      align-items: center;
     }
   }
 </style>

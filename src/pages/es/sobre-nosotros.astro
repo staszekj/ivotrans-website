@@ -4,16 +4,16 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
 
-const lang = 'pl';
-const currentPath = '/pl/o-nas/';
+const lang = 'es';
+const currentPath = '/es/sobre-nosotros/';
 ---
 
-<Layout title="O nas - Ivotrans" lang={lang}>
+<Layout title="Sobre nosotros - Ivotrans" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
   
   <PageHeader 
-    title="O nas"
-    subtitle="Poznaj Ivotrans - Twojego partnera w organizacji podróży"
+    title="Sobre nosotros"
+    subtitle="Conoce Ivotrans - Tu socio en la organización de viajes"
     backgroundImage="/images/zdjcienagaleriHOME1.jpg"
   />
   
@@ -22,79 +22,77 @@ const currentPath = '/pl/o-nas/';
       <div class="container">
         <div class="about-content">
           <p class="intro">
-            Od ponad 15 lat zajmujemy się organizacją rezerwacją świadczeń dla grup 
-            zorganizowanych oraz wycieczek i pielgrzymek w kraju, Europie i na świecie. 
-            Każde zlecenie traktujemy bardzo indywidualnie, wkładając w jego przygotowanie 
-            wiele serca i staranności o każdy najmniejszy szczegół.
+            Desde hace más de 15 años nos dedicamos a la organización y reserva de servicios para grupos 
+            organizados, así como excursiones y peregrinaciones en Polonia, Europa y en todo el mundo. 
+            Tratamos cada encargo de manera muy individual, poniendo mucho corazón y cuidado 
+            en cada pequeño detalle.
           </p>
           
           <p>
-            Wsłuchujemy się w potrzeby naszych Klientów zarówno na etapie tworzenia 
-            programu jak i podczas jego realizacji zapewniając całodobowe wsparcie 
-            telefoniczne.
+            Escuchamos las necesidades de nuestros Clientes tanto en la fase de creación del programa 
+            como durante su realización, proporcionando soporte telefónico las 24 horas del día.
           </p>
           
           <div class="credentials">
             <div class="credential-item">
               <div class="credential-icon"><i class="fas fa-certificate"></i></div>
               <div class="credential-content">
-                <strong>Organizator Turystyki</strong>
-                <p>Zaświadczenie o wpisie do Rejestru Organizatorów Turystyki i Pośredników 
-                Turystycznych nr Z/63/2008 wydane przez Marszałka Województwa Małopolskiego</p>
+                <strong>Operador Turístico</strong>
+                <p>Certificado de inscripción en el Registro de Organizadores Turísticos e 
+                Intermediarios Turísticos nº Z/63/2008 emitido por el Mariscal del Voivodato de Pequeña Polonia</p>
               </div>
             </div>
             <div class="credential-item">
               <div class="credential-icon"><i class="fas fa-shield-alt"></i></div>
               <div class="credential-content">
-                <strong>Gwarancja Ubezpieczeniowa</strong>
-                <p>Posiadamy gwarancję ubezpieczeniową T.U. Signal Iduna</p>
+                <strong>Garantía de Seguro</strong>
+                <p>Disponemos de garantía de seguro de T.U. Signal Iduna</p>
               </div>
             </div>
           </div>
           
           <blockquote class="quote">
             <i class="fas fa-quote-left quote-icon"></i>
-            Serdecznie zapraszamy do współpracy i życzymy aby każda podróż dostarczała 
-            Państwu potrójnej przyjemności czerpanej: z oczekiwania na nią, z odkrywania 
-            fascynujących miejsc podczas jej trwania i z niezapomnianych wrażeń, które 
-            po niej pozostają !!!
+            Les invitamos cordialmente a colaborar y les deseamos que cada viaje les proporcione 
+            un triple placer: de la anticipación, del descubrimiento de lugares fascinantes durante 
+            el viaje y de las impresiones inolvidables que quedan después !!!
           </blockquote>
         </div>
         
         <div class="features-section">
           <header class="section-title">
-            <h2>Nasze atuty</h2>
+            <h2>Nuestras fortalezas</h2>
           </header>
           <div class="features-grid">
             <div class="feature-box">
               <div class="feature-icon"><i class="fas fa-clock"></i></div>
-              <h3>15+ lat doświadczenia</h3>
-              <p>Wieloletnia obecność na rynku turystycznym</p>
+              <h3>15+ años de experiencia</h3>
+              <p>Presencia de larga data en el mercado turístico</p>
             </div>
             <div class="feature-box">
               <div class="feature-icon"><i class="fas fa-user-check"></i></div>
-              <h3>Indywidualne podejście</h3>
-              <p>Każde zlecenie traktujemy bardzo indywidualnie</p>
+              <h3>Enfoque individual</h3>
+              <p>Tratamos cada encargo de manera muy individual</p>
             </div>
             <div class="feature-box">
               <div class="feature-icon"><i class="fas fa-headset"></i></div>
-              <h3>Wsparcie 24/7</h3>
-              <p>Całodobowe wsparcie telefoniczne</p>
+              <h3>Soporte 24/7</h3>
+              <p>Soporte telefónico las 24 horas</p>
             </div>
             <div class="feature-box">
               <div class="feature-icon"><i class="fas fa-hotel"></i></div>
-              <h3>Sprawdzona baza hotelowa</h3>
-              <p>Współpraca z najlepszymi hotelami</p>
+              <h3>Hoteles seleccionados</h3>
+              <p>Colaboración con los mejores hoteles</p>
             </div>
             <div class="feature-box">
               <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
-              <h3>Doświadczeni piloci</h3>
-              <p>Profesjonalni piloci i przewodnicy</p>
+              <h3>Guías experimentados</h3>
+              <p>Pilotos y guías turísticos profesionales</p>
             </div>
             <div class="feature-box">
               <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
-              <h3>Gwarancja ubezpieczeniowa</h3>
-              <p>Pełne bezpieczeństwo Twojej podróży</p>
+              <h3>Garantía de seguro</h3>
+              <p>Seguridad completa de tu viaje</p>
             </div>
           </div>
         </div>

@@ -4,59 +4,59 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
 
-const lang = 'it';
-const currentPath = '/it/servizi/';
+const lang = 'pt';
+const currentPath = '/pt/servicos/';
 
 const services = [
   {
     icon: '🌍',
-    title: 'Organizzazione completa di escursioni e pellegrinaggi in Polonia e nel mondo',
-    description: 'Organizzazione completa di viaggi di gruppo turistici e di pellegrinaggio'
+    title: 'Organização completa de excursões e peregrinações na Polónia e no mundo',
+    description: 'Organização completa de viagens de grupo turísticas e de peregrinação'
   },
   {
     icon: '🚌',
-    title: 'Noleggio autobus in Italia e all\'estero',
-    description: 'Autobus moderni con autisti esperti'
+    title: 'Aluguer de autocarros no país e no estrangeiro',
+    description: 'Autocarros modernos com motoristas experientes'
   },
   {
     icon: '🏨',
-    title: 'Prenotazione alloggi e ristorazione',
-    description: 'Base alberghiera e ristorativa verificata in tutto il mondo'
+    title: 'Reserva de alojamento e restauração',
+    description: 'Base hoteleira e de restaurantes verificada em todo o mundo'
   },
   {
     icon: '🎟️',
-    title: 'Assistenza nell\'acquisto di biglietti per musei e altre attrazioni turistiche',
-    description: 'Prenotazioni senza code per i luoghi più popolari'
+    title: 'Ajuda na compra de bilhetes para museus e outras atrações turísticas',
+    description: 'Reservas sem filas para os lugares mais populares'
   },
   {
     icon: '🎯',
-    title: 'Organizzazione di viaggi aziendali, conferenze e formazione in Italia e all\'estero',
-    description: 'Servizio completo per eventi aziendali'
+    title: 'Organização de viagens de integração, conferências e formação no país e no estrangeiro',
+    description: 'Serviço integral para eventos corporativos'
   },
   {
     icon: '⛷️',
-    title: 'Viaggi e campi sciistici',
-    description: 'Organizzazione di viaggi sportivi invernali'
+    title: 'Viagens e campos de esqui',
+    description: 'Organização de viagens desportivas de inverno'
   },
   {
     icon: '🎧',
-    title: 'Noleggio di sistemi audio per gruppi turistici',
-    description: 'Set professionali per tour guide'
+    title: 'Aluguer de sistemas de auscultadores para grupos turísticos',
+    description: 'Sets profissionais de guia turístico'
   },
   {
     icon: '✨',
-    title: 'E qualsiasi altro servizio su richiesta',
-    description: 'Approccio individuale ad ogni incarico'
+    title: 'E qualquer outro serviço sob encomenda',
+    description: 'Abordagem individual para cada encomenda'
   }
 ];
 ---
 
-<Layout title="I nostri servizi" lang={lang}>
+<Layout title="Os nossos serviços" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
   
   <PageHeader 
-    title="I nostri servizi"
-    subtitle="Servizi turistici completi per gruppi organizzati"
+    title="Os nossos serviços"
+    subtitle="Serviços turísticos abrangentes para grupos organizados"
     backgroundImage="/images/zdjcienagaleriHOME2.jpg"
   />
 
@@ -65,20 +65,20 @@ const services = [
       <div class="container">
         <div class="intro-content">
           <p>
-            La nostra offerta è rivolta principalmente agli organizzatori turistici, 
-            alle agenzie di viaggio e ad altri soggetti che organizzano viaggi di gruppo, 
-            come parrocchie, scuole o associazioni.
+            A nossa oferta dirige-se principalmente a organizadores turísticos, 
+            agências de viagens e outras entidades que organizam viagens em grupo, 
+            como paróquias, escolas ou associações.
           </p>
           <p>
-            Garantiamo un servizio professionale e assistenza nella creazione di viaggi 
-            in Italia e all'estero. Prenotiamo tutti i servizi necessari per la realizzazione 
-            di qualsiasi tipo di evento turistico.
+            Proporcionamos um serviço profissional e assistência na criação de viagens 
+            no país e no estrangeiro. Reservamos todos os serviços necessários 
+            para a realização de qualquer tipo de evento turístico.
           </p>
           <p>
-            Il nostro team è aperto a osservazioni e suggerimenti da parte vostra, 
-            e la soddisfazione dei Clienti è la nostra priorità. Buoni servizi 
-            e un programma ottimale sono metà del successo, completato dalla collaborazione 
-            con specialisti in ogni fase della creazione e realizzazione del viaggio.
+            A nossa equipa está aberta a comentários e sugestões da sua parte, 
+            e a satisfação do cliente é a nossa prioridade. Bons serviços 
+            e um programa ótimo são metade do sucesso, completado pela colaboração 
+            com especialistas em cada etapa da criação e realização da viagem.
           </p>
         </div>
       </div>
@@ -86,7 +86,7 @@ const services = [
     
     <section class="services-section">
       <div class="container">
-        <h2>Cosa offriamo</h2>
+        <h2>O que oferecemos</h2>
         <div class="services-grid">
           {services.map((service) => (
             <div class="service-card">

@@ -4,59 +4,59 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
 
-const lang = 'it';
-const currentPath = '/it/servizi/';
+const lang = 'en';
+const currentPath = '/en/services/';
 
 const services = [
   {
     icon: '🌍',
-    title: 'Organizzazione completa di escursioni e pellegrinaggi in Polonia e nel mondo',
-    description: 'Organizzazione completa di viaggi di gruppo turistici e di pellegrinaggio'
+    title: 'Complete organization of tours and pilgrimages in Poland and worldwide',
+    description: 'Full organization of group tourist and pilgrimage trips'
   },
   {
     icon: '🚌',
-    title: 'Noleggio autobus in Italia e all\'estero',
-    description: 'Autobus moderni con autisti esperti'
+    title: 'Coach rental domestically and abroad',
+    description: 'Modern coaches with experienced drivers'
   },
   {
     icon: '🏨',
-    title: 'Prenotazione alloggi e ristorazione',
-    description: 'Base alberghiera e ristorativa verificata in tutto il mondo'
+    title: 'Accommodation and catering reservations',
+    description: 'Verified hotel and restaurant base worldwide'
   },
   {
     icon: '🎟️',
-    title: 'Assistenza nell\'acquisto di biglietti per musei e altre attrazioni turistiche',
-    description: 'Prenotazioni senza code per i luoghi più popolari'
+    title: 'Assistance in purchasing tickets to museums and other tourist attractions',
+    description: 'Queue-free reservations for the most popular places'
   },
   {
     icon: '🎯',
-    title: 'Organizzazione di viaggi aziendali, conferenze e formazione in Italia e all\'estero',
-    description: 'Servizio completo per eventi aziendali'
+    title: 'Organization of team-building trips, conferences and training domestically and abroad',
+    description: 'Comprehensive corporate event services'
   },
   {
     icon: '⛷️',
-    title: 'Viaggi e campi sciistici',
-    description: 'Organizzazione di viaggi sportivi invernali'
+    title: 'Ski trips and camps',
+    description: 'Organization of winter sports trips'
   },
   {
     icon: '🎧',
-    title: 'Noleggio di sistemi audio per gruppi turistici',
-    description: 'Set professionali per tour guide'
+    title: 'Rental of headset systems for tourist groups',
+    description: 'Professional tour guide sets'
   },
   {
     icon: '✨',
-    title: 'E qualsiasi altro servizio su richiesta',
-    description: 'Approccio individuale ad ogni incarico'
+    title: 'And any other services on request',
+    description: 'Individual approach to every assignment'
   }
 ];
 ---
 
-<Layout title="I nostri servizi" lang={lang}>
+<Layout title="Our Services" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
   
   <PageHeader 
-    title="I nostri servizi"
-    subtitle="Servizi turistici completi per gruppi organizzati"
+    title="Our Services"
+    subtitle="Comprehensive tourism services for organized groups"
     backgroundImage="/images/zdjcienagaleriHOME2.jpg"
   />
 
@@ -65,20 +65,20 @@ const services = [
       <div class="container">
         <div class="intro-content">
           <p>
-            La nostra offerta è rivolta principalmente agli organizzatori turistici, 
-            alle agenzie di viaggio e ad altri soggetti che organizzano viaggi di gruppo, 
-            come parrocchie, scuole o associazioni.
+            Our offer is primarily addressed to tour organizers, travel agencies 
+            and other entities organizing group trips, such as parishes, schools 
+            or associations.
           </p>
           <p>
-            Garantiamo un servizio professionale e assistenza nella creazione di viaggi 
-            in Italia e all'estero. Prenotiamo tutti i servizi necessari per la realizzazione 
-            di qualsiasi tipo di evento turistico.
+            We provide professional service and assistance in creating trips 
+            domestically and abroad. We book all services necessary for the 
+            implementation of any type of tourist event.
           </p>
           <p>
-            Il nostro team è aperto a osservazioni e suggerimenti da parte vostra, 
-            e la soddisfazione dei Clienti è la nostra priorità. Buoni servizi 
-            e un programma ottimale sono metà del successo, completato dalla collaborazione 
-            con specialisti in ogni fase della creazione e realizzazione del viaggio.
+            Our team is open to comments and suggestions from you, and customer 
+            satisfaction is our priority. Good services and an optimal program 
+            are half the success, completed by cooperation with specialists 
+            at every stage of creating and implementing the trip.
           </p>
         </div>
       </div>
@@ -86,7 +86,7 @@ const services = [
     
     <section class="services-section">
       <div class="container">
-        <h2>Cosa offriamo</h2>
+        <h2>What we offer</h2>
         <div class="services-grid">
           {services.map((service) => (
             <div class="service-card">
