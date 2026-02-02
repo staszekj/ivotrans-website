@@ -209,24 +209,26 @@ const otherLanguages = languages.filter(l => l.code !== lang);
 </nav>
 
 <script>
-  const navbar = document.getElementById('navbar');
-  const menuToggle = document.getElementById('menu-toggle');
-  const mainMenu = document.getElementById('main-menu');
-  
-  function handleScroll() {
-    if (window.scrollY > 100) {
-      navbar?.classList.add('navbar-shrink');
-    } else {
-      navbar?.classList.remove('navbar-shrink');
+  document.addEventListener('astro:page-load', () => {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainMenu = document.getElementById('main-menu');
+    const navbar = document.getElementById('navbar');
+    
+    function handleScroll() {
+      if (window.scrollY > 100) {
+        navbar?.classList.add('navbar-shrink');
+      } else {
+        navbar?.classList.remove('navbar-shrink');
+      }
     }
-  }
-  
-  window.addEventListener('scroll', handleScroll);
-  handleScroll();
-  
-  menuToggle?.addEventListener('click', () => {
-    mainMenu?.classList.toggle('open');
-    menuToggle.classList.toggle('active');
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
+    menuToggle?.addEventListener('click', () => {
+      mainMenu?.classList.toggle('open');
+      menuToggle.classList.toggle('active');
+    });
   });
 </script>
 

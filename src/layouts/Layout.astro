@@ -1,5 +1,6 @@
 ---
 import '../web-components/lang-dropdown/styles.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -29,6 +30,7 @@ const buildDate = typeof __BUILD_DATE__ !== 'undefined' ? __BUILD_DATE__ : 'dev'
     <title>{title} | Ivotrans</title>
     <meta name="description" content="Ivotrans Tour Operator - organizator turystyki, wycieczki i pielgrzymki w Polsce, Europie i na świecie" />
     <script src="../web-components/lang-dropdown/index.ts"></script>
+    <ClientRouter />
   </head>
   <body>
     <slot />
