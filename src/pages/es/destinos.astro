@@ -4,16 +4,16 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
 
-const lang = 'pl';
-const currentPath = '/pl/destynacje/';
+const lang = 'es';
+const currentPath = '/es/destinos/';
 ---
 
-<Layout title="Destynacje" lang={lang}>
+<Layout title="Destinos" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
   
   <PageHeader 
-    title="Destynacje"
-    subtitle="Odkryj świat z Ivotrans - wycieczki objazdowe i pielgrzymki"
+    title="Destinos"
+    subtitle="Descubre el mundo con Ivotrans - tours y peregrinaciones"
     backgroundImage="/images/zdjcienagaleriHOME1.jpg"
   />
   
@@ -23,32 +23,32 @@ const currentPath = '/pl/destynacje/';
         <div class="two-column-layout">
           <div class="content-column">
             <div class="section-header">
-              <h2>Wycieczki objazdowe</h2>
+              <h2>Tours</h2>
               <p>
-                Polecamy Państwu bogatą ofertę wycieczek objazdowych w Polsce, Europie i na świecie.
+                Le ofrecemos una rica selección de tours en Polonia, Europa y en todo el mundo.
               </p>
             </div>
             
             <div class="content-block">
               <p>
-                Zapraszamy do odwiedzenia tętniących życiem europejskich stolic i metropolii. 
-                Każdy kraj to odrębna historia, kultura i krajobraz jak również inne emocje, 
-                wspomnienia i cenne doświadczenie.
+                Le invitamos a visitar las vibrantes capitales y metrópolis europeas. 
+                Cada país tiene su propia historia, cultura y paisaje únicos, 
+                así como diferentes emociones, recuerdos y valiosas experiencias.
               </p>
               <p>
-                Dla tych z Państwa, którzy mają „apetyt" na świat, polecamy wyprawę do Australii, 
-                z bajeczną Wielką Rafą Koralową lub zaskakujące w swej odmienności i wyjątkowo 
-                urzekające Stany Zjednoczone.
+                Para aquellos que tienen "apetito" por el mundo, recomendamos un viaje a Australia 
+                con la fabulosa Gran Barrera de Coral o los sorprendentemente diversos 
+                y cautivadores Estados Unidos.
               </p>
               <p>
-                Zapraszamy do zapoznania się z graficzną mapą naszych destynacji, w których 
-                realizujemy kompleksowe wycieczki oraz rezerwujemy pojedyncze świadczenia na zapytanie.
+                Le invitamos a explorar el mapa gráfico de nuestros destinos, 
+                donde organizamos tours completos y reservamos servicios individuales bajo pedido.
               </p>
             </div>
           </div>
           <div class="image-column">
-            <a href="/pl/wycieczki/">
-              <img src="/images/destynacje-wycieczki.jpg" alt="Mapa destynacji wycieczek" />
+            <a href="/es/tours/">
+              <img src="/images/destynacje-wycieczki.jpg" alt="Mapa de destinos de tours" />
             </a>
           </div>
         </div>
@@ -59,33 +59,34 @@ const currentPath = '/pl/destynacje/';
       <div class="container">
         <div class="two-column-layout">
           <div class="image-column">
-            <a href="/pl/pielgrzymki/">
-              <img src="/images/destynacje-pielgrzymki.jpg" alt="Mapa destynacji pielgrzymkowych" />
+            <a href="/es/peregrinaciones/">
+              <img src="/images/destynacje-pielgrzymki.jpg" alt="Mapa de destinos de peregrinación" />
             </a>
           </div>
           <div class="content-column">
             <div class="section-header">
-              <h2>Pielgrzymki</h2>
+              <h2>Peregrinaciones</h2>
               <p>
-                Podróżowanie do miejsc świętych ma szczególny cel.
+                Viajar a lugares sagrados tiene un propósito especial.
               </p>
             </div>
             
             <div class="content-block">
               <p>
-                To wspaniały czas, który każdy przeżywa indywidualnie niosąc ze sobą różne 
-                intencje, które nadają głębszy sens podróży. Pielgrzymowanie to także droga 
-                do odnowy duchowej, do pogłębienia wiary lub do jej odnalezienia.
+                Es un tiempo maravilloso que cada uno vive individualmente, llevando consigo 
+                diversas intenciones que dan un significado más profundo al viaje. 
+                La peregrinación es también un camino de renovación espiritual, 
+                para profundizar la fe o para reencontrarla.
               </p>
               <p>
-                Zachęcamy do zapoznania się z mapą najpiękniejszych destynacji pielgrzymkowych 
-                Europy, wiodących do Rzymu, Fatimy, Lourdes czy Santiago de Compostella. 
-                Do odwiedzenia Ziemi Świętej, Gruzji, Libanu oraz Matki Bożej z Guadalupe. 
-                Do podążania śladami: św. Pawła, św. Teresy od Jezusa, św. Patryka i wielu innych.
+                Le invitamos a explorar el mapa de los destinos de peregrinación más hermosos 
+                de Europa, que llevan a Roma, Fátima, Lourdes o Santiago de Compostela. 
+                Para visitar Tierra Santa, Georgia, Líbano y la Virgen de Guadalupe. 
+                Para seguir los pasos de San Pablo, Santa Teresa de Jesús, San Patricio y muchos otros.
               </p>
               <p>
-                Na każdy z tych kierunków mamy w ofercie nie tylko kompletne programy, 
-                ale również pomagamy w organizacji pojedynczych świadczeń na zlecenie.
+                Para cada uno de estos destinos, ofrecemos no solo programas completos, 
+                sino que también ayudamos en la organización de servicios individuales por encargo.
               </p>
             </div>
           </div>
@@ -95,51 +96,51 @@ const currentPath = '/pl/destynacje/';
     
     <section class="destinations-map">
       <div class="container">
-        <h2>Nasze kierunki</h2>
+        <h2>Nuestros destinos</h2>
         <div class="destinations-grid">
           <div class="destination-region">
             <h3>🇪🇺 Europa</h3>
             <ul>
               <li>Austria</li>
-              <li>Belgia, Holandia, Luksemburg</li>
-              <li>Chorwacja</li>
-              <li>Czechy</li>
-              <li>Francja</li>
-              <li>Grecja</li>
-              <li>Hiszpania</li>
-              <li>Irlandia</li>
-              <li>Litwa, Łotwa, Estonia</li>
-              <li>Malta i Sycylia</li>
-              <li>Niemcy</li>
-              <li>Norwegia</li>
-              <li>Portugalia</li>
-              <li>Rosja</li>
-              <li>Rumunia</li>
-              <li>Szkocja</li>
-              <li>Szwajcaria</li>
-              <li>Węgry</li>
-              <li>Wielka Brytania</li>
-              <li>Włochy</li>
+              <li>Bélgica, Holanda, Luxemburgo</li>
+              <li>Croacia</li>
+              <li>República Checa</li>
+              <li>Francia</li>
+              <li>Grecia</li>
+              <li>España</li>
+              <li>Irlanda</li>
+              <li>Lituania, Letonia, Estonia</li>
+              <li>Malta y Sicilia</li>
+              <li>Alemania</li>
+              <li>Noruega</li>
+              <li>Portugal</li>
+              <li>Rusia</li>
+              <li>Rumanía</li>
+              <li>Escocia</li>
+              <li>Suiza</li>
+              <li>Hungría</li>
+              <li>Gran Bretaña</li>
+              <li>Italia</li>
             </ul>
           </div>
           
           <div class="destination-region">
-            <h3>🌍 Bliski Wschód i Azja</h3>
+            <h3>🌍 Oriente Medio y Asia</h3>
             <ul>
-              <li>Gruzja i Armenia</li>
-              <li>Izrael</li>
+              <li>Georgia y Armenia</li>
+              <li>Israel</li>
               <li>Jordania</li>
-              <li>Liban</li>
-              <li>Turcja</li>
+              <li>Líbano</li>
+              <li>Turquía</li>
             </ul>
           </div>
           
           <div class="destination-region">
-            <h3>🌎 Ameryka i Oceania</h3>
+            <h3>🌎 América y Oceanía</h3>
             <ul>
               <li>Australia</li>
-              <li>Meksyk</li>
-              <li>Stany Zjednoczone</li>
+              <li>México</li>
+              <li>Estados Unidos</li>
             </ul>
           </div>
         </div>
