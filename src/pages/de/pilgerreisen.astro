@@ -1,0 +1,261 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Wyjazd from '../../components/Wyjazd.astro';
+
+const lang = 'de';
+const currentPath = '/de/pilgerreisen/';
+---
+
+<Layout title="Pilgerreisen - Ivotrans" lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
+  
+  <PageHeader 
+    title="Pilgerreisen"
+    subtitle="Wir laden Sie ein, unsere Pilgerreise-Angebote zu entdecken"
+    backgroundImage="/images/zdjcienagaleriHOME1.jpg"
+  />
+
+  <main class="main-content">
+    <Wyjazd
+      kraj="Israel"
+      tytul="Auf den Spuren Jesu"
+      miejsca={['Bethlehem', 'Jaffa', 'Ain Karem', 'Jerusalem', 'See Genezareth', 'Nazareth']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/1-Izrael-Sladami-Pana-Jezusa.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie1.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Israel und Ägypten"
+      tytul="Heiliges Land mit Berg Sinai"
+      miejsca={['Jerusalem', 'Bethlehem', 'Kapernaum', 'Berg der Seligpreisungen', 'Jericho', 'Berg Sinai']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/2-Izrael-Egipt-Ziemia-Swieta-z-Gora-Synaj.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie2.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Israel und Jordanien"
+      tytul="Heiliges Land mit Jordanien"
+      miejsca={['Tel Aviv', 'Nazareth', 'Ain Karem', 'Petra', 'Amman', 'Madaba', 'Jerusalem']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/3-Izrael-Jordania-Ziemia-Swieta-z-Jordania.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie3.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Libanon"
+      tytul="Pilgerreise zum Grab des hl. Charbel"
+      miejsca={['Harissa', 'Beirut', 'Tyrus', 'Sidon', 'Annaya', 'Bekaa-Tal', 'Beka Kafra']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/4-Liban-Pielgrzymka-do-grobu-sw.-Ojca-Charbela.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie4.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Georgien und Armenien"
+      tytul="Wiege des Christentums"
+      miejsca={['Tiflis', 'Kachetien', 'Kasbegi', 'Kutaissi', 'Batumi', 'Jerewan']}
+      transport={['Flugzeug', 'Bus']}
+      dni={13}
+      pdf="/pdf/pilgrimages/5-Gruzja-Armenia-Kolebka-Chrzescijanstwa.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie5.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Frankreich, Spanien und Portugal"
+      tytul="Weg der großen Marienerscheinungen"
+      miejsca={['La Salette', 'Lourdes', 'Fatima']}
+      transport={['Flugzeug', 'Bus']}
+      dni={14}
+      pdf="/pdf/pilgrimages/6-Francja-Hiszpania-Portugalia-Szlak-Wielkich-Objawien-Maryjnych.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie6.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Portugal und Spanien"
+      tytul="Pilgerweg nach Fatima und Santiago de Compostela"
+      miejsca={['Fatima', 'Santiago de Compostela']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/7-Portugalia-Hiszpania-Pielgrzymim-szlakiem-do-Fatimy-i-S.-de-Compostela.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie7.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Frankreich"
+      tytul="Marienheiligtümer Frankreichs"
+      miejsca={['Paris', 'Lourdes', 'La Salette']}
+      transport={['Bus']}
+      dni={10}
+      pdf="/pdf/pilgrimages/8-Francja-Sanktuaria-Maryjne-Francji.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie8.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Frankreich und Spanien"
+      tytul="Pilgerweg rund um die Pyrenäen"
+      miejsca={['Lourdes', 'Montserrat']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/9-Francja-Hiszpania-Na-pielgrzymim-szlaku-wokol-Pirenejow.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie9.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Österreich, Schweiz und Deutschland"
+      tytul="Alpiner Marienheiligtümer-Weg"
+      miejsca={['Mariazell', 'Einsiedeln', 'Altötting']}
+      transport={['Bus']}
+      dni={7}
+      pdf="/pdf/pilgrimages/10-Szlakiem-alpejskich-Sanktuariow-Maryjnych.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie10.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Litauen"
+      tytul="Besuch bei der Muttergottes von der Morgenröte"
+      miejsca={['Trakai', 'Vilnius', 'Kaunas', 'Šiauliai']}
+      transport={['Bus']}
+      dni={5}
+      pdf="/pdf/pilgrimages/11-Litwa-Z-wizyta-u-Matki-Bozej-Ostrobramskiej.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie11.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Kroatien, Bosnien und Herzegowina"
+      tytul="Perlen Kroatiens und Medjugorje"
+      miejsca={['Zagreb', 'Pula', 'Zadar', 'Split', 'Medjugorje', 'Dubrovnik', 'Trogir', 'Šibenik']}
+      transport={['Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/12-Chorwacja-Bosnia-i-Hercegowina-Perly-Chorwacji-i-Medjugorje.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie12.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Mexiko"
+      tytul="Pilgerreise zur Muttergottes von Guadalupe"
+      miejsca={['Mexiko-Stadt', 'Puebla', 'Tenango Del Aire', 'Teotihuacan', 'Tula', 'Acapulco', 'Querétaro', 'Cuernavaca', 'Taxco']}
+      transport={['Flugzeug', 'Bus']}
+      dni={12}
+      pdf="/pdf/pilgrimages/13-Meksyk-Pielgrzymka-do-Matki-Bozej-z-Guadalupe.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie13.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Griechenland"
+      tytul="Auf den Spuren des hl. Paulus von Athen nach Thessaloniki"
+      miejsca={['Athen', 'Peloponnes', 'Delphi', 'Thermopylen', 'Meteora', 'Veria', 'Philippi', 'Thessaloniki']}
+      transport={['Flugzeug', 'Bus']}
+      dni={9}
+      pdf="/pdf/pilgrimages/14-Grecja-Sladami-sw.-Pawla-od-Aten-do-Salonik.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie14.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Türkei"
+      tytul="Auf den Spuren des hl. Paulus"
+      miejsca={['Ankara', 'Kappadokien', 'Konya', 'Antalya', 'Pamukkale', 'Ephesus', 'Pergamon', 'Istanbul']}
+      transport={['Flugzeug', 'Bus']}
+      dni={12}
+      pdf="/pdf/pilgrimages/15-Turcja-Sladami-sw.-Pawla.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie15.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Malta"
+      tytul="Insel des hl. Paulus"
+      miejsca={['Valletta', 'Mdina', 'Rabat', 'Gozo', 'St. Paul\'s Bay']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/16-Malta-Wyspa-sw.-Pawla.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie16.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Italien"
+      tytul="Auf den Spuren der Heiligen und Apostel"
+      miejsca={['Padua', 'Assisi', 'Rom', 'Subiaco', 'Loreto', 'Ravenna']}
+      transport={['Bus']}
+      dni={9}
+      pdf="/pdf/pilgrimages/17-Wlochy-Sladami-Swietych-i-Apostolow.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie17.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Italien"
+      tytul="Heiligtümer Italiens"
+      miejsca={['Cascia', 'Assisi', 'Loreto', 'Manoppello', 'San Giovanni Rotondo', "Monte Sant'Angelo", 'Neapel', 'Rom']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/18-Wlochy-Sanktuaria-Italii.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie18.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Italien"
+      tytul="Auf den Spuren des Heiligen von Pietrelcina"
+      miejsca={['Offida', 'Manoppello', 'Serracapriola', 'San Giovanni Rotondo', 'Pietrelcina', 'Rom']}
+      transport={['Bus']}
+      dni={9}
+      pdf="/pdf/pilgrimages/19-Wlochy-Sladami-Swietego-z-Pietrelciny.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie19.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Spanien"
+      tytul="Auf den Wegen der Gründungen der hl. Teresa von Jesus"
+      miejsca={['Burgos', 'Salamanca', 'Alba de Tormes', 'Avila', 'Segovia', 'Toledo', 'Madrid']}
+      transport={['Flugzeug', 'Bus']}
+      dni={8}
+      pdf="/pdf/pilgrimages/20-Hiszpania-Sladami-sw.-Teresy-od-Jezusa.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie20.jpg"
+      jezyk="de"
+    />
+
+    <Wyjazd
+      kraj="Irland"
+      tytul="Auf dem Weg des hl. Patrick"
+      miejsca={['Dublin', 'Glendalough', 'Rock of Cashel', 'Cliffs of Moher', 'Knock', 'Armagh', 'Belfast']}
+      transport={['Flugzeug', 'Bus']}
+      dni={9}
+      pdf="/pdf/pilgrimages/21-Irlandia-Szlakiem-sw.-Patryka.pdf"
+      zdjecie="/images/pilgrimages/Zdjcie21.jpg"
+      jezyk="de"
+    />
+  </main>
+  
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .main-content {
+    padding-top: 0;
+  }
+</style>

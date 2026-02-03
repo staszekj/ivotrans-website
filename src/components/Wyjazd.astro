@@ -1,66 +1,85 @@
 ---
 /**
- * PilgrimageRow Component
- * Matches original WordPress Ekko theme layout:
- * - Image on left (25% width)
- * - Content on right (75% width)
- * - Alternating background colors
+ * Wyjazd Component
+ * Komponent wyświetlający pojedynczy wyjazd/pielgrzymkę
+ * - Zdjęcie po lewej stronie
+ * - Treść po prawej stronie
+ * - Naprzemienne kolory tła (przez CSS :nth-child)
  */
 interface Props {
-  country: string;
-  title: string;
-  places: string[];
+  kraj: string;
+  tytul: string;
+  miejsca: string[];
   transport: string[];
-  days: number;
-  pdfUrl?: string;
-  imageUrl?: string;
-  index: number;
-  lang?: 'pl' | 'it';
+  dni: number;
+  pdf?: string;
+  zdjecie?: string;
+  jezyk?: 'pl' | 'it' | 'en' | 'de' | 'es' | 'pt';
 }
 
 const { 
-  country, 
-  title, 
-  places, 
+  kraj, 
+  tytul, 
+  miejsca, 
   transport, 
-  days, 
-  pdfUrl, 
-  imageUrl, 
-  index,
-  lang = 'pl' 
+  dni, 
+  pdf, 
+  zdjecie, 
+  jezyk = 'pl' 
 } = Astro.props;
 
 const labels = {
   pl: { learnMore: 'Dowiedz się więcej', days: 'dni' },
-  it: { learnMore: 'Scopri di più', days: 'giorni' }
+  it: { learnMore: 'Scopri di più', days: 'giorni' },
+  en: { learnMore: 'Learn more', days: 'days' },
+  de: { learnMore: 'Mehr erfahren', days: 'Tage' },
+  es: { learnMore: 'Más información', days: 'días' },
+  pt: { learnMore: 'Saiba mais', days: 'dias' }
 };
 
-const t = labels[lang];
-const isAlt = index % 2 === 1;
+const t = labels[jezyk];
 
 // Transport icons
 const transportIcons: Record<string, string> = {
+  // Polish
   'samolot': 'fa-plane',
   'Samolot': 'fa-plane',
-  'aereo': 'fa-plane',
-  'Aereo': 'fa-plane',
   'autobus': 'fa-bus',
   'Autobus': 'fa-bus',
+  // Italian
+  'aereo': 'fa-plane',
+  'Aereo': 'fa-plane',
+  // English
+  'plane': 'fa-plane',
+  'Plane': 'fa-plane',
   'bus': 'fa-bus',
   'Bus': 'fa-bus',
+  // German
+  'flugzeug': 'fa-plane',
+  'Flugzeug': 'fa-plane',
+  // Spanish
+  'avión': 'fa-plane',
+  'Avión': 'fa-plane',
+  'autobús': 'fa-bus',
+  'Autobús': 'fa-bus',
+  // Portuguese
+  'avião': 'fa-plane',
+  'Avião': 'fa-plane',
+  'ônibus': 'fa-bus',
+  'Ônibus': 'fa-bus',
 };
 
 // Place icons (simplified - using building for most)
 const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
 ---
 
-<section class:list={["pilgrimage-row", { "alt-bg": isAlt }]}>
+<section class="pilgrimage-row">
   <div class="container">
     <div class="row">
       <!-- Image Column -->
       <div class="image-column">
-        {imageUrl ? (
-          <div class="image-wrapper" style={`background-image: url('${imageUrl}')`}></div>
+        {zdjecie ? (
+          <div class="image-wrapper" style={`background-image: url('${zdjecie}')`}></div>
         ) : (
           <div class="image-wrapper placeholder"></div>
         )}
@@ -69,15 +88,15 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
       <!-- Content Column -->
       <div class="content-column">
         <header class="section-header">
-          <h2 class="separator_off">{country}</h2>
-          <h6 class="subtitle">{title}</h6>
+          <h2 class="separator_off">{kraj}</h2>
+          <h6 class="subtitle">{tytul}</h6>
         </header>
         
         <div class="content-grid">
           <!-- Places -->
           <div class="places-column">
             <ul class="kd-icon-list">
-              {places.map((place) => (
+              {miejsca.map((place) => (
                 <li class="kd-icon-list-item">
                   <i class="far fa-building"></i>
                   <span>{place}</span>
@@ -97,17 +116,17 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
               ))}
               <li class="kd-icon-list-item">
                 <i class="far fa-calendar-check"></i>
-                <span>{days} {labels[lang].days}</span>
+                <span>{dni} {labels[jezyk].days}</span>
               </li>
             </ul>
           </div>
         </div>
         
-        {pdfUrl && (
+        {pdf && (
           <div class="button-wrapper">
-            <a href={pdfUrl} target="_blank" rel="noopener" class="tt_button tt_secondary_button">
+            <a href={pdf} target="_blank" rel="noopener" class="tt_button tt_secondary_button">
               <i class="far fa-file"></i>
-              <span>{labels[lang].learnMore}</span>
+              <span>{labels[jezyk].learnMore}</span>
             </a>
           </div>
         )}
@@ -121,20 +140,25 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
     padding: 20px 0;
   }
 
-  .pilgrimage-row.alt-bg {
+  .pilgrimage-row .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pilgrimage-row:nth-child(even) {
     background-color: var(--bg-alt);
   }
 
   .row {
-    display: flex;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     gap: 15px;
     min-height: 280px;
   }
 
   .image-column {
-    flex: 0 0 25%;
-    max-width: 25%;
+    min-height: 250px;
+    min-width: 300px;
   }
 
   .image-wrapper {
@@ -153,8 +177,6 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
   }
 
   .content-column {
-    flex: 0 0 75%;
-    max-width: 75%;
     padding: 20px 0;
   }
 
@@ -184,6 +206,7 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
   .places-column,
   .transport-column {
     flex: 1;
+    max-width: 300px;
   }
 
   .kd-icon-list {
@@ -239,13 +262,11 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
 
   @media (max-width: 768px) {
     .row {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
 
-    .image-column,
-    .content-column {
-      flex: 0 0 100%;
-      max-width: 100%;
+    .image-column {
+      min-height: 200px;
     }
 
     .image-wrapper {

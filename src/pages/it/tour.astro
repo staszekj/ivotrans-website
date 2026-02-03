@@ -1,0 +1,338 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Wyjazd from '../../components/Wyjazd.astro';
+
+const lang = 'it';
+const currentPath = '/it/tour/';
+---
+
+<Layout title="Tour - Ivotrans" lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
+  
+  <PageHeader 
+    title="Tour"
+    subtitle="Vi invitiamo a scoprire le nostre proposte di programmi di viaggio"
+    backgroundImage="/images/zdjcienagaleriHOME3.jpg"
+  />
+
+  <main class="main-content">
+    <Wyjazd
+      kraj="Austria"
+      tytul="Vienna Imperiale e Valle di Wachau"
+      miejsca={['Vienna', 'Melk', 'Dürnstein', 'Krems']}
+      transport={['Autobus']}
+      dni={5}
+      pdf="/pdf/tours/1-Austria-Cesarski-Wieden-i-Dolina-Wachau.pdf"
+      zdjecie="/images/tours/Zdjcie1-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Belgio, Olanda e Lussemburgo"
+      tytul="Nel paese del formaggio e dei mulini a vento"
+      miejsca={['Amsterdam', 'Rotterdam', 'L\'Aia', 'Anversa', 'Bruges', 'Bruxelles', 'Lussemburgo']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/2-Belgia-Holandia-i-Luksemburg-W-krainie-sera-i-wiatrakow.pdf"
+      zdjecie="/images/tours/Zdjcie2-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Croazia"
+      tytul="Perle dell'Adriatico"
+      miejsca={['Zagabria', 'Pola', 'Zara', 'Spalato', 'Mostar', 'Dubrovnik', 'Traù', 'Sebenico']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/3-Chorwacja-Perly-Adriatyku.pdf"
+      zdjecie="/images/tours/Zdjcie3-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Repubblica Ceca"
+      tytul="Praga d'Oro e tesori della Boemia"
+      miejsca={['Kutná Hora', 'Praga', 'Karlštejn', 'Karlovy Vary']}
+      transport={['Autobus']}
+      dni={5}
+      pdf="/pdf/tours/4-Czechy-Zlota-Praga-i-skarby-Czech.pdf"
+      zdjecie="/images/tours/Zdjcie4-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Francia"
+      tytul="Il paese dei migliori vini e champagne"
+      miejsca={['Reims', 'Parigi', 'Versailles', 'Mont Saint Michel', 'Valle della Loira', 'Strasburgo']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/5-Francja-Kraj-najlepszych-win-i-szampana.pdf"
+      zdjecie="/images/tours/Zdjcie5-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Francia"
+      tytul="Parigi - Capitale del Mondo"
+      miejsca={['Parigi']}
+      transport={['Aereo']}
+      dni={5}
+      pdf="/pdf/tours/6-Francja-Paryz-Stolica-Swiata.pdf"
+      zdjecie="/images/tours/Zdjcie6-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Grecia"
+      tytul="Viaggio nella storia"
+      miejsca={['Salonicco', 'Meteora', 'Delfi', 'Atene', 'Micene', 'Epidauro', 'Nauplia', 'Termopili']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/7-Grecja-Podroz-przez-historie.pdf"
+      zdjecie="/images/tours/Zdjcie7-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Georgia e Armenia"
+      tytul="Mondo Sconosciuto"
+      miejsca={['Tbilisi', 'Kakheti', 'Kazbegi', 'Mtskheta', 'Kutaisi', 'Batumi', 'Vardzia', 'Yerevan', 'Khor Virap', 'Etchmiadzin']}
+      transport={['Aereo', 'Autobus']}
+      dni={13}
+      pdf="/pdf/tours/8-Gruzja-i-Armenia-Nieznany-Swiat.pdf"
+      zdjecie="/images/tours/Zdjcie8-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Spagna"
+      tytul="Splendida Iberia"
+      miejsca={['Valencia', 'Granada', 'Siviglia', 'Cordova', 'Toledo', 'San Lorenzo De El Escorial', 'Madrid', 'Saragozza', 'Barcellona']}
+      transport={['Aereo', 'Autobus']}
+      dni={10}
+      pdf="/pdf/tours/9-Hiszpania-Wspaniala-Iberia.pdf"
+      zdjecie="/images/tours/Zdjcie9-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Spagna"
+      tytul="Barcellona - Nel cuore della Catalogna"
+      miejsca={['Barcellona']}
+      transport={['Aereo']}
+      dni={5}
+      pdf="/pdf/tours/10-Hiszpania-Barcelona-W-sercu-Katalonii.pdf"
+      zdjecie="/images/tours/Zdjcie10-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Spagna"
+      tytul="Madrid Reale"
+      miejsca={['Madrid']}
+      transport={['Aereo']}
+      dni={5}
+      pdf="/pdf/tours/11-Hiszpania-Krolewski-Madryt.pdf"
+      zdjecie="/images/tours/Zdjcie11-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Malta e Sicilia"
+      tytul="Al sole del sud"
+      miejsca={['La Valletta', 'Mdina', 'Rabat', 'Gozo', 'Palermo', 'Trapani', 'Siracusa', 'Etna', 'Taormina', 'Catania']}
+      transport={['Aereo', 'Autobus']}
+      dni={5}
+      pdf="/pdf/tours/12-Malta-i-Sycylia-W-sloncu-poludnia.pdf"
+      zdjecie="/images/tours/Zdjcie12-2.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Norvegia"
+      tytul="Terra dei Fiordi"
+      miejsca={['Bergen', 'Ystad', 'Fredrikstad', 'Oslo', 'Lillehammer', 'Strada dei Troll', 'Strada delle Aquile', 'Flåm']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/13-Norwegia-Kraina-Fiordow.pdf"
+      zdjecie="/images/tours/Zdjcie13-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Portogallo"
+      tytul="Perle del Portogallo"
+      miejsca={['Porto', 'Coimbra', 'Tomar', 'Batalha', 'Nazaré', 'Lisbona', 'Sintra', 'Cabo da Roca', 'Cascais', 'Estoril']}
+      transport={['Aereo', 'Autobus']}
+      dni={8}
+      pdf="/pdf/tours/14-Portugalia-Perelki-Portugalii.pdf"
+      zdjecie="/images/tours/Zdjcie14-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Portogallo"
+      tytul="Lisbona - Capitale soleggiata"
+      miejsca={['Lisbona']}
+      transport={['Aereo']}
+      dni={5}
+      pdf="/pdf/tours/15-Portugalia-Lizbona-Sloneczna-stolica.pdf"
+      zdjecie="/images/tours/Zdjcie15-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Lituania, Lettonia ed Estonia"
+      tytul="Baltic Tour"
+      miejsca={['Kaunas', 'Riga', 'Tallinn', 'Helsinki', 'Vilnius']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/16-Litwa-Lotwa-i-Estonia-Baltic-Tour.pdf"
+      zdjecie="/images/tours/Zdjcie16-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Russia"
+      tytul="Storia dell'Impero"
+      miejsca={['Daugavpils', 'Pskov', 'San Pietroburgo', 'Tsarskoye Selo', 'Peterhof', 'Velikij Novgorod', 'Vilnius', 'Mosca']}
+      transport={['Autobus']}
+      dni={12}
+      pdf="/pdf/tours/17-Rosja-Historia-Imperium.pdf"
+      zdjecie="/images/tours/Zdjcie17-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Russia"
+      tytul="San Pietroburgo - Venezia del Nord"
+      miejsca={['San Pietroburgo', 'Peterhof', 'Tsarskoye Selo', 'Helsinki']}
+      transport={['Aereo', 'Autobus']}
+      dni={5}
+      pdf="/pdf/tours/18-Rosja-Petersburg-Wenecja-Polnocy.pdf"
+      zdjecie="/images/tours/Zdjcie18-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Romania"
+      tytul="Nel paese di Dracula"
+      miejsca={['Oradea', 'Cluj-Napoca', 'Biertan', 'Sighișoara', 'Brașov', 'Bucarest', 'Suceava', 'Săpânța', 'Satu Mare']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/19-Rumunia-W-krainie-Drakuli.pdf"
+      zdjecie="/images/tours/Zdjcie19-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Scozia"
+      tytul="Atmosfere scozzesi"
+      miejsca={['Edimburgo', 'Stirling', 'Perth', 'Glasgow', 'Inverness']}
+      transport={['Aereo', 'Autobus']}
+      dni={6}
+      pdf="/pdf/tours/20-Szkocja-Szkockie-klimaty.pdf"
+      zdjecie="/images/tours/Zdjcie20-1.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Svizzera"
+      tytul="Terra alpina"
+      miejsca={['Stein am Rhein', 'San Gallo', 'Zurigo', 'Friburgo', 'Lucerna', 'Grindelwald', 'Interlaken', 'Berna', 'Ginevra', 'Losanna', 'Montreux']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/21-Szwajcaria-Alpejska-kraina.pdf"
+      zdjecie="/images/tours/Zdjcie21-2.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Ungheria"
+      tytul="Budapest - Capitale sul Danubio"
+      miejsca={['Eger', 'Esztergom', 'Szentendre', 'Budapest']}
+      transport={['Aereo', 'Autobus']}
+      dni={4}
+      pdf="/pdf/tours/22-Wegry-Budapeszt-Naddunajska-stolica.pdf"
+      zdjecie="/images/tours/Zdjcie22.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Italia"
+      tytul="Via classica"
+      miejsca={['Venezia', 'Pisa', 'Lucca', 'Firenze', 'Roma', 'Monte Cassino', 'Napoli', 'Pompei', 'Assisi', 'Bologna']}
+      transport={['Autobus']}
+      dni={12}
+      pdf="/pdf/tours/23-Wlochy-Klasycznym-szlakiem.pdf"
+      zdjecie="/images/tours/Zdjcie23.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Italia"
+      tytul="Tesori d'Italia"
+      miejsca={['Padova', 'Parma', 'Bologna', 'Pisa', 'Lucca', 'Firenze', 'Siena', 'Assisi', 'Ravenna', 'Venezia']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/24-Wlochy-Skarby-Italii.pdf"
+      zdjecie="/images/tours/Zdjcie24.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Italia"
+      tytul="Roma - Città Eterna"
+      miejsca={['Roma']}
+      transport={['Aereo']}
+      dni={6}
+      pdf="/pdf/tours/25-Wlochy-Rzym-Wieczne-Miasto.pdf"
+      zdjecie="/images/tours/Zdjcie25.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Regno Unito"
+      tytul="Tea Time"
+      miejsca={['Londra', 'Oxford', 'Stratford-upon-Avon', 'Cambridge', 'Windsor']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/26-Zjednoczone-Krolestwo-Tea-Time.pdf"
+      zdjecie="/images/tours/Zdjcie26.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Australia"
+      tytul="Continente Straordinario"
+      miejsca={['Melbourne', 'Blue Mountains', 'Sydney', 'Uluru', 'Grande Barriera Corallina', 'Foreste pluviali']}
+      transport={['Aereo', 'Autobus']}
+      dni={13}
+      pdf="/pdf/tours/27-Australia-Niezwykly-Kontynent.pdf"
+      zdjecie="/images/tours/Zdjcie27.jpg"
+      jezyk="it"
+    />
+
+    <Wyjazd
+      kraj="Stati Uniti"
+      tytul="Sogno Americano"
+      miejsca={['Santa Barbara', 'San Francisco', 'Las Vegas', 'Los Angeles', 'San Diego', 'Monterey']}
+      transport={['Aereo', 'Autobus']}
+      dni={13}
+      pdf="/pdf/tours/28-Stany-Zjednoczone-Amerykanski-sen.pdf"
+      zdjecie="/images/tours/Zdjcie28.jpg"
+      jezyk="it"
+    />
+  </main>
+  
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .main-content {
+    padding-top: 0;
+  }
+</style>

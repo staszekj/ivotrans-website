@@ -3,237 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import TourRow from '../../components/TourRow.astro';
+import Wyjazd from '../../components/Wyjazd.astro';
 
 const lang = 'pl';
 const currentPath = '/pl/wycieczki/';
-
-const tours = [
-  {
-    country: 'Austria',
-    title: 'Cesarski Wiedeń i Dolina Wachau',
-    places: ['Wiedeń', 'Melk', 'Dürnstein', 'Krems'],
-    transport: ['Autobus'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/1-Austria-Cesarski-Wieden-i-Dolina-Wachau.pdf'
-  },
-  {
-    country: 'Belgia, Holandia i Luksemburg',
-    title: 'W krainie sera i wiatraków',
-    places: ['Amsterdam', 'Rotterdam', 'Haga', 'Antwerpia', 'Brugia', 'Bruksela', 'Luksemburg'],
-    transport: ['Autobus'],
-    days: 9,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/2-Belgia-Holandia-i-Luksemburg-W-krainie-sera-i-wiatrakow.pdf'
-  },
-  {
-    country: 'Chorwacja',
-    title: 'Perły Adriatyku',
-    places: ['Zagrzeb', 'Pula', 'Zadar', 'Split', 'Mostar', 'Dubrownik', 'Trogir', 'Szybenik'],
-    transport: ['Autobus'],
-    days: 8,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/3-Chorwacja-Perly-Adriatyku.pdf'
-  },
-  {
-    country: 'Czechy',
-    title: 'Złota Praga i skarby Czech',
-    places: ['Kutná Hora', 'Praga', 'Karlštejn', 'Karlowe Wary'],
-    transport: ['Autobus'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/4-Czechy-Zlota-Praga-i-skarby-Czech.pdf'
-  },
-  {
-    country: 'Francja',
-    title: 'Kraj najlepszych win i szampana',
-    places: ['Reims', 'Paryż', 'Wersal', 'Mont Saint Michel', 'Dolina Loary', 'Strasbourg'],
-    transport: ['Autobus'],
-    days: 8,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/5-Francja-Kraj-najlepszych-win-i-szampana.pdf'
-  },
-  {
-    country: 'Francja',
-    title: 'Paryż - Stolica Świata',
-    places: ['Paryż'],
-    transport: ['Samolot'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/6-Francja-Paryz-Stolica-Swiata.pdf'
-  },
-  {
-    country: 'Grecja',
-    title: 'Podróż przez historię',
-    places: ['Saloniki', 'Masyw Meteora', 'Delfy', 'Ateny', 'Mykeny', 'Epidauros', 'Nafplion', 'Termopile'],
-    transport: ['Autobus'],
-    days: 8,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/7-Grecja-Podroz-przez-historie.pdf'
-  },
-  {
-    country: 'Gruzja i Armenia',
-    title: 'Nieznany Świat',
-    places: ['Tbilisi', 'Kachetia', 'Kazbeg', 'Mccheta', 'Kutaisi', 'Batumi', 'Vardzia', 'Erywań', 'Khor Virap', 'Eczmiadzyn'],
-    transport: ['Samolot', 'Autobus'],
-    days: 13,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/8-Gruzja-i-Armenia-Nieznany-Swiat.pdf'
-  },
-  {
-    country: 'Hiszpania',
-    title: 'Wspaniała Iberia',
-    places: ['Walencja', 'Granada', 'Sewilla', 'Kordoba', 'Toledo', 'San Lorenzo De El Escorial', 'Madryt', 'Saragossa', 'Barcelona'],
-    transport: ['Samolot', 'Autobus'],
-    days: 10,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/9-Hiszpania-Wspaniala-Iberia.pdf'
-  },
-  {
-    country: 'Hiszpania',
-    title: 'Barcelona - W sercu Katalonii',
-    places: ['Barcelona'],
-    transport: ['Samolot'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/10-Hiszpania-Barcelona-W-sercu-Katalonii.pdf'
-  },
-  {
-    country: 'Hiszpania',
-    title: 'Królewski Madryt',
-    places: ['Madryt'],
-    transport: ['Samolot'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/11-Hiszpania-Krolewski-Madryt.pdf'
-  },
-  {
-    country: 'Malta i Sycylia',
-    title: 'W słońcu południa',
-    places: ['La Valetta', 'Mdina', 'Rabat', 'Gozo', 'Palermo', 'Trapani', 'Syrakuzy', 'Etna', 'Taormina', 'Katania'],
-    transport: ['Samolot', 'Autobus'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/12-Malta-i-Sycylia-W-sloncu-poludnia.pdf'
-  },
-  {
-    country: 'Norwegia',
-    title: 'Kraina Fiordów',
-    places: ['Bergen', 'Ystad', 'Fredrikstad', 'Oslo', 'Lillehammer', 'Droga Troli', 'Droga Orłów', 'Flåm'],
-    transport: ['Autobus'],
-    days: 8,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/13-Norwegia-Kraina-Fiordow.pdf'
-  },
-  {
-    country: 'Portugalia',
-    title: 'Perełki Portugalii',
-    places: ['Porto', 'Coimbra', 'Tomar', 'Batalha', 'Nazaré', 'Lizbona', 'Sintra', 'Cabo da Roca', 'Cascais', 'Estoril'],
-    transport: ['Samolot', 'Autobus'],
-    days: 8,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/14-Portugalia-Perelki-Portugalii.pdf'
-  },
-  {
-    country: 'Portugalia',
-    title: 'Lizbona - Słoneczna stolica',
-    places: ['Lizbona'],
-    transport: ['Samolot'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/15-Portugalia-Lizbona-Sloneczna-stolica.pdf'
-  },
-  {
-    country: 'Litwa, Łotwa i Estonia',
-    title: 'Baltic Tour',
-    places: ['Kowno', 'Ryga', 'Tallinn', 'Helsinki', 'Wilno'],
-    transport: ['Autobus'],
-    days: 8,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/16-Litwa-Lotwa-i-Estonia-Baltic-Tour.pdf'
-  },
-  {
-    country: 'Rosja',
-    title: 'Historia Imperium',
-    places: ['Dyneburg', 'Psków', 'Petersburg', 'Carskie Sioło', 'Peterhof', 'Nowogród Wielki', 'Wilno', 'Moskwa'],
-    transport: ['Autobus'],
-    days: 12,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/17-Rosja-Historia-Imperium.pdf'
-  },
-  {
-    country: 'Rosja',
-    title: 'Petersburg - Wenecja Północy',
-    places: ['Petersburg', 'Peterhof', 'Carskie Sioło', 'Helsinki'],
-    transport: ['Samolot', 'Autobus'],
-    days: 5,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/18-Rosja-Petersburg-Wenecja-Polnocy.pdf'
-  },
-  {
-    country: 'Rumunia',
-    title: 'W krainie Drakuli',
-    places: ['Oradea', 'Cluj-Napoca', 'Biertan', 'Sighișoara', 'Brașov', 'Bukareszt', 'Suczawa', 'Sapânța', 'Satu Mare'],
-    transport: ['Autobus'],
-    days: 9,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/19-Rumunia-W-krainie-Drakuli.pdf'
-  },
-  {
-    country: 'Szkocja',
-    title: 'Szkockie klimaty',
-    places: ['Edynburg', 'Stirling', 'Perth', 'Glasgow', 'Inverness'],
-    transport: ['Samolot', 'Autobus'],
-    days: 6,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/20-Szkocja-Szkockie-klimaty.pdf'
-  },
-  {
-    country: 'Szwajcaria',
-    title: 'Alpejska kraina',
-    places: ['Stein am Rhein', 'Sankt Gallen', 'Zurych', 'Fryburg', 'Lucerna', 'Grindelwald', 'Interlaken', 'Berno', 'Genewa', 'Lozanna', 'Montreux'],
-    transport: ['Autobus'],
-    days: 8,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/21-Szwajcaria-Alpejska-kraina.pdf'
-  },
-  {
-    country: 'Węgry',
-    title: 'Budapeszt - Naddunajska stolica',
-    places: ['Eger', 'Esztergom', 'Szentendre', 'Budapeszt'],
-    transport: ['Samolot', 'Autobus'],
-    days: 4,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/22-Wegry-Budapeszt-Naddunajska-stolica.pdf'
-  },
-  {
-    country: 'Włochy',
-    title: 'Klasycznym szlakiem',
-    places: ['Wenecja', 'Piza', 'Lukka', 'Florencja', 'Rzym', 'Monte Cassino', 'Neapol', 'Pompeje', 'Asyż', 'Bolonia'],
-    transport: ['Autobus'],
-    days: 12,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/23-Wlochy-Klasycznym-szlakiem.pdf'
-  },
-  {
-    country: 'Włochy',
-    title: 'Skarby Italii',
-    places: ['Padwa', 'Parma', 'Bolonia', 'Piza', 'Lukka', 'Florencja', 'Siena', 'Asyż', 'Rawenna', 'Wenecja'],
-    transport: ['Autobus'],
-    days: 9,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/24-Wlochy-Skarby-Italii.pdf'
-  },
-  {
-    country: 'Włochy',
-    title: 'Rzym - Wieczne Miasto',
-    places: ['Rzym'],
-    transport: ['Samolot'],
-    days: 6,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/25-Wlochy-Rzym-Wieczne-Miasto.pdf'
-  },
-  {
-    country: 'Zjednoczone Królestwo',
-    title: 'Tea Time',
-    places: ['Londyn', 'Oxford', 'Stratford-upon-Avon', 'Cambridge', 'Windsor'],
-    transport: ['Autobus'],
-    days: 9,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/26-Zjednoczone-Krolestwo-Tea-Time.pdf'
-  },
-  {
-    country: 'Australia',
-    title: 'Niezwykły Kontynent',
-    places: ['Melbourne', 'Góry Błękitne', 'Sydney', 'Uluru', 'Wielka Rafa Koralowa', 'Lasy deszczowe'],
-    transport: ['Samolot', 'Autobus'],
-    days: 13,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/27-Australia-Niezwykly-Kontynent.pdf'
-  },
-  {
-    country: 'Stany Zjednoczone',
-    title: 'Amerykański sen',
-    places: ['Santa Barbara', 'San Francisco', 'Las Vegas', 'Los Angeles', 'San Diego', 'Monterey'],
-    transport: ['Samolot', 'Autobus'],
-    days: 13,
-    pdf: 'https://ivotrans.pl/wp-content/uploads/2021/01/28-Stany-Zjednoczone-Amerykanski-sen.pdf'
-  }
-];
 ---
 
 <Layout title="Wycieczki objazdowe - Ivotrans" lang={lang}>
@@ -241,92 +14,297 @@ const tours = [
   
   <PageHeader 
     title="Wycieczki objazdowe"
-    subtitle="Bogata oferta wycieczek objazdowych w Polsce, Europie i na świecie"
+    subtitle="Zapraszamy do zapoznania się z przykładowymi propozycjami programów naszych wycieczek objazdowych"
     backgroundImage="/images/zdjcienagaleriHOME3.jpg"
   />
-  
-  <main>
-    <section class="intro-section">
-      <div class="container">
-        <p>
-          Zapraszamy do zapoznania się z liczną ofertą propozycji przykładowych programów 
-          naszych wycieczek objazdowych. Każdy program możemy dostosować do Państwa potrzeb.
-        </p>
-      </div>
-    </section>
-    
-    <div class="tours-list">
-      {tours.map((tour, index) => (
-        <TourRow
-          country={tour.country}
-          title={tour.title}
-          places={tour.places}
-          transport={tour.transport}
-          days={tour.days}
-          pdfUrl={tour.pdf}
-          index={index}
-          lang={lang}
-        />
-      ))}
-    </div>
-    
-    <section class="contact-cta">
-      <div class="container">
-        <header class="section-title">
-          <h2>Zainteresowany wycieczką?</h2>
-        </header>
-        <p>Skontaktuj się z nami, aby omówić szczegóły lub zamówić indywidualny program</p>
-        <a href="/pl/kontakt/" class="tt_button">Skontaktuj się z nami</a>
-      </div>
-    </section>
+
+  <main class="main-content">
+    <Wyjazd
+      kraj="Austria"
+      tytul="Cesarski Wiedeń i Dolina Wachau"
+      miejsca={['Wiedeń', 'Melk', 'Dürnstein', 'Krems']}
+      transport={['Autobus']}
+      dni={5}
+      pdf="/pdf/tours/1-Austria-Cesarski-Wieden-i-Dolina-Wachau.pdf"
+      zdjecie="/images/tours/Zdjcie1-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Belgia, Holandia i Luksemburg"
+      tytul="W krainie sera i wiatraków"
+      miejsca={['Amsterdam', 'Rotterdam', 'Haga', 'Antwerpia', 'Brugia', 'Bruksela', 'Luksemburg']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/2-Belgia-Holandia-i-Luksemburg-W-krainie-sera-i-wiatrakow.pdf"
+      zdjecie="/images/tours/Zdjcie2-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Chorwacja"
+      tytul="Perły Adriatyku"
+      miejsca={['Zagrzeb', 'Pula', 'Zadar', 'Split', 'Mostar', 'Dubrownik', 'Trogir', 'Szybenik']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/3-Chorwacja-Perly-Adriatyku.pdf"
+      zdjecie="/images/tours/Zdjcie3-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Czechy"
+      tytul="Złota Praga i skarby Czech"
+      miejsca={['Kutná Hora', 'Praga', 'Karlštejn', 'Karlowe Wary']}
+      transport={['Autobus']}
+      dni={5}
+      pdf="/pdf/tours/4-Czechy-Zlota-Praga-i-skarby-Czech.pdf"
+      zdjecie="/images/tours/Zdjcie4-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Francja"
+      tytul="Kraj najlepszych win i szampana"
+      miejsca={['Reims', 'Paryż', 'Wersal', 'Mont Saint Michel', 'Dolina Loary', 'Strasbourg']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/5-Francja-Kraj-najlepszych-win-i-szampana.pdf"
+      zdjecie="/images/tours/Zdjcie5-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Francja"
+      tytul="Paryż - Stolica Świata"
+      miejsca={['Paryż']}
+      transport={['Samolot']}
+      dni={5}
+      pdf="/pdf/tours/6-Francja-Paryz-Stolica-Swiata.pdf"
+      zdjecie="/images/tours/Zdjcie6-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Grecja"
+      tytul="Podróż przez historię"
+      miejsca={['Saloniki', 'Masyw Meteora', 'Delfy', 'Ateny', 'Mykeny', 'Epidauros', 'Nafplion', 'Termopile']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/7-Grecja-Podroz-przez-historie.pdf"
+      zdjecie="/images/tours/Zdjcie7-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Gruzja i Armenia"
+      tytul="Nieznany Świat"
+      miejsca={['Tbilisi', 'Kachetia', 'Kazbeg', 'Mccheta', 'Kutaisi', 'Batumi', 'Vardzia', 'Erywań', 'Khor Virap', 'Eczmiadzyn']}
+      transport={['Samolot', 'Autobus']}
+      dni={13}
+      pdf="/pdf/tours/8-Gruzja-i-Armenia-Nieznany-Swiat.pdf"
+      zdjecie="/images/tours/Zdjcie8-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Hiszpania"
+      tytul="Wspaniała Iberia"
+      miejsca={['Walencja', 'Granada', 'Sewilla', 'Kordoba', 'Toledo', 'San Lorenzo De El Escorial', 'Madryt', 'Saragossa', 'Barcelona']}
+      transport={['Samolot', 'Autobus']}
+      dni={10}
+      pdf="/pdf/tours/9-Hiszpania-Wspaniala-Iberia.pdf"
+      zdjecie="/images/tours/Zdjcie9-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Hiszpania"
+      tytul="Barcelona - W sercu Katalonii"
+      miejsca={['Barcelona']}
+      transport={['Samolot']}
+      dni={5}
+      pdf="/pdf/tours/10-Hiszpania-Barcelona-W-sercu-Katalonii.pdf"
+      zdjecie="/images/tours/Zdjcie10-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Hiszpania"
+      tytul="Królewski Madryt"
+      miejsca={['Madryt']}
+      transport={['Samolot']}
+      dni={5}
+      pdf="/pdf/tours/11-Hiszpania-Krolewski-Madryt.pdf"
+      zdjecie="/images/tours/Zdjcie11-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Malta i Sycylia"
+      tytul="W słońcu południa"
+      miejsca={['La Valetta', 'Mdina', 'Rabat', 'Gozo', 'Palermo', 'Trapani', 'Syrakuzy', 'Etna', 'Taormina', 'Katania']}
+      transport={['Samolot', 'Autobus']}
+      dni={5}
+      pdf="/pdf/tours/12-Malta-i-Sycylia-W-sloncu-poludnia.pdf"
+      zdjecie="/images/tours/Zdjcie12-2.jpg"
+    />
+
+    <Wyjazd
+      kraj="Norwegia"
+      tytul="Kraina Fiordów"
+      miejsca={['Bergen', 'Ystad', 'Fredrikstad', 'Oslo', 'Lillehammer', 'Droga Troli', 'Droga Orłów', 'Flåm']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/13-Norwegia-Kraina-Fiordow.pdf"
+      zdjecie="/images/tours/Zdjcie13-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Portugalia"
+      tytul="Perełki Portugalii"
+      miejsca={['Porto', 'Coimbra', 'Tomar', 'Batalha', 'Nazaré', 'Lizbona', 'Sintra', 'Cabo da Roca', 'Cascais', 'Estoril']}
+      transport={['Samolot', 'Autobus']}
+      dni={8}
+      pdf="/pdf/tours/14-Portugalia-Perelki-Portugalii.pdf"
+      zdjecie="/images/tours/Zdjcie14-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Portugalia"
+      tytul="Lizbona - Słoneczna stolica"
+      miejsca={['Lizbona']}
+      transport={['Samolot']}
+      dni={5}
+      pdf="/pdf/tours/15-Portugalia-Lizbona-Sloneczna-stolica.pdf"
+      zdjecie="/images/tours/Zdjcie15-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Litwa, Łotwa i Estonia"
+      tytul="Baltic Tour"
+      miejsca={['Kowno', 'Ryga', 'Tallinn', 'Helsinki', 'Wilno']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/16-Litwa-Lotwa-i-Estonia-Baltic-Tour.pdf"
+      zdjecie="/images/tours/Zdjcie16-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Rosja"
+      tytul="Historia Imperium"
+      miejsca={['Dyneburg', 'Psków', 'Petersburg', 'Carskie Sioło', 'Peterhof', 'Nowogród Wielki', 'Wilno', 'Moskwa']}
+      transport={['Autobus']}
+      dni={12}
+      pdf="/pdf/tours/17-Rosja-Historia-Imperium.pdf"
+      zdjecie="/images/tours/Zdjcie17-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Rosja"
+      tytul="Petersburg - Wenecja Północy"
+      miejsca={['Petersburg', 'Peterhof', 'Carskie Sioło', 'Helsinki']}
+      transport={['Samolot', 'Autobus']}
+      dni={5}
+      pdf="/pdf/tours/18-Rosja-Petersburg-Wenecja-Polnocy.pdf"
+      zdjecie="/images/tours/Zdjcie18-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Rumunia"
+      tytul="W krainie Drakuli"
+      miejsca={['Oradea', 'Cluj-Napoca', 'Biertan', 'Sighișoara', 'Brașov', 'Bukareszt', 'Suczawa', 'Sapânța', 'Satu Mare']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/19-Rumunia-W-krainie-Drakuli.pdf"
+      zdjecie="/images/tours/Zdjcie19-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Szkocja"
+      tytul="Szkockie klimaty"
+      miejsca={['Edynburg', 'Stirling', 'Perth', 'Glasgow', 'Inverness']}
+      transport={['Samolot', 'Autobus']}
+      dni={6}
+      pdf="/pdf/tours/20-Szkocja-Szkockie-klimaty.pdf"
+      zdjecie="/images/tours/Zdjcie20-1.jpg"
+    />
+
+    <Wyjazd
+      kraj="Szwajcaria"
+      tytul="Alpejska kraina"
+      miejsca={['Stein am Rhein', 'Sankt Gallen', 'Zurych', 'Fryburg', 'Lucerna', 'Grindelwald', 'Interlaken', 'Berno', 'Genewa', 'Lozanna', 'Montreux']}
+      transport={['Autobus']}
+      dni={8}
+      pdf="/pdf/tours/21-Szwajcaria-Alpejska-kraina.pdf"
+      zdjecie="/images/tours/Zdjcie21-2.jpg"
+    />
+
+    <Wyjazd
+      kraj="Węgry"
+      tytul="Budapeszt - Naddunajska stolica"
+      miejsca={['Eger', 'Esztergom', 'Szentendre', 'Budapeszt']}
+      transport={['Samolot', 'Autobus']}
+      dni={4}
+      pdf="/pdf/tours/22-Wegry-Budapeszt-Naddunajska-stolica.pdf"
+      zdjecie="/images/tours/Zdjcie22.jpg"
+    />
+
+    <Wyjazd
+      kraj="Włochy"
+      tytul="Klasycznym szlakiem"
+      miejsca={['Wenecja', 'Piza', 'Lukka', 'Florencja', 'Rzym', 'Monte Cassino', 'Neapol', 'Pompeje', 'Asyż', 'Bolonia']}
+      transport={['Autobus']}
+      dni={12}
+      pdf="/pdf/tours/23-Wlochy-Klasycznym-szlakiem.pdf"
+      zdjecie="/images/tours/Zdjcie23.jpg"
+    />
+
+    <Wyjazd
+      kraj="Włochy"
+      tytul="Skarby Italii"
+      miejsca={['Padwa', 'Parma', 'Bolonia', 'Piza', 'Lukka', 'Florencja', 'Siena', 'Asyż', 'Rawenna', 'Wenecja']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/24-Wlochy-Skarby-Italii.pdf"
+      zdjecie="/images/tours/Zdjcie24.jpg"
+    />
+
+    <Wyjazd
+      kraj="Włochy"
+      tytul="Rzym - Wieczne Miasto"
+      miejsca={['Rzym']}
+      transport={['Samolot']}
+      dni={6}
+      pdf="/pdf/tours/25-Wlochy-Rzym-Wieczne-Miasto.pdf"
+      zdjecie="/images/tours/Zdjcie25.jpg"
+    />
+
+    <Wyjazd
+      kraj="Zjednoczone Królestwo"
+      tytul="Tea Time"
+      miejsca={['Londyn', 'Oxford', 'Stratford-upon-Avon', 'Cambridge', 'Windsor']}
+      transport={['Autobus']}
+      dni={9}
+      pdf="/pdf/tours/26-Zjednoczone-Krolestwo-Tea-Time.pdf"
+      zdjecie="/images/tours/Zdjcie26.jpg"
+    />
+
+    <Wyjazd
+      kraj="Australia"
+      tytul="Niezwykły Kontynent"
+      miejsca={['Melbourne', 'Góry Błękitne', 'Sydney', 'Uluru', 'Wielka Rafa Koralowa', 'Lasy deszczowe']}
+      transport={['Samolot', 'Autobus']}
+      dni={13}
+      pdf="/pdf/tours/27-Australia-Niezwykly-Kontynent.pdf"
+      zdjecie="/images/tours/Zdjcie27.jpg"
+    />
+
+    <Wyjazd
+      kraj="Stany Zjednoczone"
+      tytul="Amerykański sen"
+      miejsca={['Santa Barbara', 'San Francisco', 'Las Vegas', 'Los Angeles', 'San Diego', 'Monterey']}
+      transport={['Samolot', 'Autobus']}
+      dni={13}
+      pdf="/pdf/tours/28-Stany-Zjednoczone-Amerykanski-sen.pdf"
+      zdjecie="/images/tours/Zdjcie28.jpg"
+    />
   </main>
   
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .intro-section {
-    padding: 60px 0;
-    text-align: center;
-    background: #fff;
-  }
-
-  .intro-section p {
-    font-size: 18px;
-    color: var(--text-color);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.8;
-  }
-
-  .contact-cta {
-    padding: 80px 0;
-    background: var(--primary-color);
-    text-align: center;
-    color: #fff;
-  }
-
-  .contact-cta .section-title h2 {
-    color: #fff;
-  }
-
-  .contact-cta .section-title h2::after {
-    background: var(--secondary-color);
-  }
-
-  .contact-cta p {
-    font-size: 18px;
-    opacity: 0.9;
-    margin-bottom: 30px;
-  }
-
-  .contact-cta .tt_button {
-    background: var(--secondary-color);
-    color: #fff;
-  }
-
-  .contact-cta .tt_button:hover {
-    background: #fff;
-    color: var(--primary-color);
+  .main-content {
+    padding-top: 0;
   }
 </style>
