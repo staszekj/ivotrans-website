@@ -5,29 +5,29 @@ import Footer from "../../components/Footer.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import Osoba from "../../components/Osoba.astro";
 
-const lang = "it";
-const currentPath = "/it/contatti/";
+const lang = "en";
+const currentPath = "/en/contact/";
 ---
 
-<Layout title="Contatti" lang={lang}>
+<Layout title="Contact" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
 
   <PageHeader
-    title="Contatti"
-    subtitle="Contattaci - saremo lieti di rispondere alle tue domande"
+    title="Contact"
+    subtitle="Get in touch with us - we're happy to answer your questions"
     backgroundImage="/images/zdjcienagaleriHOME4.jpg"
   />
 
   <main>
     <section class="team-section">
       <div class="container">
-        <h2>Il Nostro Team</h2>
+        <h2>Our Team</h2>
         <div class="team-rows">
           <div class="team-grid">
             <Osoba
               imie="Iwona Strzałka"
-              stanowisko="Presidente del Consiglio"
-              specjalizacja="Specialista turismo outgoing"
+              stanowisko="CEO"
+              specjalizacja="Outbound tourism specialist"
               email="ivotrans@ivotrans.pl"
               telefon="+48 512 350 050"
               zdjecie="/images/team/iwona.png"
@@ -35,8 +35,8 @@ const currentPath = "/it/contatti/";
 
             <Osoba
               imie="Marcin Paluch"
-              stanowisko="Vice Presidente"
-              specjalizacja="Specialista turismo outgoing"
+              stanowisko="Vice President"
+              specjalizacja="Outbound tourism specialist"
               email="marcin@ivotrans.pl"
               telefon="+48 608 055 537"
               zdjecie="/images/team/marcin.png"
@@ -45,7 +45,7 @@ const currentPath = "/it/contatti/";
           <div class="team-grid">
             <Osoba
               imie="Sylwia Henslok"
-              stanowisko="Specialista turismo incoming"
+              stanowisko="Inbound tourism specialist"
               email="biuro@ivotrans.pl"
               telefon="+48 12 376 71 55"
               zdjecie="/images/team/sylwia.png"
@@ -53,14 +53,14 @@ const currentPath = "/it/contatti/";
             
             <Osoba
               imie="Elżbieta Jagiella"
-              stanowisko="Specialista contabilità"
+              stanowisko="Financial settlements specialist"
               email="ela@ivotrans.pl"
               telefon="+48 692 270 886"
             />
 
             <Osoba
               imie="Jakub Strzałka"
-              stanowisko="Specialista"
+              stanowisko="Specialist"
               email="jakub@ivotrans.pl"
               telefon="+48 --- --- ---"
             />
@@ -79,9 +79,9 @@ const currentPath = "/it/contatti/";
           <div class="company-info">
             <h2>Ivotrans Sp. z o.o.</h2>
             <address>
-              <p><strong>Indirizzo:</strong></p>
+              <p><strong>Address:</strong></p>
               <p>ul. Zakopiańska 2b/35</p>
-              <p>30-418 Cracovia, Polonia</p>
+              <p>30-418 Krakow, Poland</p>
             </address>
 
             <div class="main-contact">
@@ -129,7 +129,7 @@ const currentPath = "/it/contatti/";
 
           <div class="map-placeholder">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.9513687366774!2d19.93159731571901!3d50.02659772394168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0a5a3c5f3d%3A0x3c5c5f3d3c5c5f3d!2sul.%20Zakopia%C5%84ska%202b%2C%2030-418%20Krak%C3%B3w!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.9513687366774!2d19.93159731571901!3d50.02659772394168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0a5a3c5f3d%3A0x3c5c5f3d3c5c5f3d!2sul.%20Zakopia%C5%84ska%202b%2C%2030-418%20Krak%C3%B3w!5e0!3m2!1sen!2sen!4v1620000000000!5m2!1sen!2sen"
               width="100%"
               height="300"
               style="border:0; border-radius: 12px;"
