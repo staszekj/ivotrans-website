@@ -30,6 +30,9 @@ const buildDate = typeof __BUILD_DATE__ !== 'undefined' ? __BUILD_DATE__ : 'dev'
     <title>{title} | Ivotrans</title>
     <meta name="description" content="Ivotrans Tour Operator - organizator turystyki, wycieczki i pielgrzymki w Polsce, Europie i na świecie" />
     <script src="../web-components/lang-dropdown/index.ts"></script>
+    <script>
+      import '../scripts/telemetry';
+    </script>
     <ClientRouter />
   </head>
   <body>
