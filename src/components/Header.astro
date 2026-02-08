@@ -1,10 +1,10 @@
 ---
 /**
  * Header Component - matching Ekko theme exactly
- * Supports multiple languages: pl, it, en, de, es, pt
+ * Supports multiple languages: pl, it, en, es, pt
  */
 interface Props {
-  lang?: 'pl' | 'it' | 'en' | 'de' | 'es' | 'pt';
+  lang?: 'pl' | 'it' | 'en' | 'es' | 'pt';
   currentPath?: string;
   transparent?: boolean;
 }
@@ -16,7 +16,6 @@ const languages = [
   { code: 'pl', flag: '/images/flag-pl.png', label: 'Polski', home: '/pl/' },
   { code: 'it', flag: '/images/flag-it.png', label: 'Italiano', home: '/it/' },
   { code: 'en', flag: '/images/flag-en.png', label: 'English', home: '/en/' },
-  { code: 'de', flag: '/images/flag-de.png', label: 'Deutsch', home: '/de/' },
   { code: 'es', flag: '/images/flag-es.png', label: 'Español', home: '/es/' },
   { code: 'pt', flag: '/images/flag-pt.png', label: 'Português', home: '/pt/' },
 ];
@@ -50,15 +49,6 @@ const navigation: Record<string, { name: string; href: string }[]> = {
     { name: 'Tours', href: '/en/tours/' },
     { name: 'Contact', href: '/en/contact/' },
   ],
-  de: [
-    { name: 'Home', href: '/de/' },
-    { name: 'Über uns', href: '/de/uber-uns/' },
-    { name: 'Unsere Leistungen', href: '/de/leistungen/' },
-    { name: 'Reiseziele', href: '/de/reiseziele/' },
-    { name: 'Pilgerreisen', href: '/de/pilgerreisen/' },
-    { name: 'Rundreisen', href: '/de/rundreisen/' },
-    { name: 'Kontakt', href: '/de/kontakt/' },
-  ],
   es: [
     { name: 'Home', href: '/es/' },
     { name: 'Sobre nosotros', href: '/es/sobre-nosotros/' },
@@ -83,7 +73,6 @@ const contactLabels: Record<string, string> = {
   pl: 'Kontakt',
   it: 'Contattaci',
   en: 'Contact us',
-  de: 'Kontakt',
   es: 'Contacto',
   pt: 'Contacto',
 };
@@ -92,7 +81,6 @@ const contactLinks: Record<string, string> = {
   pl: '/pl/kontakt/',
   it: '/it/contatti/',
   en: '/en/contact/',
-  de: '/de/kontakt/',
   es: '/es/contacto/',
   pt: '/pt/contacto/',
 };
@@ -100,13 +88,13 @@ const contactLinks: Record<string, string> = {
 // Page slug mapping between languages (same page in different languages)
 // Key is the page identifier, values are slugs for each language
 const pageMapping: Record<string, Record<string, string>> = {
-  home: { pl: '', it: '', en: '', de: '', es: '', pt: '' },
-  about: { pl: 'o-nas', it: 'chi-siamo', en: 'about-us', de: 'uber-uns', es: 'sobre-nosotros', pt: 'sobre-nos' },
-  services: { pl: 'nasza-oferta', it: 'servizi', en: 'services', de: 'leistungen', es: 'servicios', pt: 'servicos' },
-  destinations: { pl: 'destynacje', it: 'destinazioni', en: 'destinations', de: 'reiseziele', es: 'destinos', pt: 'destinos' },
-  pilgrimages: { pl: 'pielgrzymki', it: 'pellegrinaggi', en: 'pilgrimages', de: 'pilgerreisen', es: 'peregrinaciones', pt: 'peregrinacoes' },
-  tours: { pl: 'wycieczki', it: 'tour', en: 'tours', de: 'rundreisen', es: 'viajes', pt: 'excursoes' },
-  contact: { pl: 'kontakt', it: 'contatti', en: 'contact', de: 'kontakt', es: 'contacto', pt: 'contacto' },
+  home: { pl: '', it: '', en: '', es: '', pt: '' },
+  about: { pl: 'o-nas', it: 'chi-siamo', en: 'about-us', es: 'sobre-nosotros', pt: 'sobre-nos' },
+  services: { pl: 'nasza-oferta', it: 'servizi', en: 'services', es: 'servicios', pt: 'servicos' },
+  destinations: { pl: 'destynacje', it: 'destinazioni', en: 'destinations', es: 'destinos', pt: 'destinos' },
+  pilgrimages: { pl: 'pielgrzymki', it: 'pellegrinaggi', en: 'pilgrimages', es: 'peregrinaciones', pt: 'peregrinacoes' },
+  tours: { pl: 'wycieczki', it: 'tour', en: 'tours', es: 'viajes', pt: 'excursoes' },
+  contact: { pl: 'kontakt', it: 'contatti', en: 'contact', es: 'contacto', pt: 'contacto' },
 };
 
 // Find current page identifier based on currentPath
@@ -142,9 +130,9 @@ const contactLabel = contactLabels[lang] || 'Contact';
 const contactLink = contactLinks[lang] || '/pl/kontakt/';
 
 // Primary languages (always visible as standalone flags)
-const primaryLangs = ['pl', 'it'];
+const primaryLangs = ['pl', 'it', 'en'];
 // Secondary languages (in dropdown)
-const secondaryLangs = ['en', 'de', 'es', 'pt'];
+const secondaryLangs = ['es', 'pt'];
 
 const primaryLanguages = languages.filter(l => primaryLangs.includes(l.code));
 const dropdownLanguages = languages.filter(l => secondaryLangs.includes(l.code));
@@ -359,6 +347,7 @@ const currentDropdownLang = isPrimaryLang
     letter-spacing: 0.3px;
     text-decoration: none;
     transition: color 0.3s ease;
+    white-space: nowrap;
   }
 
   /* Underline effect like Ekko theme */

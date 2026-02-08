@@ -106,7 +106,6 @@ lang-dropdown .lang-menu a:focus {
 
 @media (max-width: 992px) {
   lang-dropdown {
-    margin-top: 15px;
     align-self: center;
   }
 
