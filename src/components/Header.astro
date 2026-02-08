@@ -140,8 +140,21 @@ const currentPageId = getCurrentPageId(currentPath, lang);
 const navItems = navigation[lang] || navigation.pl;
 const contactLabel = contactLabels[lang] || 'Contact';
 const contactLink = contactLinks[lang] || '/pl/kontakt/';
-const currentLang = languages.find(l => l.code === lang);
-const otherLanguages = languages.filter(l => l.code !== lang);
+
+// Primary languages (always visible as standalone flags)
+const primaryLangs = ['pl', 'it'];
+// Secondary languages (in dropdown)
+const secondaryLangs = ['en', 'de', 'es', 'pt'];
+
+const primaryLanguages = languages.filter(l => primaryLangs.includes(l.code));
+const dropdownLanguages = languages.filter(l => secondaryLangs.includes(l.code));
+
+// Is current language a primary one?
+const isPrimaryLang = primaryLangs.includes(lang);
+// Current language info for dropdown button (shows EU flag if primary lang is selected)
+const currentDropdownLang = isPrimaryLang 
+  ? { code: 'eu', flag: '/images/flag-eu.png', label: 'Other languages' }
+  : languages.find(l => l.code === lang);
 ---
 
 <nav class:list={["navbar", "navbar-default", "navbar-fixed-top", { "nav-transparent": transparent }]} id="navbar">
@@ -173,26 +186,40 @@ const otherLanguages = languages.filter(l => l.code !== lang);
             </li>
           ))}
           
-          <!-- Language selector dropdown -->
-          <li class="menu-item lang-dropdown-wrapper">
-            <lang-dropdown>
-              <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="true">
-                <img class="lang-flag" src={currentLang?.flag} alt={currentLang?.label} />
-                <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
-                  <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                </svg>
-              </button>
-              <ul class="lang-menu">
-                {otherLanguages.map((language) => (
-                  <li>
-                    <a href={getLanguageUrl(language.code, currentPageId)} title={language.label}>
-                      <img class="lang-flag" src={language.flag} alt={language.label} />
-                      <span>{language.label}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </lang-dropdown>
+          <!-- Language selector: Primary flags (PL, IT) + Dropdown for others -->
+          <li class="menu-item lang-selector-wrapper">
+            <div class="lang-selector">
+              <!-- Primary language flags (always visible) -->
+              {primaryLanguages.map((language) => (
+                <a 
+                  href={getLanguageUrl(language.code, currentPageId)} 
+                  title={language.label}
+                  class:list={["primary-lang-flag", { active: lang === language.code }]}
+                >
+                  <img class="lang-flag" src={language.flag} alt={language.label} />
+                </a>
+              ))}
+              
+              <!-- Dropdown for other languages -->
+              <lang-dropdown>
+                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="true">
+                  <img class="lang-flag" src={currentDropdownLang?.flag} alt={currentDropdownLang?.label} />
+                  <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
+                    <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                  </svg>
+                </button>
+                <ul class="lang-menu">
+                  {dropdownLanguages.filter(l => l.code !== lang).map((language) => (
+                    <li>
+                      <a href={getLanguageUrl(language.code, currentPageId)} title={language.label}>
+                        <img class="lang-flag" src={language.flag} alt={language.label} />
+                        <span>{language.label}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </lang-dropdown>
+            </div>
           </li>
         </ul>
       </div>
@@ -365,9 +392,33 @@ const otherLanguages = languages.filter(l => l.code !== lang);
     border-radius: 2px;
   }
 
-  /* Language dropdown wrapper */
-  .lang-dropdown-wrapper {
+  /* Language selector wrapper */
+  .lang-selector-wrapper {
     margin-left: 10px;
+  }
+
+  .lang-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Primary language flags (PL, IT) */
+  .primary-lang-flag {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: 3px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .primary-lang-flag:hover {
+    opacity: 1;
+  }
+
+  .primary-lang-flag.active {
+    opacity: 1;
   }
 
   /* Extra content - Contact button */
@@ -473,10 +524,14 @@ const otherLanguages = languages.filter(l => l.code !== lang);
       display: none;
     }
 
-    .lang-dropdown-wrapper {
+    .lang-selector-wrapper {
       margin-top: 15px;
       margin-left: 0;
       align-self: center;
+    }
+
+    .lang-selector {
+      justify-content: center;
     }
 
     .main-nav-extra-content {
