@@ -97,7 +97,7 @@ lang-dropdown .lang-menu a:focus {
 /* Responsive */
 @media (max-width: 1200px) {
   lang-dropdown .lang-toggle {
-    padding: 8px 10px;
+    padding: 4px 5px;
   }
   lang-dropdown .lang-flag {
     width: 20px;
