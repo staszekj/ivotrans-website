@@ -8,6 +8,9 @@ import Wyjazd from '../../components/Wyjazd.astro';
 const lang = 'it';
 const currentPath = '/it/pellegrinaggi/';
 
+const transparentPixel = '/images/it/pellegrinaggi/transparent.png';
+
+
 const itineraries = [
   {
     title: 'Innamorarsi di Cracovia',
@@ -16,7 +19,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 4,
     pdf: '/pdf/itineraries/1-Innamorarsi-di-Cracovia-in-4-giorni-e-3-notti.pdf',
-    image: '/images/pilgrimages/Zdjcie1.jpg',
+    image: '/images/it/pellegrinaggi/01.jpg',
   },
   {
     title: 'Le quattro capitali',
@@ -25,7 +28,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 6,
     pdf: '/pdf/itineraries/2-Le-quattro-capitali.pdf',
-    image: '/images/pilgrimages/Zdjcie2.jpg',
+    image: '/images/it/pellegrinaggi/02.jpg',
   },
   {
     title: 'Meravigliosa Polonia del sud',
@@ -34,7 +37,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 7,
     pdf: '/pdf/itineraries/3-Meravigliosa-Polonia-del-sud-influente-Varsavia-vibrante-Breslavia-e-splendida-Cracovia.pdf',
-    image: '/images/pilgrimages/Zdjcie3.jpg',
+    image: '/images/it/pellegrinaggi/03.jpg',
   },
   {
     title: 'Meravigliosa Polonia del nord',
@@ -43,7 +46,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 6,
     pdf: '/pdf/itineraries/4-Meravigliosa-Polonia-del-nord-da-Varsavia-verso-il-Mar-Baltico.pdf',
-    image: '/images/pilgrimages/Zdjcie4.jpg',
+    image: '/images/it/pellegrinaggi/04.jpg',
   },
   {
     title: 'Grand tour della Polonia',
@@ -52,7 +55,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 9,
     pdf: '/pdf/itineraries/5-Grand-tour-della-Polonia-in-9-giorni-e-8-notti.pdf',
-    image: '/images/pilgrimages/Zdjcie5.jpg',
+    image: '/images/it/pellegrinaggi/05.jpg',
   },
   {
     title: 'Sulle orme di San Giovanni Paolo II',
@@ -61,7 +64,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 9,
     pdf: '/pdf/itineraries/6-Sulle-orme-del-Santo-Giovanni-Paolo-II-qui-a-Wadowice-e-cominciato-tutto.pdf',
-    image: '/images/pilgrimages/Zdjcie6.jpg',
+    image: '/images/it/pellegrinaggi/06.jpg',
   },
   {
     title: 'Polonia religiosa',
@@ -70,7 +73,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 7,
     pdf: '/pdf/itineraries/7-Polonia-Religiosa-Sulle-orme-dei-Santi-e-Beati-Polacchi.pdf',
-    image: '/images/pilgrimages/Zdjcie7.jpg',
+    image: '/images/it/pellegrinaggi/07.jpg',
   },
   {
     title: 'Pasqua in Polonia',
@@ -79,7 +82,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 6,
     pdf: '/pdf/itineraries/8-Pasqua-in-Polonia-Mistero-della-Fede.pdf',
-    image: '/images/pilgrimages/Zdjcie8.jpg',
+    image: '/images/it/pellegrinaggi/08.jpg',
   },
   {
     title: 'Le perle del rinascimento',
@@ -88,7 +91,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 7,
     pdf: '/pdf/itineraries/9-Le-perle-del-rinascimento-e-non-solo.pdf',
-    image: '/images/pilgrimages/Zdjcie9.jpg',
+    image: '/images/it/pellegrinaggi/09.png',
   },
   {
     title: 'Masuria e Podlachia',
@@ -97,7 +100,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 7,
     pdf: '/pdf/itineraries/10-Masuria-e-Podlachia-Dal-Paese-dei-Mille-Laghi-alla-terra-degli-ultimi-bisonti-europei.pdf',
-    image: '/images/pilgrimages/Zdjcie10.jpg',
+    image: '/images/it/pellegrinaggi/10.jpg',
   },
   {
     title: 'Mercatini di Natale a Cracovia',
@@ -106,7 +109,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 4,
     pdf: '/pdf/itineraries/11-Mercatini-di-Natale-a-Cracovia-insaporiti-dalla-gioia-e-dal-vin-brule-aromatizzato-ai-chiodi-di-garofano.pdf',
-    image: '/images/pilgrimages/Zdjcie11.jpg',
+    image: '/images/it/pellegrinaggi/11.jpg',
   },
   {
     title: 'Polin - La Polonia Ebraica',
@@ -115,7 +118,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 8,
     pdf: '/pdf/itineraries/12-Polin-La-Polonia-Ebraica.pdf',
-    image: '/images/pilgrimages/Zdjcie12.jpg',
+    image: '/images/it/pellegrinaggi/12.jpg',
   },
   {
     title: 'Slow Tour',
@@ -124,7 +127,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 7,
     pdf: '/pdf/itineraries/13-Slow-Tour-tra-maestose-montagne-discese-in-zattera-e-architetture-in-legno.pdf',
-    image: '/images/pilgrimages/Zdjcie13.jpg',
+    image: '/images/it/pellegrinaggi/13.jpg',
   },
   {
     title: 'Auschwitz-Birkenau',
@@ -133,7 +136,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 3,
     pdf: '/pdf/itineraries/14-Auschwitz-Birkenau-dove-si-rivive-la-storia.pdf',
-    image: '/images/pilgrimages/Zdjcie14.jpg',
+    image: '/images/it/pellegrinaggi/14.jpg',
   },
   {
     title: 'Splendida Cracovia, stupenda Breslavia e magica Praga',
@@ -142,7 +145,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 6,
     pdf: '/pdf/itineraries/15-Splendida-Cracovia-stupenda-Breslavia-e-magica-Praga-partiamo.pdf',
-    image: '/images/pilgrimages/Zdjcie15.jpg',
+    image: '/images/it/pellegrinaggi/15.jpg',
   },
   {
     title: 'Polonia e Lituania',
@@ -151,7 +154,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 8,
     pdf: '/pdf/itineraries/16-Polonia-e-Lituania-Nella-stupefacente-Europa-orientale.pdf',
-    image: '/images/pilgrimages/Zdjcie16.jpg',
+    image: '/images/it/pellegrinaggi/16.jpg',
   },
   {
     title: "Via Baltica, Via Dell'ambra",
@@ -160,7 +163,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 10,
     pdf: '/pdf/itineraries/17-Via-Baltica-Via-Dellambra-Lituania-Lettonia-Estonia-e-Polonia-del-Nord-con-la-leggendaria-Danzica.pdf',
-    image: '/images/pilgrimages/Zdjcie17.jpg',
+    image: '/images/it/pellegrinaggi/17.jpg',
   },
   {
     title: 'Viaggio in Polonia con tappe in Slovacchia e Repubblica Ceca',
@@ -169,7 +172,7 @@ const itineraries = [
     transport: ['Aereo', 'Autobus'],
     days: 7,
     pdf: '/pdf/itineraries/18-Viaggio-in-Polonia-con-tappe-in-Slovacchia-e-Repubblica-Ceca-In-bus-dallItalia.pdf',
-    image: '/images/pilgrimages/Zdjcie18.jpg',
+    image: '/images/it/pellegrinaggi/18.jpg',
   },
 ];
 ---
@@ -183,7 +186,6 @@ const itineraries = [
     backgroundImage="/images/pilgrimages/krakow-hero.jpg"
   />
 
-  <p class="hero-credit">Foto di Zygmunt Put, Wikimedia Commons, CC BY-SA 4.0.</p>
 
   <main class="main-content">
     {itineraries.map((tour) => (
@@ -194,7 +196,7 @@ const itineraries = [
         transport={tour.transport}
         dni={tour.days}
         pdf={tour.pdf}
-        zdjecie={tour.image}
+        zdjecie={tour.image || transparentPixel}
         jezyk="it"
       />
     ))}
@@ -204,14 +206,6 @@ const itineraries = [
 </Layout>
 
 <style>
-  .hero-credit {
-    margin: 0;
-    padding: 0.75rem 1rem 0;
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-  }
-
   .main-content {
     padding-top: 0;
   }
