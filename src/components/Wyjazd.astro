@@ -15,6 +15,8 @@ interface Props {
   pdf?: string;
   zdjecie?: string;
   jezyk?: 'pl' | 'it' | 'en' | 'de' | 'es' | 'pt';
+  popupContentId?: string;
+  popupHeading?: string;
 }
 
 const { 
@@ -25,7 +27,9 @@ const {
   dni, 
   pdf, 
   zdjecie, 
-  jezyk = 'pl' 
+  jezyk = 'pl',
+  popupContentId,
+  popupHeading,
 } = Astro.props;
 
 const labels = {
@@ -122,12 +126,25 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
           </div>
         </div>
         
-        {pdf && (
+        {(pdf || popupContentId) && (
           <div class="button-wrapper">
-            <a href={pdf} target="_blank" rel="noopener" class="tt_button tt_secondary_button">
-              <i class="far fa-file"></i>
-              <span>{labels[jezyk].learnMore}</span>
-            </a>
+            {popupContentId ? (
+              <button
+                type="button"
+                class="tt_button tt_secondary_button"
+                data-popup-target={popupContentId}
+                data-popup-heading={popupHeading || kraj}
+                data-popup-fallback={pdf || ''}
+              >
+                <i class="far fa-file"></i>
+                <span>{labels[jezyk].learnMore}</span>
+              </button>
+            ) : (
+              <a href={pdf} target="_blank" rel="noopener" class="tt_button tt_secondary_button">
+                <i class="far fa-file"></i>
+                <span>{labels[jezyk].learnMore}</span>
+              </a>
+            )}
           </div>
         )}
       </div>

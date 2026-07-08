@@ -4,20 +4,34 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Wyjazd from '../../components/Wyjazd.astro';
+import EnItinerary1PopupContent from '../../components/EnItinerary1PopupContent.astro';
 
 const lang = 'en';
 const currentPath = '/en/pilgrimages/';
 const transparentPixel = '/images/it/pellegrinaggi/transparent.png';
+const itinerary1PopupId = 'en-itinerary-1';
 
-const itineraries = [
+const itineraries: Array<{
+  title: string;
+  subtitle: string;
+  places: string[];
+  transport: string[];
+  days: number;
+  pdf: string;
+  image: string;
+  popupContentId?: string;
+  popupHeading?: string;
+}> = [
   {
     title: 'Fall in Love with Krakow',
     subtitle: 'Krakow, Wieliczka, Wadowice and Auschwitz',
     places: ['Krakow (Kraków)', 'Wieliczka', 'Wadowice', 'Auschwitz (Oświęcim)'],
     transport: ['Plane', 'Bus'],
     days: 4,
-    pdf: '/pdf/itineraries/1-Innamorarsi-di-Cracovia-in-4-giorni-e-3-notti.pdf',
+    pdf: '/pdf/itineraries-en/1-Fall-in-Love-with-Krakow-in-4-days-and-3-nights.pdf',
     image: '/images/it/pellegrinaggi/01.jpg',
+    popupContentId: itinerary1PopupId,
+    popupHeading: 'Discover Krakow in 4 unforgettable days',
   },
   {
     title: 'The Four Capitals',
@@ -194,10 +208,18 @@ const itineraries = [
         dni={tour.days}
         pdf={tour.pdf}
         zdjecie={tour.image || transparentPixel}
+        popupContentId={tour.popupContentId}
+        popupHeading={tour.popupHeading}
         jezyk="en"
       />
     ))}
   </main>
+
+  <itinerary-popup>
+    <div data-popup-content={itinerary1PopupId} data-popup-heading="Discover Krakow in 4 unforgettable days">
+      <EnItinerary1PopupContent />
+    </div>
+  </itinerary-popup>
   
   <Footer lang={lang} />
 </Layout>
