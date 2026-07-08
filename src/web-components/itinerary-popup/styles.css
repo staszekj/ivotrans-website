@@ -70,6 +70,7 @@ itinerary-popup .itinerary-popup__close {
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
+  z-index: 3;
 }
 
 itinerary-popup .itinerary-popup__close:hover {
@@ -118,6 +119,17 @@ itinerary-popup .itinerary-popup__body p {
     width: calc(100vw - 24px);
     max-height: calc(100vh - 24px);
     border-radius: 12px;
+  }
+
+  itinerary-popup .itinerary-popup__close {
+    top: max(8px, env(safe-area-inset-top));
+    right: max(8px, env(safe-area-inset-right));
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+    background: var(--secondary-color);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
   }
 
   itinerary-popup .itinerary-popup__content {

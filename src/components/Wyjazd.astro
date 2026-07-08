@@ -17,6 +17,7 @@ interface Props {
   jezyk?: 'pl' | 'it' | 'en' | 'de' | 'es' | 'pt';
   popupContentId?: string;
   popupHeading?: string;
+  popupFallback?: string;
 }
 
 const { 
@@ -30,6 +31,7 @@ const {
   jezyk = 'pl',
   popupContentId,
   popupHeading,
+  popupFallback,
 } = Astro.props;
 
 const labels = {
@@ -134,7 +136,7 @@ const getTransportIcon = (t: string) => transportIcons[t] || 'fa-bus';
                 class="tt_button tt_secondary_button"
                 data-popup-target={popupContentId}
                 data-popup-heading={popupHeading || kraj}
-                data-popup-fallback={pdf || ''}
+                data-popup-fallback={popupFallback ?? pdf ?? ''}
               >
                 <i class="far fa-file"></i>
                 <span>{labels[jezyk].learnMore}</span>

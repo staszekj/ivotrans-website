@@ -5,11 +5,13 @@ import Footer from '../../components/Footer.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Wyjazd from '../../components/Wyjazd.astro';
 import EnItinerary1PopupContent from '../../components/EnItinerary1PopupContent.astro';
+import EnItinerary2PopupContent from '../../components/EnItinerary2PopupContent.astro';
 
 const lang = 'en';
 const currentPath = '/en/pilgrimages/';
 const transparentPixel = '/images/it/pellegrinaggi/transparent.png';
 const itinerary1PopupId = 'en-itinerary-1';
+const itinerary2PopupId = 'en-itinerary-2';
 
 const itineraries: Array<{
   title: string;
@@ -21,6 +23,7 @@ const itineraries: Array<{
   image: string;
   popupContentId?: string;
   popupHeading?: string;
+  popupFallback?: string;
 }> = [
   {
     title: 'Fall in Love with Krakow',
@@ -41,6 +44,9 @@ const itineraries: Array<{
     days: 6,
     pdf: '/pdf/itineraries/2-Le-quattro-capitali.pdf',
     image: '/images/it/pellegrinaggi/02.jpg',
+    popupContentId: itinerary2PopupId,
+    popupHeading: 'Discover the Four Capitals in 6 unforgettable days',
+    popupFallback: '',
   },
   {
     title: 'Marvelous Southern Poland',
@@ -210,6 +216,7 @@ const itineraries: Array<{
         zdjecie={tour.image || transparentPixel}
         popupContentId={tour.popupContentId}
         popupHeading={tour.popupHeading}
+        popupFallback={tour.popupFallback}
         jezyk="en"
       />
     ))}
@@ -218,6 +225,9 @@ const itineraries: Array<{
   <itinerary-popup>
     <div data-popup-content={itinerary1PopupId} data-popup-heading="Discover Krakow in 4 unforgettable days">
       <EnItinerary1PopupContent />
+    </div>
+    <div data-popup-content={itinerary2PopupId} data-popup-heading="Discover the Four Capitals in 6 unforgettable days">
+      <EnItinerary2PopupContent />
     </div>
   </itinerary-popup>
   
