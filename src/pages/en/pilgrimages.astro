@@ -222,14 +222,49 @@ const itineraries: Array<{
     ))}
   </main>
 
-  <itinerary-popup>
-    <div data-popup-content={itinerary1PopupId} data-popup-heading="Discover Krakow in 4 unforgettable days">
-      <EnItinerary1PopupContent />
-    </div>
-    <div data-popup-content={itinerary2PopupId} data-popup-heading="Discover the Four Capitals in 6 unforgettable days">
-      <EnItinerary2PopupContent />
-    </div>
+  <itinerary-popup data-popup-id={itinerary1PopupId} data-popup-top-offset="100">
+    <EnItinerary1PopupContent />
   </itinerary-popup>
+
+  <itinerary-popup data-popup-id={itinerary2PopupId} data-popup-top-offset="100">
+    <EnItinerary2PopupContent />
+  </itinerary-popup>
+
+  <script is:inline>
+    (() => {
+      const closeAllPopups = () => {
+        document.querySelectorAll('itinerary-popup.is-open').forEach((popup) => {
+          popup.classList.remove('is-open');
+        });
+      };
+
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) {
+          return;
+        }
+
+        const trigger = target.closest('[data-popup-target]');
+        if (!trigger) {
+          return;
+        }
+
+        const popupTargetId = trigger.getAttribute('data-popup-target');
+        if (!popupTargetId) {
+          return;
+        }
+
+        const popup = document.querySelector(`itinerary-popup[data-popup-id="${CSS.escape(popupTargetId)}"]`);
+        if (!popup) {
+          return;
+        }
+
+        event.preventDefault();
+        closeAllPopups();
+        popup.classList.add('is-open');
+      });
+    })();
+  </script>
   
   <Footer lang={lang} />
 </Layout>

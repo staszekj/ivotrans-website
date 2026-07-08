@@ -1,203 +1,195 @@
 class ItineraryPopup extends HTMLElement {
-  private overlay: HTMLElement | null = null;
   private panel: HTMLElement | null = null;
   private closeButton: HTMLButtonElement | null = null;
-  private titleEl: HTMLElement | null = null;
-  private bodyEl: HTMLElement | null = null;
-  private activeTrigger: HTMLElement | null = null;
-  private closeTimer: number | null = null;
-  private previousBodyOverflow = '';
+  private modal: HTMLElement | null = null;
+  private renderScheduled = false;
+
+  static get observedAttributes() {
+    return ['class', 'data-popup-top-offset', 'data-popup-top'];
+  }
 
   connectedCallback() {
-    this.renderShell();
-    this.cacheElements();
-
-    this.overlay?.addEventListener('click', this.handleCloseRequest);
-    this.closeButton?.addEventListener('click', this.handleCloseRequest);
-    document.addEventListener('click', this.handleTriggerClick);
-    document.addEventListener('keydown', this.handleDocumentKeydown);
+    this.scheduleRender();
   }
 
   disconnectedCallback() {
-    this.overlay?.removeEventListener('click', this.handleCloseRequest);
     this.closeButton?.removeEventListener('click', this.handleCloseRequest);
-    document.removeEventListener('click', this.handleTriggerClick);
-    document.removeEventListener('keydown', this.handleDocumentKeydown);
-    if (this.closeTimer !== null) {
-      window.clearTimeout(this.closeTimer);
-      this.closeTimer = null;
-    }
+    this.modal?.removeEventListener('click', this.handleBackdropClick);
   }
 
-  private renderShell() {
-    if (this.querySelector('[data-popup-shell]')) {
+  attributeChangedCallback(name: string) {
+    if (name === 'class') {
+      this.syncAriaState();
       return;
     }
 
-    const shell = document.createElement('div');
-    shell.setAttribute('data-popup-shell', '');
-    shell.innerHTML = `
-      <div class="itinerary-popup__overlay" data-popup-overlay></div>
-      <section
-        class="itinerary-popup__panel"
-        data-popup-panel
-        role="dialog"
-        aria-modal="true"
-        aria-hidden="true"
-        aria-labelledby="itinerary-popup-title"
-      >
-        <button type="button" class="itinerary-popup__close" data-popup-close aria-label="Close popup">
-          <span aria-hidden="true">×</span>
-        </button>
-        <div class="itinerary-popup__content">
-          <h2 id="itinerary-popup-title" class="itinerary-popup__title" data-popup-title></h2>
-          <div class="itinerary-popup__body" data-popup-body></div>
+    this.scheduleRender();
+  }
+
+  private scheduleRender() {
+    if (this.renderScheduled) {
+      return;
+    }
+
+    this.renderScheduled = true;
+    queueMicrotask(() => {
+      this.renderScheduled = false;
+      if (!this.isConnected) {
+        return;
+      }
+      this.flushRender();
+    });
+  }
+
+  private flushRender() {
+    this.applyTopOffsetConfig();
+    this.renderShadow();
+
+    this.closeButton?.removeEventListener('click', this.handleCloseRequest);
+    this.closeButton?.addEventListener('click', this.handleCloseRequest);
+    this.modal?.removeEventListener('click', this.handleBackdropClick);
+    this.modal?.addEventListener('click', this.handleBackdropClick);
+
+    this.syncAriaState();
+  }
+
+  private applyTopOffsetConfig() {
+    const rawTopOffset = this.getAttribute('data-popup-top-offset') || this.getAttribute('data-popup-top') || '24';
+    const parsed = Number.parseFloat(rawTopOffset);
+    const topOffset = Number.isFinite(parsed) ? Math.max(0, parsed) : 24;
+    this.style.setProperty('--itinerary-popup-top-offset', `${topOffset}px`);
+  }
+
+  private renderShadow() {
+    const root = this.shadowRoot || this.attachShadow({ mode: 'open' });
+    root.innerHTML = `
+      <style>
+        :host {
+          position: relative;
+          display: block;
+        }
+
+        .modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          padding-top: var(--itinerary-popup-top-offset, 24px);
+          padding-bottom: 24px;
+          box-sizing: border-box;
+          overflow: hidden;
+          z-index: 1200;
+          opacity: 0;
+          visibility: hidden;
+          pointer-events: none;
+          transition: opacity 220ms ease, visibility 220ms ease;
+        }
+
+        :host(.is-open) .modal {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+        }
+
+        .modal__window {
+          position: relative;
+          background-color: #fff;
+          width: min(420px, calc(100vw - 32px));
+          min-height: 120px;
+          max-height: calc(100vh - var(--itinerary-popup-top-offset, 24px) - 24px);
+          padding: 2em 1em;
+          border-radius: 14px;
+          box-sizing: border-box;
+          overflow-y: auto;
+          overscroll-behavior: contain;
+          -webkit-overflow-scrolling: touch;
+          opacity: 0;
+          transform: translateY(8px) scale(0.98);
+          transition: opacity 220ms ease, transform 220ms ease;
+        }
+
+        :host(.is-open) .modal__window {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+
+        .modal__close {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          width: 22px;
+          height: 22px;
+          border: 2px solid var(--secondary-color, #c43d3d);
+          border-radius: 999px;
+          background: #fff;
+          color: var(--secondary-color, #c43d3d);
+          font-size: 11px;
+          line-height: 1;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .modal__close:hover {
+          background: var(--secondary-color, #c43d3d);
+          color: #fff;
+        }
+
+        .modal__close:focus-visible {
+          outline: 2px solid var(--secondary-color, #c43d3d);
+          outline-offset: 2px;
+        }
+
+        .modal__close:active {
+          transform: scale(0.96);
+        }
+      </style>
+      <div class="modal" data-popup-modal>
+        <div
+          class="modal__window"
+          data-popup-panel
+          role="dialog"
+          aria-modal="true"
+          aria-hidden="false"
+          aria-label="Popup"
+        >
+          <button type="button" class="modal__close" data-popup-close aria-label="Close popup">
+            <span aria-hidden="true">X</span>
+          </button>
+          <slot></slot>
         </div>
-      </section>
+      </div>
     `;
 
-    this.appendChild(shell);
-  }
-
-  private cacheElements() {
-    this.overlay = this.querySelector('[data-popup-overlay]');
-    this.panel = this.querySelector('[data-popup-panel]');
-    this.closeButton = this.querySelector('[data-popup-close]');
-    this.titleEl = this.querySelector('[data-popup-title]');
-    this.bodyEl = this.querySelector('[data-popup-body]');
-  }
-
-  private handleTriggerClick = (event: Event) => {
-    const trigger = (event.target as HTMLElement | null)?.closest('[data-popup-target]') as HTMLElement | null;
-    if (!trigger) {
-      return;
-    }
-
-    const popupTargetId = trigger.dataset.popupTarget;
-    if (!popupTargetId) {
-      return;
-    }
-
-    if (!this.bodyEl || !this.titleEl) {
-      this.openFallback(trigger.dataset.popupFallback);
-      return;
-    }
-
-    const content = Array.from(this.querySelectorAll<HTMLElement>('[data-popup-content]')).find(
-      (item) => item.dataset.popupContent === popupTargetId
-    );
-
-    if (!content) {
-      this.openFallback(trigger.dataset.popupFallback);
-      return;
-    }
-
-    event.preventDefault();
-    this.activeTrigger = trigger;
-    this.titleEl.textContent = content.dataset.popupHeading || trigger.dataset.popupHeading || 'Details';
-    this.bodyEl.innerHTML = content.innerHTML;
-    this.open();
-  };
-
-  private handleDocumentKeydown = (event: KeyboardEvent) => {
-    if (!this.classList.contains('is-open')) {
-      return;
-    }
-
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      this.close();
-      return;
-    }
-
-    if (event.key === 'Tab') {
-      this.trapFocus(event);
-    }
-  };
-
-  private trapFocus(event: KeyboardEvent) {
-    if (!this.panel) {
-      return;
-    }
-
-    const focusable = this.getFocusable(this.panel);
-    if (focusable.length === 0) {
-      return;
-    }
-
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    const active = document.activeElement as HTMLElement | null;
-
-    if (event.shiftKey && active === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && active === last) {
-      event.preventDefault();
-      first.focus();
-    }
-  }
-
-  private getFocusable(scope: HTMLElement) {
-    return Array.from(
-      scope.querySelectorAll<HTMLElement>(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      )
-    ).filter((el) => !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true');
+    this.panel = root.querySelector('[data-popup-panel]');
+    this.closeButton = root.querySelector('[data-popup-close]');
+    this.modal = root.querySelector('[data-popup-modal]');
   }
 
   private handleCloseRequest = () => {
     this.close();
   };
 
-  private open() {
-    if (!this.panel) {
-      return;
+  private handleBackdropClick = (event: Event) => {
+    if (event.target === this.modal) {
+      this.close();
     }
+  };
 
-    if (this.closeTimer !== null) {
-      window.clearTimeout(this.closeTimer);
-      this.closeTimer = null;
-    }
-
-    this.classList.remove('is-closing');
-    this.classList.add('is-open');
-    this.panel.setAttribute('aria-hidden', 'false');
-
-    this.previousBodyOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-
-    window.setTimeout(() => {
-      this.closeButton?.focus();
-    }, 0);
+  private syncAriaState() {
+    this.panel?.setAttribute('aria-hidden', this.classList.contains('is-open') ? 'false' : 'true');
   }
 
   private close() {
-    if (!this.classList.contains('is-open')) {
-      return;
-    }
-
     this.classList.remove('is-open');
-    this.classList.add('is-closing');
-
-    if (this.closeTimer !== null) {
-      window.clearTimeout(this.closeTimer);
-    }
-
-    this.closeTimer = window.setTimeout(() => {
-      this.classList.remove('is-closing');
-      this.panel?.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = this.previousBodyOverflow;
-      this.activeTrigger?.focus();
-      this.closeTimer = null;
-    }, 200);
-  }
-
-  private openFallback(fallback?: string) {
-    if (!fallback) {
-      return;
-    }
-    window.open(fallback, '_blank', 'noopener');
+    this.syncAriaState();
   }
 }
 
