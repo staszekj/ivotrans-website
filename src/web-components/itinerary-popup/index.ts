@@ -101,16 +101,35 @@ class ItineraryPopup extends HTMLElement {
           background-color: #fff;
           width: min(420px, calc(100vw - 32px));
           min-height: 120px;
-          max-height: calc(100vh - var(--itinerary-popup-top-offset, 24px) - 24px);
+          max-height: calc(100vh - var(--itinerary-popup-top-offset, 100px) - 24px);
           padding: 2em 1em;
           border-radius: 14px;
           box-sizing: border-box;
           overflow-y: auto;
           overscroll-behavior: contain;
           -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
           opacity: 0;
           transform: translateY(8px) scale(0.98);
           transition: opacity 220ms ease, transform 220ms ease;
+        }
+
+        .modal__window::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        .modal__window::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        .modal__window::-webkit-scrollbar-thumb {
+          background: rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+        }
+
+        .modal__window::-webkit-scrollbar-thumb:hover {
+          background: rgba(0, 0, 0, 0.5);
         }
 
         :host(.is-open) .modal__window {
