@@ -78,7 +78,7 @@ class ItineraryPopup extends HTMLElement {
           background-color: rgba(0, 0, 0, 0.5);
           display: flex;
           justify-content: center;
-          align-items: flex-start;
+          align-items: stretch;
           padding-top: var(--itinerary-popup-top-offset, 24px);
           padding-bottom: 24px;
           box-sizing: border-box;
@@ -101,7 +101,6 @@ class ItineraryPopup extends HTMLElement {
           background-color: #fff;
           width: min(420px, calc(100vw - 32px));
           min-height: 120px;
-          max-height: calc(100vh - var(--itinerary-popup-top-offset, 100px) - 24px);
           padding: 2em 1em;
           border-radius: 14px;
           box-sizing: border-box;
