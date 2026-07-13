@@ -18,130 +18,22 @@ const currentPath = '/es/destinos/';
   />
   
   <main>
-    <section class="tours-section">
+    <section class="intro-section">
       <div class="container">
         <div class="two-column-layout">
           <div class="content-column">
-            <div class="section-header">
-              <h2>Tours</h2>
-              <p>
-                Le ofrecemos una rica selección de tours en Polonia, Europa y en todo el mundo.
-              </p>
-            </div>
-            
-            <div class="content-block">
-              <p>
-                Le invitamos a visitar las vibrantes capitales y metrópolis europeas. 
-                Cada país tiene su propia historia, cultura y paisaje únicos, 
-                así como diferentes emociones, recuerdos y valiosas experiencias.
-              </p>
-              <p>
-                Para aquellos que tienen "apetito" por el mundo, recomendamos un viaje a Australia 
-                con la fabulosa Gran Barrera de Coral o los sorprendentemente diversos 
-                y cautivadores Estados Unidos.
-              </p>
-              <p>
-                Le invitamos a explorar el mapa gráfico de nuestros destinos, 
-                donde organizamos tours completos y reservamos servicios individuales bajo pedido.
-              </p>
-            </div>
+            <h2>Destinos</h2>
+            <p class="intro">
+              Nuestra experiencia en turismo receptivo nos distingue no solo en Polonia. Como Tour
+              Operador, trabajamos directamente con proveedores locales en los siguientes países:
+              Eslovaquia, República Checa, Austria, Alemania y los Países Bálticos. Esta posibilidad
+              nos permite ampliar nuestra oferta con otros lugares de gran interés histórico y
+              cultural fuera de Polonia. Además, facilita el control de los servicios ofrecidos y
+              garantiza el buen desarrollo del tour.
+            </p>
           </div>
           <div class="image-column">
-            <a href="/es/viajes/">
-              <img src="/images/destynacje-wycieczki.jpg" alt="Mapa de destinos de tours" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="pilgrimages-section">
-      <div class="container">
-        <div class="two-column-layout">
-          <div class="image-column">
-            <a href="/es/peregrinaciones/">
-              <img src="/images/destynacje-pielgrzymki.jpg" alt="Mapa de destinos de peregrinación" />
-            </a>
-          </div>
-          <div class="content-column">
-            <div class="section-header">
-              <h2>Peregrinaciones</h2>
-              <p>
-                Viajar a lugares sagrados tiene un propósito especial.
-              </p>
-            </div>
-            
-            <div class="content-block">
-              <p>
-                Es un tiempo maravilloso que cada uno vive individualmente, llevando consigo 
-                diversas intenciones que dan un significado más profundo al viaje. 
-                La peregrinación es también un camino de renovación espiritual, 
-                para profundizar la fe o para reencontrarla.
-              </p>
-              <p>
-                Le invitamos a explorar el mapa de los destinos de peregrinación más hermosos 
-                de Europa, que llevan a Roma, Fátima, Lourdes o Santiago de Compostela. 
-                Para visitar Tierra Santa, Georgia, Líbano y la Virgen de Guadalupe. 
-                Para seguir los pasos de San Pablo, Santa Teresa de Jesús, San Patricio y muchos otros.
-              </p>
-              <p>
-                Para cada uno de estos destinos, ofrecemos no solo programas completos, 
-                sino que también ayudamos en la organización de servicios individuales por encargo.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="destinations-map">
-      <div class="container">
-        <h2>Nuestros destinos</h2>
-        <div class="destinations-grid">
-          <div class="destination-region">
-            <h3>🇪🇺 Europa</h3>
-            <ul>
-              <li>Austria</li>
-              <li>Bélgica, Holanda, Luxemburgo</li>
-              <li>Croacia</li>
-              <li>República Checa</li>
-              <li>Francia</li>
-              <li>Grecia</li>
-              <li>España</li>
-              <li>Irlanda</li>
-              <li>Lituania, Letonia, Estonia</li>
-              <li>Malta y Sicilia</li>
-              <li>Alemania</li>
-              <li>Noruega</li>
-              <li>Portugal</li>
-              <li>Rusia</li>
-              <li>Rumanía</li>
-              <li>Escocia</li>
-              <li>Suiza</li>
-              <li>Hungría</li>
-              <li>Gran Bretaña</li>
-              <li>Italia</li>
-            </ul>
-          </div>
-          
-          <div class="destination-region">
-            <h3>🌍 Oriente Medio y Asia</h3>
-            <ul>
-              <li>Georgia y Armenia</li>
-              <li>Israel</li>
-              <li>Jordania</li>
-              <li>Líbano</li>
-              <li>Turquía</li>
-            </ul>
-          </div>
-          
-          <div class="destination-region">
-            <h3>🌎 América y Oceanía</h3>
-            <ul>
-              <li>Australia</li>
-              <li>México</li>
-              <li>Estados Unidos</li>
-            </ul>
+            <img src="/images/destinazioni-mappa.jpg" alt="Mapa de destinos Ivotrans" />
           </div>
         </div>
       </div>
@@ -152,24 +44,28 @@ const currentPath = '/es/destinos/';
 </Layout>
 
 <style>
-  .tours-section,
-  .pilgrimages-section {
+  .intro-section {
     padding: 4rem 0;
-  }
-
-  .pilgrimages-section {
-    background: var(--bg-light);
+    background: #fff;
   }
 
   .two-column-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    align-items: center;
+    align-items: start;
   }
 
-  .content-column {
-    text-align: left;
+  .content-column h2 {
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    margin-bottom: 25px;
+  }
+
+  .content-column .intro {
+    font-size: 1.15rem;
+    color: var(--text-color);
+    line-height: 1.8;
   }
 
   .image-column img {
@@ -177,32 +73,6 @@ const currentPath = '/es/destinos/';
     height: auto;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  .section-header {
-    margin-bottom: 2rem;
-  }
-
-  .section-header h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-  }
-
-  .section-header p {
-    font-size: 1.2rem;
-    color: var(--text-light);
-  }
-
-  .content-block {
-    margin-bottom: 2rem;
-  }
-
-  .content-block p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
   }
 
   @media (max-width: 900px) {
@@ -214,65 +84,8 @@ const currentPath = '/es/destinos/';
       text-align: center;
     }
 
-    .content-column .content-block {
-      margin: 0 auto 2rem;
-      max-width: 800px;
-    }
-
     .image-column {
       order: -1;
-    }
-  }
-
-  .destinations-map {
-    padding: 4rem 0;
-  }
-
-  .destinations-map h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 3rem;
-  }
-
-  .destinations-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .destination-region {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--border-color);
-  }
-
-  .destination-region h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--accent-color);
-    font-size: 1.25rem;
-  }
-
-  .destination-region ul {
-    list-style: none;
-    columns: 2;
-    column-gap: 1rem;
-  }
-
-  .destination-region li {
-    padding: 0.35rem 0;
-    font-size: 0.95rem;
-    color: var(--text-color);
-    break-inside: avoid;
-  }
-
-  @media (max-width: 768px) {
-    .destination-region ul {
-      columns: 1;
     }
   }
 </style>
