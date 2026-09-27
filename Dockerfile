@@ -7,8 +7,8 @@ ENV GIT_SHA=${GIT_SHA}
 
 WORKDIR /app
 
-# Install pnpm
-RUN npm install -g pnpm
+# Install pnpm (pinned: a new major can break the build, e.g. pnpm 12 ERR_PNPM_IGNORED_BUILDS)
+RUN npm install -g pnpm@12.6.0
 
 # Copy package files
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
