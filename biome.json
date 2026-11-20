@@ -1,0 +1,23 @@
+{
+	"linter": {
+		"enabled": false
+	},
+	"assist": {
+		"enabled": false
+	},
+	"html": {
+		"experimentalFullSupportEnabled": true,
+		"formatter": {
+			"enabled": true
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.astro"],
+			"formatter": {
+				"indentStyle": "space",
+				"indentWidth": 2
+			}
+		}
+	]
+}
