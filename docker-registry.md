@@ -87,23 +87,23 @@ spec:
   template:
     spec:
       containers:
-      - name: kaniko
-        image: gcr.io/kaniko-project/executor:latest
-        args:
-        - "--dockerfile=Dockerfile"
-        - "--context=git://github.com/user/repo"
-        - "--destination=docker-registry.eltrue/moj-app:v1.0"
-        - "--insecure-registry=docker-registry.eltrue"
-        volumeMounts:
-        - name: docker-config
-          mountPath: /kaniko/.docker/
+        - name: kaniko
+          image: gcr.io/kaniko-project/executor:latest
+          args:
+            - "--dockerfile=Dockerfile"
+            - "--context=git://github.com/user/repo"
+            - "--destination=docker-registry.eltrue/moj-app:v1.0"
+            - "--insecure-registry=docker-registry.eltrue"
+          volumeMounts:
+            - name: docker-config
+              mountPath: /kaniko/.docker/
       volumes:
-      - name: docker-config
-        secret:
-          secretName: docker-registry-auth
-          items:
-          - key: .dockerconfigjson
-            path: config.json
+        - name: docker-config
+          secret:
+            secretName: docker-registry-auth
+            items:
+              - key: .dockerconfigjson
+                path: config.json
       restartPolicy: Never
 ```
 
@@ -141,13 +141,14 @@ metadata:
   namespace: prod
 spec:
   containers:
-  - name: app
-    image: docker-registry.eltrue/moj-app:v1.0
+    - name: app
+      image: docker-registry.eltrue/moj-app:v1.0
   imagePullSecrets:
-  - name: docker-registry-pull-secret
+    - name: docker-registry-pull-secret
 ```
 
 Najpierw stwórz secret:
+
 ```bash
 kubectl create secret docker-registry docker-registry-pull-secret \
   -n prod \
@@ -185,7 +186,7 @@ kubectl exec -n prod -it deployment/docker-registry -- du -sh /var/lib/registry
 
 ## 🚨 Ważne uwagi dla AI Agent
 
-1. **Kontekst środowiska**: 
+1. **Kontekst środowiska**:
    - Jesteś w podzie K8s w namespace `dev`
    - Registry jest w namespace `prod`
    - Nie masz dostępu do Docker daemon w środowisku K8s

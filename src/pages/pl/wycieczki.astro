@@ -1,18 +1,18 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
-import Wyjazd from '../../components/Wyjazd.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Wyjazd from "../../components/Wyjazd.astro";
 
-const lang = 'pl';
-const currentPath = '/pl/wycieczki/';
+const lang = "pl";
+const currentPath = "/pl/wycieczki/";
 ---
 
 <Layout title="Wycieczki objazdowe - Ivotrans" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="Wycieczki objazdowe"
     subtitle="Zapraszamy do zapoznania się z przykładowymi propozycjami programów naszych wycieczek objazdowych"
     backgroundImage="/images/zdjcienagaleriHOME3.jpg"
@@ -22,8 +22,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Austria"
       tytul="Cesarski Wiedeń i Dolina Wachau"
-      miejsca={['Wiedeń', 'Melk', 'Dürnstein', 'Krems']}
-      transport={['Autobus']}
+      miejsca={["Wiedeń", "Melk", "Dürnstein", "Krems"]}
+      transport={["Autobus"]}
       dni={5}
       pdf="/pdf/tours/1-Austria-Cesarski-Wieden-i-Dolina-Wachau.pdf"
       zdjecie="/images/tours/Zdjcie1-1.jpg"
@@ -32,8 +32,16 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Belgia, Holandia i Luksemburg"
       tytul="W krainie sera i wiatraków"
-      miejsca={['Amsterdam', 'Rotterdam', 'Haga', 'Antwerpia', 'Brugia', 'Bruksela', 'Luksemburg']}
-      transport={['Autobus']}
+      miejsca={[
+        "Amsterdam",
+        "Rotterdam",
+        "Haga",
+        "Antwerpia",
+        "Brugia",
+        "Bruksela",
+        "Luksemburg",
+      ]}
+      transport={["Autobus"]}
       dni={9}
       pdf="/pdf/tours/2-Belgia-Holandia-i-Luksemburg-W-krainie-sera-i-wiatrakow.pdf"
       zdjecie="/images/tours/Zdjcie2-1.jpg"
@@ -42,8 +50,17 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Chorwacja"
       tytul="Perły Adriatyku"
-      miejsca={['Zagrzeb', 'Pula', 'Zadar', 'Split', 'Mostar', 'Dubrownik', 'Trogir', 'Szybenik']}
-      transport={['Autobus']}
+      miejsca={[
+        "Zagrzeb",
+        "Pula",
+        "Zadar",
+        "Split",
+        "Mostar",
+        "Dubrownik",
+        "Trogir",
+        "Szybenik",
+      ]}
+      transport={["Autobus"]}
       dni={8}
       pdf="/pdf/tours/3-Chorwacja-Perly-Adriatyku.pdf"
       zdjecie="/images/tours/Zdjcie3-1.jpg"
@@ -52,8 +69,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Czechy"
       tytul="Złota Praga i skarby Czech"
-      miejsca={['Kutná Hora', 'Praga', 'Karlštejn', 'Karlowe Wary']}
-      transport={['Autobus']}
+      miejsca={["Kutná Hora", "Praga", "Karlštejn", "Karlowe Wary"]}
+      transport={["Autobus"]}
       dni={5}
       pdf="/pdf/tours/4-Czechy-Zlota-Praga-i-skarby-Czech.pdf"
       zdjecie="/images/tours/Zdjcie4-1.jpg"
@@ -62,8 +79,15 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Francja"
       tytul="Kraj najlepszych win i szampana"
-      miejsca={['Reims', 'Paryż', 'Wersal', 'Mont Saint Michel', 'Dolina Loary', 'Strasbourg']}
-      transport={['Autobus']}
+      miejsca={[
+        "Reims",
+        "Paryż",
+        "Wersal",
+        "Mont Saint Michel",
+        "Dolina Loary",
+        "Strasbourg",
+      ]}
+      transport={["Autobus"]}
       dni={8}
       pdf="/pdf/tours/5-Francja-Kraj-najlepszych-win-i-szampana.pdf"
       zdjecie="/images/tours/Zdjcie5-1.jpg"
@@ -72,8 +96,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Francja"
       tytul="Paryż - Stolica Świata"
-      miejsca={['Paryż']}
-      transport={['Samolot']}
+      miejsca={["Paryż"]}
+      transport={["Samolot"]}
       dni={5}
       pdf="/pdf/tours/6-Francja-Paryz-Stolica-Swiata.pdf"
       zdjecie="/images/tours/Zdjcie6-1.jpg"
@@ -82,8 +106,17 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Grecja"
       tytul="Podróż przez historię"
-      miejsca={['Saloniki', 'Masyw Meteora', 'Delfy', 'Ateny', 'Mykeny', 'Epidauros', 'Nafplion', 'Termopile']}
-      transport={['Autobus']}
+      miejsca={[
+        "Saloniki",
+        "Masyw Meteora",
+        "Delfy",
+        "Ateny",
+        "Mykeny",
+        "Epidauros",
+        "Nafplion",
+        "Termopile",
+      ]}
+      transport={["Autobus"]}
       dni={8}
       pdf="/pdf/tours/7-Grecja-Podroz-przez-historie.pdf"
       zdjecie="/images/tours/Zdjcie7-1.jpg"
@@ -92,8 +125,19 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Gruzja i Armenia"
       tytul="Nieznany Świat"
-      miejsca={['Tbilisi', 'Kachetia', 'Kazbeg', 'Mccheta', 'Kutaisi', 'Batumi', 'Vardzia', 'Erywań', 'Khor Virap', 'Eczmiadzyn']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={[
+        "Tbilisi",
+        "Kachetia",
+        "Kazbeg",
+        "Mccheta",
+        "Kutaisi",
+        "Batumi",
+        "Vardzia",
+        "Erywań",
+        "Khor Virap",
+        "Eczmiadzyn",
+      ]}
+      transport={["Samolot", "Autobus"]}
       dni={13}
       pdf="/pdf/tours/8-Gruzja-i-Armenia-Nieznany-Swiat.pdf"
       zdjecie="/images/tours/Zdjcie8-1.jpg"
@@ -102,8 +146,18 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Hiszpania"
       tytul="Wspaniała Iberia"
-      miejsca={['Walencja', 'Granada', 'Sewilla', 'Kordoba', 'Toledo', 'San Lorenzo De El Escorial', 'Madryt', 'Saragossa', 'Barcelona']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={[
+        "Walencja",
+        "Granada",
+        "Sewilla",
+        "Kordoba",
+        "Toledo",
+        "San Lorenzo De El Escorial",
+        "Madryt",
+        "Saragossa",
+        "Barcelona",
+      ]}
+      transport={["Samolot", "Autobus"]}
       dni={10}
       pdf="/pdf/tours/9-Hiszpania-Wspaniala-Iberia.pdf"
       zdjecie="/images/tours/Zdjcie9-1.jpg"
@@ -112,8 +166,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Hiszpania"
       tytul="Barcelona - W sercu Katalonii"
-      miejsca={['Barcelona']}
-      transport={['Samolot']}
+      miejsca={["Barcelona"]}
+      transport={["Samolot"]}
       dni={5}
       pdf="/pdf/tours/10-Hiszpania-Barcelona-W-sercu-Katalonii.pdf"
       zdjecie="/images/tours/Zdjcie10-1.jpg"
@@ -122,8 +176,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Hiszpania"
       tytul="Królewski Madryt"
-      miejsca={['Madryt']}
-      transport={['Samolot']}
+      miejsca={["Madryt"]}
+      transport={["Samolot"]}
       dni={5}
       pdf="/pdf/tours/11-Hiszpania-Krolewski-Madryt.pdf"
       zdjecie="/images/tours/Zdjcie11-1.jpg"
@@ -132,8 +186,19 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Malta i Sycylia"
       tytul="W słońcu południa"
-      miejsca={['La Valetta', 'Mdina', 'Rabat', 'Gozo', 'Palermo', 'Trapani', 'Syrakuzy', 'Etna', 'Taormina', 'Katania']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={[
+        "La Valetta",
+        "Mdina",
+        "Rabat",
+        "Gozo",
+        "Palermo",
+        "Trapani",
+        "Syrakuzy",
+        "Etna",
+        "Taormina",
+        "Katania",
+      ]}
+      transport={["Samolot", "Autobus"]}
       dni={5}
       pdf="/pdf/tours/12-Malta-i-Sycylia-W-sloncu-poludnia.pdf"
       zdjecie="/images/tours/Zdjcie12-2.jpg"
@@ -142,8 +207,17 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Norwegia"
       tytul="Kraina Fiordów"
-      miejsca={['Bergen', 'Ystad', 'Fredrikstad', 'Oslo', 'Lillehammer', 'Droga Troli', 'Droga Orłów', 'Flåm']}
-      transport={['Autobus']}
+      miejsca={[
+        "Bergen",
+        "Ystad",
+        "Fredrikstad",
+        "Oslo",
+        "Lillehammer",
+        "Droga Troli",
+        "Droga Orłów",
+        "Flåm",
+      ]}
+      transport={["Autobus"]}
       dni={8}
       pdf="/pdf/tours/13-Norwegia-Kraina-Fiordow.pdf"
       zdjecie="/images/tours/Zdjcie13-1.jpg"
@@ -152,8 +226,19 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Portugalia"
       tytul="Perełki Portugalii"
-      miejsca={['Porto', 'Coimbra', 'Tomar', 'Batalha', 'Nazaré', 'Lizbona', 'Sintra', 'Cabo da Roca', 'Cascais', 'Estoril']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={[
+        "Porto",
+        "Coimbra",
+        "Tomar",
+        "Batalha",
+        "Nazaré",
+        "Lizbona",
+        "Sintra",
+        "Cabo da Roca",
+        "Cascais",
+        "Estoril",
+      ]}
+      transport={["Samolot", "Autobus"]}
       dni={8}
       pdf="/pdf/tours/14-Portugalia-Perelki-Portugalii.pdf"
       zdjecie="/images/tours/Zdjcie14-1.jpg"
@@ -162,8 +247,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Portugalia"
       tytul="Lizbona - Słoneczna stolica"
-      miejsca={['Lizbona']}
-      transport={['Samolot']}
+      miejsca={["Lizbona"]}
+      transport={["Samolot"]}
       dni={5}
       pdf="/pdf/tours/15-Portugalia-Lizbona-Sloneczna-stolica.pdf"
       zdjecie="/images/tours/Zdjcie15-1.jpg"
@@ -172,8 +257,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Litwa, Łotwa i Estonia"
       tytul="Baltic Tour"
-      miejsca={['Kowno', 'Ryga', 'Tallinn', 'Helsinki', 'Wilno']}
-      transport={['Autobus']}
+      miejsca={["Kowno", "Ryga", "Tallinn", "Helsinki", "Wilno"]}
+      transport={["Autobus"]}
       dni={8}
       pdf="/pdf/tours/16-Litwa-Lotwa-i-Estonia-Baltic-Tour.pdf"
       zdjecie="/images/tours/Zdjcie16-1.jpg"
@@ -182,8 +267,17 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Rosja"
       tytul="Historia Imperium"
-      miejsca={['Dyneburg', 'Psków', 'Petersburg', 'Carskie Sioło', 'Peterhof', 'Nowogród Wielki', 'Wilno', 'Moskwa']}
-      transport={['Autobus']}
+      miejsca={[
+        "Dyneburg",
+        "Psków",
+        "Petersburg",
+        "Carskie Sioło",
+        "Peterhof",
+        "Nowogród Wielki",
+        "Wilno",
+        "Moskwa",
+      ]}
+      transport={["Autobus"]}
       dni={12}
       pdf="/pdf/tours/17-Rosja-Historia-Imperium.pdf"
       zdjecie="/images/tours/Zdjcie17-1.jpg"
@@ -192,8 +286,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Rosja"
       tytul="Petersburg - Wenecja Północy"
-      miejsca={['Petersburg', 'Peterhof', 'Carskie Sioło', 'Helsinki']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={["Petersburg", "Peterhof", "Carskie Sioło", "Helsinki"]}
+      transport={["Samolot", "Autobus"]}
       dni={5}
       pdf="/pdf/tours/18-Rosja-Petersburg-Wenecja-Polnocy.pdf"
       zdjecie="/images/tours/Zdjcie18-1.jpg"
@@ -202,8 +296,18 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Rumunia"
       tytul="W krainie Drakuli"
-      miejsca={['Oradea', 'Cluj-Napoca', 'Biertan', 'Sighișoara', 'Brașov', 'Bukareszt', 'Suczawa', 'Sapânța', 'Satu Mare']}
-      transport={['Autobus']}
+      miejsca={[
+        "Oradea",
+        "Cluj-Napoca",
+        "Biertan",
+        "Sighișoara",
+        "Brașov",
+        "Bukareszt",
+        "Suczawa",
+        "Sapânța",
+        "Satu Mare",
+      ]}
+      transport={["Autobus"]}
       dni={9}
       pdf="/pdf/tours/19-Rumunia-W-krainie-Drakuli.pdf"
       zdjecie="/images/tours/Zdjcie19-1.jpg"
@@ -212,8 +316,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Szkocja"
       tytul="Szkockie klimaty"
-      miejsca={['Edynburg', 'Stirling', 'Perth', 'Glasgow', 'Inverness']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={["Edynburg", "Stirling", "Perth", "Glasgow", "Inverness"]}
+      transport={["Samolot", "Autobus"]}
       dni={6}
       pdf="/pdf/tours/20-Szkocja-Szkockie-klimaty.pdf"
       zdjecie="/images/tours/Zdjcie20-1.jpg"
@@ -222,8 +326,20 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Szwajcaria"
       tytul="Alpejska kraina"
-      miejsca={['Stein am Rhein', 'Sankt Gallen', 'Zurych', 'Fryburg', 'Lucerna', 'Grindelwald', 'Interlaken', 'Berno', 'Genewa', 'Lozanna', 'Montreux']}
-      transport={['Autobus']}
+      miejsca={[
+        "Stein am Rhein",
+        "Sankt Gallen",
+        "Zurych",
+        "Fryburg",
+        "Lucerna",
+        "Grindelwald",
+        "Interlaken",
+        "Berno",
+        "Genewa",
+        "Lozanna",
+        "Montreux",
+      ]}
+      transport={["Autobus"]}
       dni={8}
       pdf="/pdf/tours/21-Szwajcaria-Alpejska-kraina.pdf"
       zdjecie="/images/tours/Zdjcie21-2.jpg"
@@ -232,8 +348,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Węgry"
       tytul="Budapeszt - Naddunajska stolica"
-      miejsca={['Eger', 'Esztergom', 'Szentendre', 'Budapeszt']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={["Eger", "Esztergom", "Szentendre", "Budapeszt"]}
+      transport={["Samolot", "Autobus"]}
       dni={4}
       pdf="/pdf/tours/22-Wegry-Budapeszt-Naddunajska-stolica.pdf"
       zdjecie="/images/tours/Zdjcie22.jpg"
@@ -242,8 +358,19 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Włochy"
       tytul="Klasycznym szlakiem"
-      miejsca={['Wenecja', 'Piza', 'Lukka', 'Florencja', 'Rzym', 'Monte Cassino', 'Neapol', 'Pompeje', 'Asyż', 'Bolonia']}
-      transport={['Autobus']}
+      miejsca={[
+        "Wenecja",
+        "Piza",
+        "Lukka",
+        "Florencja",
+        "Rzym",
+        "Monte Cassino",
+        "Neapol",
+        "Pompeje",
+        "Asyż",
+        "Bolonia",
+      ]}
+      transport={["Autobus"]}
       dni={12}
       pdf="/pdf/tours/23-Wlochy-Klasycznym-szlakiem.pdf"
       zdjecie="/images/tours/Zdjcie23.jpg"
@@ -252,8 +379,19 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Włochy"
       tytul="Skarby Italii"
-      miejsca={['Padwa', 'Parma', 'Bolonia', 'Piza', 'Lukka', 'Florencja', 'Siena', 'Asyż', 'Rawenna', 'Wenecja']}
-      transport={['Autobus']}
+      miejsca={[
+        "Padwa",
+        "Parma",
+        "Bolonia",
+        "Piza",
+        "Lukka",
+        "Florencja",
+        "Siena",
+        "Asyż",
+        "Rawenna",
+        "Wenecja",
+      ]}
+      transport={["Autobus"]}
       dni={9}
       pdf="/pdf/tours/24-Wlochy-Skarby-Italii.pdf"
       zdjecie="/images/tours/Zdjcie24.jpg"
@@ -262,8 +400,8 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Włochy"
       tytul="Rzym - Wieczne Miasto"
-      miejsca={['Rzym']}
-      transport={['Samolot']}
+      miejsca={["Rzym"]}
+      transport={["Samolot"]}
       dni={6}
       pdf="/pdf/tours/25-Wlochy-Rzym-Wieczne-Miasto.pdf"
       zdjecie="/images/tours/Zdjcie25.jpg"
@@ -272,8 +410,14 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Zjednoczone Królestwo"
       tytul="Tea Time"
-      miejsca={['Londyn', 'Oxford', 'Stratford-upon-Avon', 'Cambridge', 'Windsor']}
-      transport={['Autobus']}
+      miejsca={[
+        "Londyn",
+        "Oxford",
+        "Stratford-upon-Avon",
+        "Cambridge",
+        "Windsor",
+      ]}
+      transport={["Autobus"]}
       dni={9}
       pdf="/pdf/tours/26-Zjednoczone-Krolestwo-Tea-Time.pdf"
       zdjecie="/images/tours/Zdjcie26.jpg"
@@ -282,8 +426,15 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Australia"
       tytul="Niezwykły Kontynent"
-      miejsca={['Melbourne', 'Góry Błękitne', 'Sydney', 'Uluru', 'Wielka Rafa Koralowa', 'Lasy deszczowe']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={[
+        "Melbourne",
+        "Góry Błękitne",
+        "Sydney",
+        "Uluru",
+        "Wielka Rafa Koralowa",
+        "Lasy deszczowe",
+      ]}
+      transport={["Samolot", "Autobus"]}
       dni={13}
       pdf="/pdf/tours/27-Australia-Niezwykly-Kontynent.pdf"
       zdjecie="/images/tours/Zdjcie27.jpg"
@@ -292,19 +443,26 @@ const currentPath = '/pl/wycieczki/';
     <Wyjazd
       kraj="Stany Zjednoczone"
       tytul="Amerykański sen"
-      miejsca={['Santa Barbara', 'San Francisco', 'Las Vegas', 'Los Angeles', 'San Diego', 'Monterey']}
-      transport={['Samolot', 'Autobus']}
+      miejsca={[
+        "Santa Barbara",
+        "San Francisco",
+        "Las Vegas",
+        "Los Angeles",
+        "San Diego",
+        "Monterey",
+      ]}
+      transport={["Samolot", "Autobus"]}
       dni={13}
       pdf="/pdf/tours/28-Stany-Zjednoczone-Amerykanski-sen.pdf"
       zdjecie="/images/tours/Zdjcie28.jpg"
     />
   </main>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .main-content {
-    padding-top: 0;
-  }
+.main-content {
+  padding-top: 0;
+}
 </style>

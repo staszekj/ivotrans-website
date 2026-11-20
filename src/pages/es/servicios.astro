@@ -1,60 +1,64 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
 
-const lang = 'es';
-const currentPath = '/es/servicios/';
+const lang = "es";
+const currentPath = "/es/servicios/";
 
 const services = [
   {
-    icon: '🌍',
-    title: 'Organización completa de excursiones y peregrinaciones en Polonia y en todo el mundo',
-    description: 'Organización completa de viajes turísticos y de peregrinación en grupo'
+    icon: "🌍",
+    title:
+      "Organización completa de excursiones y peregrinaciones en Polonia y en todo el mundo",
+    description:
+      "Organización completa de viajes turísticos y de peregrinación en grupo",
   },
   {
-    icon: '🚌',
-    title: 'Alquiler de autobuses en el país y en el extranjero',
-    description: 'Autobuses modernos con conductores experimentados'
+    icon: "🚌",
+    title: "Alquiler de autobuses en el país y en el extranjero",
+    description: "Autobuses modernos con conductores experimentados",
   },
   {
-    icon: '🏨',
-    title: 'Reserva de alojamiento y restauración',
-    description: 'Base hotelera y de restaurantes verificada en todo el mundo'
+    icon: "🏨",
+    title: "Reserva de alojamiento y restauración",
+    description: "Base hotelera y de restaurantes verificada en todo el mundo",
   },
   {
-    icon: '🎟️',
-    title: 'Ayuda en la compra de entradas para museos y otras atracciones turísticas',
-    description: 'Reservas sin colas para los lugares más populares'
+    icon: "🎟️",
+    title:
+      "Ayuda en la compra de entradas para museos y otras atracciones turísticas",
+    description: "Reservas sin colas para los lugares más populares",
   },
   {
-    icon: '🎯',
-    title: 'Organización de viajes de integración, conferencias y formación en el país y en el extranjero',
-    description: 'Servicio integral para eventos corporativos'
+    icon: "🎯",
+    title:
+      "Organización de viajes de integración, conferencias y formación en el país y en el extranjero",
+    description: "Servicio integral para eventos corporativos",
   },
   {
-    icon: '⛷️',
-    title: 'Viajes y campamentos de esquí',
-    description: 'Organización de viajes deportivos de invierno'
+    icon: "⛷️",
+    title: "Viajes y campamentos de esquí",
+    description: "Organización de viajes deportivos de invierno",
   },
   {
-    icon: '🎧',
-    title: 'Alquiler de sistemas de auriculares para grupos turísticos',
-    description: 'Sets profesionales de guía turístico'
+    icon: "🎧",
+    title: "Alquiler de sistemas de auriculares para grupos turísticos",
+    description: "Sets profesionales de guía turístico",
   },
   {
-    icon: '✨',
-    title: 'Y cualquier otro servicio bajo pedido',
-    description: 'Enfoque individual para cada encargo'
-  }
+    icon: "✨",
+    title: "Y cualquier otro servicio bajo pedido",
+    description: "Enfoque individual para cada encargo",
+  },
 ];
 ---
 
 <Layout title="Nuestros servicios" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="Nuestros servicios"
     subtitle="Servicios turísticos integrales para grupos organizados"
     backgroundImage="/images/zdjcienagaleriHOME2.jpg"
@@ -65,25 +69,27 @@ const services = [
       <div class="container">
         <div class="intro-content">
           <p>
-            Nuestra oferta está dirigida principalmente a organizadores turísticos, 
-            agencias de viajes y otras entidades que organizan viajes en grupo, 
-            como parroquias, escuelas o asociaciones.
+            Nuestra oferta está dirigida principalmente a organizadores
+            turísticos, agencias de viajes y otras entidades que organizan
+            viajes en grupo, como parroquias, escuelas o asociaciones.
           </p>
           <p>
-            Proporcionamos un servicio profesional y asistencia en la creación de viajes 
-            en el país y en el extranjero. Reservamos todos los servicios necesarios 
-            para la realización de cualquier tipo de evento turístico.
+            Proporcionamos un servicio profesional y asistencia en la creación
+            de viajes en el país y en el extranjero. Reservamos todos los
+            servicios necesarios para la realización de cualquier tipo de evento
+            turístico.
           </p>
           <p>
-            Nuestro equipo está abierto a comentarios y sugerencias de su parte, 
-            y la satisfacción del cliente es nuestra prioridad. Buenos servicios 
-            y un programa óptimo son la mitad del éxito, completado por la colaboración 
-            con especialistas en cada etapa de la creación y realización del viaje.
+            Nuestro equipo está abierto a comentarios y sugerencias de su parte,
+            y la satisfacción del cliente es nuestra prioridad. Buenos servicios
+            y un programa óptimo son la mitad del éxito, completado por la
+            colaboración con especialistas en cada etapa de la creación y
+            realización del viaje.
           </p>
         </div>
       </div>
     </section>
-    
+
     <section class="services-section">
       <div class="container">
         <h2>Qué ofrecemos</h2>
@@ -98,76 +104,77 @@ const services = [
         </div>
       </div>
     </section>
-
   </main>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .intro-section {
-    padding: 4rem 0;
-    background: var(--bg-light);
-  }
+.intro-section {
+  padding: 4rem 0;
+  background: var(--bg-light);
+}
 
-  .intro-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  .intro-content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-  }
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
 
-  .services-section {
-    padding: 4rem 0;
-  }
+.services-section {
+  padding: 4rem 0;
+}
 
-  .services-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 3rem;
-  }
+.services-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+}
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
 
-  .service-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
 
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  }
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
 
-  .service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
 
-  .service-card h3 {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-  }
+.service-card h3 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
 
-  .service-card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    margin: 0;
-  }
+.service-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin: 0;
+}
 </style>

@@ -49,6 +49,7 @@ const {
     <div class="slider-nav">
       <div class="slider-bullets">
         {images.map((_, index) => (
+          // biome-ignore lint/a11y/useButtonType: Existing issue
           <button
             class:list={["bullet", { active: index === 0 }]}
             data-slide={index}
@@ -78,10 +79,12 @@ document.addEventListener("astro:page-load", () => {
   let currentSlide = 0;
 
   function goToSlide(index: number) {
+    // biome-ignore lint/style/noNonNullAssertion: Existing issue
     slides!.forEach((slide, i) => {
       slide.classList.toggle("active", i === index);
     });
 
+    // biome-ignore lint/style/noNonNullAssertion: Existing issue
     bullets!.forEach((bullet, i) => {
       bullet.classList.toggle("active", i === index);
     });
@@ -91,6 +94,7 @@ document.addEventListener("astro:page-load", () => {
 
   function startAutoplay() {
     intervalId = setInterval(() => {
+      // biome-ignore lint/style/noNonNullAssertion: Existing issue
       goToSlide((currentSlide + 1) % slides!.length);
     }, 5000);
   }

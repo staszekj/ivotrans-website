@@ -50,7 +50,7 @@ const currentPath = "/es/contacto/";
               telefon="+48 12 376 71 55"
               zdjecie="/images/team/sylwia.png"
             />
-            
+
             <Osoba
               imie="Elżbieta Jagiella"
               stanowisko="Especialista en liquidaciones financieras"
@@ -86,6 +86,7 @@ const currentPath = "/es/contacto/";
 
             <div class="main-contact">
               <a href="tel:+48122673030" class="contact-btn">
+                <!-- biome-ignore lint/a11y/noSvgWithoutTitle: Existing issue -->
                 <svg
                   class="icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -105,6 +106,7 @@ const currentPath = "/es/contacto/";
                 <span>+48 12 267 30 30</span>
               </a>
               <a href="mailto:ivotrans@ivotrans.pl" class="contact-btn">
+                <!-- biome-ignore lint/a11y/noSvgWithoutTitle: Existing issue -->
                 <svg
                   class="icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -128,6 +130,7 @@ const currentPath = "/es/contacto/";
           </div>
 
           <div class="map-placeholder">
+            <!-- biome-ignore lint/a11y/useIframeTitle: Existing issue -->
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2562.9513687366774!2d19.93159731571901!3d50.02659772394168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0a5a3c5f3d%3A0x3c5c5f3d3c5c5f3d!2sul.%20Zakopia%C5%84ska%202b%2C%2030-418%20Krak%C3%B3w!5e0!3m2!1ses!2ses!4v1620000000000!5m2!1ses!2ses"
               width="100%"
@@ -136,8 +139,7 @@ const currentPath = "/es/contacto/";
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
+            > </iframe>
           </div>
         </div>
       </div>
@@ -148,87 +150,87 @@ const currentPath = "/es/contacto/";
 </Layout>
 
 <style>
-  .contact-info-section {
-    padding: 4rem 0;
-    background: var(--bg-light);
-  }
+.contact-info-section {
+  padding: 4rem 0;
+  background: var(--bg-light);
+}
 
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.company-info h2 {
+  color: var(--primary-color);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-info address {
+  font-style: normal;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.main-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.contact-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.contact-btn .icon {
+  color: var(--secondary-color);
+}
+
+.team-section {
+  padding: 4rem 0;
+}
+
+.team-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+}
+
+.team-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
   .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: 1fr;
   }
-
-  .company-info h2 {
-    color: var(--primary-color);
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .company-info address {
-    font-style: normal;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-
-  .main-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    background: white;
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.2s;
-  }
-
-  .contact-btn:hover {
-    background: var(--primary-color);
-    color: white;
-  }
-
-  .contact-btn .icon {
-    color: var(--secondary-color);
-  }
-
-  .team-section {
-    padding: 4rem 0;
-  }
-
-  .team-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 3rem;
-  }
-
-  .team-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+}
 </style>

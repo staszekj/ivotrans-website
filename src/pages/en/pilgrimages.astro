@@ -1,17 +1,17 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
-import Wyjazd from '../../components/Wyjazd.astro';
-import EnItinerary1PopupContent from '../../components/EnItinerary1PopupContent.astro';
-import EnItinerary2PopupContent from '../../components/EnItinerary2PopupContent.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Wyjazd from "../../components/Wyjazd.astro";
+import EnItinerary1PopupContent from "../../components/EnItinerary1PopupContent.astro";
+import EnItinerary2PopupContent from "../../components/EnItinerary2PopupContent.astro";
 
-const lang = 'en';
-const currentPath = '/en/pilgrimages/';
-const transparentPixel = '/images/it/pellegrinaggi/transparent.png';
-const itinerary1PopupId = 'en-itinerary-1';
-const itinerary2PopupId = 'en-itinerary-2';
+const lang = "en";
+const currentPath = "/en/pilgrimages/";
+const transparentPixel = "/images/it/pellegrinaggi/transparent.png";
+const itinerary1PopupId = "en-itinerary-1";
+const itinerary2PopupId = "en-itinerary-2";
 
 const itineraries: Array<{
   title: string;
@@ -26,177 +26,223 @@ const itineraries: Array<{
   popupFallback?: string;
 }> = [
   {
-    title: 'Fall in Love with Krakow',
-    subtitle: 'Krakow, Wieliczka, Wadowice, and Auschwitz',
-    places: ['Krakow (Kraków)', 'Wieliczka', 'Wadowice', 'Auschwitz (Oświęcim)'],
-    transport: ['Plane', 'Bus'],
+    title: "Fall in Love with Krakow",
+    subtitle: "Krakow, Wieliczka, Wadowice, and Auschwitz",
+    places: [
+      "Krakow (Kraków)",
+      "Wieliczka",
+      "Wadowice",
+      "Auschwitz (Oświęcim)",
+    ],
+    transport: ["Plane", "Bus"],
     days: 4,
-    pdf: '/pdf/itineraries/1-Innamorarsi-di-Cracovia-in-4-giorni-e-3-notti.pdf',
-    image: '/images/it/pellegrinaggi/01.jpg',
-    popupHeading: 'Discover Krakow in 4 unforgettable days',
+    pdf: "/pdf/itineraries/1-Innamorarsi-di-Cracovia-in-4-giorni-e-3-notti.pdf",
+    image: "/images/it/pellegrinaggi/01.jpg",
+    popupHeading: "Discover Krakow in 4 unforgettable days",
   },
   {
-    title: 'The Four Capitals',
-    subtitle: 'Krakow, Warsaw, Gdansk, and Wroclaw',
-    places: ['Krakow (Kraków)', 'Warsaw (Warszawa)', 'Gdansk (Gdańsk)', 'Wroclaw (Wrocław)'],
-    transport: ['Plane', 'Bus'],
+    title: "The Four Capitals",
+    subtitle: "Krakow, Warsaw, Gdansk, and Wroclaw",
+    places: [
+      "Krakow (Kraków)",
+      "Warsaw (Warszawa)",
+      "Gdansk (Gdańsk)",
+      "Wroclaw (Wrocław)",
+    ],
+    transport: ["Plane", "Bus"],
     days: 6,
-    pdf: '/pdf/itineraries/2-Le-quattro-capitali.pdf',
-    image: '/images/it/pellegrinaggi/02.jpg',
-    popupHeading: 'Discover the Four Capitals in 6 unforgettable days',
-    popupFallback: '',
+    pdf: "/pdf/itineraries/2-Le-quattro-capitali.pdf",
+    image: "/images/it/pellegrinaggi/02.jpg",
+    popupHeading: "Discover the Four Capitals in 6 unforgettable days",
+    popupFallback: "",
   },
   {
-    title: 'Wonderful Southern Poland',
-    subtitle: 'Krakow, Zakopane, and the iconic landmarks of southern Poland',
-    places: ['Krakow (Kraków)', 'Zakopane', 'Wieliczka', 'Auschwitz (Oświęcim)', 'Czestochowa (Częstochowa)'],
-    transport: ['Plane', 'Bus'],
+    title: "Wonderful Southern Poland",
+    subtitle: "Krakow, Zakopane, and the iconic landmarks of southern Poland",
+    places: [
+      "Krakow (Kraków)",
+      "Zakopane",
+      "Wieliczka",
+      "Auschwitz (Oświęcim)",
+      "Czestochowa (Częstochowa)",
+    ],
+    transport: ["Plane", "Bus"],
     days: 7,
-    pdf: '/pdf/itineraries/3-Meravigliosa-Polonia-del-sud-influente-Varsavia-vibrante-Breslavia-e-splendida-Cracovia.pdf',
-    image: '/images/it/pellegrinaggi/03.jpg',
+    pdf: "/pdf/itineraries/3-Meravigliosa-Polonia-del-sud-influente-Varsavia-vibrante-Breslavia-e-splendida-Cracovia.pdf",
+    image: "/images/it/pellegrinaggi/03.jpg",
   },
   {
-    title: 'Wonderful Northern Poland',
-    subtitle: 'Warsaw, Torun, Malbork, and Gdansk',
-    places: ['Warsaw (Warszawa)', 'Torun (Toruń)', 'Malbork', 'Gdansk (Gdańsk)', 'Sopot'],
-    transport: ['Plane', 'Bus'],
+    title: "Wonderful Northern Poland",
+    subtitle: "Warsaw, Torun, Malbork, and Gdansk",
+    places: [
+      "Warsaw (Warszawa)",
+      "Torun (Toruń)",
+      "Malbork",
+      "Gdansk (Gdańsk)",
+      "Sopot",
+    ],
+    transport: ["Plane", "Bus"],
     days: 6,
-    pdf: '/pdf/itineraries/4-Meravigliosa-Polonia-del-nord-da-Varsavia-verso-il-Mar-Baltico.pdf',
-    image: '/images/it/pellegrinaggi/04.jpg',
+    pdf: "/pdf/itineraries/4-Meravigliosa-Polonia-del-nord-da-Varsavia-verso-il-Mar-Baltico.pdf",
+    image: "/images/it/pellegrinaggi/04.jpg",
   },
   {
-    title: 'Grand Tour of Poland',
-    subtitle: 'Krakow, Warsaw, Gdansk, Wroclaw, and Poznan',
-    places: ['Krakow (Kraków)', 'Warsaw (Warszawa)', 'Gdansk (Gdańsk)', 'Wroclaw (Wrocław)', 'Poznan (Poznań)'],
-    transport: ['Plane', 'Bus'],
+    title: "Grand Tour of Poland",
+    subtitle: "Krakow, Warsaw, Gdansk, Wroclaw, and Poznan",
+    places: [
+      "Krakow (Kraków)",
+      "Warsaw (Warszawa)",
+      "Gdansk (Gdańsk)",
+      "Wroclaw (Wrocław)",
+      "Poznan (Poznań)",
+    ],
+    transport: ["Plane", "Bus"],
     days: 9,
-    pdf: '/pdf/itineraries/5-Grand-tour-della-Polonia-in-9-giorni-e-8-notti.pdf',
-    image: '/images/it/pellegrinaggi/05.jpg',
+    pdf: "/pdf/itineraries/5-Grand-tour-della-Polonia-in-9-giorni-e-8-notti.pdf",
+    image: "/images/it/pellegrinaggi/05.jpg",
   },
   {
-    title: 'In the Footsteps of Saint John Paul II',
-    subtitle: 'Krakow, Wadowice, Czestochowa, Lagiewniki, and Kalwaria',
-    places: ['Krakow (Kraków)', 'Wadowice', 'Czestochowa (Częstochowa)', 'Lagiewniki (Łagiewniki)', 'Kalwaria'],
-    transport: ['Plane', 'Bus'],
+    title: "In the Footsteps of Saint John Paul II",
+    subtitle: "Krakow, Wadowice, Czestochowa, Lagiewniki, and Kalwaria",
+    places: [
+      "Krakow (Kraków)",
+      "Wadowice",
+      "Czestochowa (Częstochowa)",
+      "Lagiewniki (Łagiewniki)",
+      "Kalwaria",
+    ],
+    transport: ["Plane", "Bus"],
     days: 9,
-    pdf: '/pdf/itineraries/6-Sulle-orme-del-Santo-Giovanni-Paolo-II-qui-a-Wadowice-e-cominciato-tutto.pdf',
-    image: '/images/it/pellegrinaggi/06.jpg',
+    pdf: "/pdf/itineraries/6-Sulle-orme-del-Santo-Giovanni-Paolo-II-qui-a-Wadowice-e-cominciato-tutto.pdf",
+    image: "/images/it/pellegrinaggi/06.jpg",
   },
   {
-    title: 'Religious Poland',
-    subtitle: 'Krakow, Czestochowa, Lagiewniki, Lichen, and Torun',
-    places: ['Krakow (Kraków)', 'Czestochowa (Częstochowa)', 'Lagiewniki (Łagiewniki)', 'Lichen (Licheń)', 'Torun (Toruń)'],
-    transport: ['Plane', 'Bus'],
+    title: "Religious Poland",
+    subtitle: "Krakow, Czestochowa, Lagiewniki, Lichen, and Torun",
+    places: [
+      "Krakow (Kraków)",
+      "Czestochowa (Częstochowa)",
+      "Lagiewniki (Łagiewniki)",
+      "Lichen (Licheń)",
+      "Torun (Toruń)",
+    ],
+    transport: ["Plane", "Bus"],
     days: 7,
-    pdf: '/pdf/itineraries/7-Polonia-Religiosa-Sulle-orme-dei-Santi-e-Beati-Polacchi.pdf',
-    image: '/images/it/pellegrinaggi/07.jpg',
+    pdf: "/pdf/itineraries/7-Polonia-Religiosa-Sulle-orme-dei-Santi-e-Beati-Polacchi.pdf",
+    image: "/images/it/pellegrinaggi/07.jpg",
   },
   {
-    title: 'Easter in Poland',
-    subtitle: 'Krakow, Wieliczka, Zakopane, and Wadowice',
-    places: ['Krakow (Kraków)', 'Wieliczka', 'Zakopane', 'Wadowice'],
-    transport: ['Plane', 'Bus'],
+    title: "Easter in Poland",
+    subtitle: "Krakow, Wieliczka, Zakopane, and Wadowice",
+    places: ["Krakow (Kraków)", "Wieliczka", "Zakopane", "Wadowice"],
+    transport: ["Plane", "Bus"],
     days: 6,
-    pdf: '/pdf/itineraries/8-Pasqua-in-Polonia-Mistero-della-Fede.pdf',
-    image: '/images/it/pellegrinaggi/08.jpg',
+    pdf: "/pdf/itineraries/8-Pasqua-in-Polonia-Mistero-della-Fede.pdf",
+    image: "/images/it/pellegrinaggi/08.jpg",
   },
   {
-    title: 'Pearls of the Renaissance',
-    subtitle: 'Krakow, Zamosc, Kazimierz Dolny, and Lublin',
-    places: ['Krakow (Kraków)', 'Zamosc (Zamość)', 'Kazimierz Dolny', 'Lublin'],
-    transport: ['Plane', 'Bus'],
+    title: "Pearls of the Renaissance",
+    subtitle: "Krakow, Zamosc, Kazimierz Dolny, and Lublin",
+    places: ["Krakow (Kraków)", "Zamosc (Zamość)", "Kazimierz Dolny", "Lublin"],
+    transport: ["Plane", "Bus"],
     days: 7,
-    pdf: '/pdf/itineraries/9-Le-perle-del-rinascimento-e-non-solo.pdf',
-    image: '/images/it/pellegrinaggi/09.png',
+    pdf: "/pdf/itineraries/9-Le-perle-del-rinascimento-e-non-solo.pdf",
+    image: "/images/it/pellegrinaggi/09.png",
   },
   {
-    title: 'Masuria and Podlasie',
-    subtitle: 'Warsaw, Masuria, Bialowieza, and Suprasl',
-    places: ['Warsaw (Warszawa)', 'Masuria (Mazury)', 'Bialowieza (Białowieża)', 'Suprasl (Supraśl)'],
-    transport: ['Plane', 'Bus'],
+    title: "Masuria and Podlasie",
+    subtitle: "Warsaw, Masuria, Bialowieza, and Suprasl",
+    places: [
+      "Warsaw (Warszawa)",
+      "Masuria (Mazury)",
+      "Bialowieza (Białowieża)",
+      "Suprasl (Supraśl)",
+    ],
+    transport: ["Plane", "Bus"],
     days: 7,
-    pdf: '/pdf/itineraries/10-Masuria-e-Podlachia-Dal-Paese-dei-Mille-Laghi-alla-terra-degli-ultimi-bisonti-europei.pdf',
-    image: '/images/it/pellegrinaggi/10.jpg',
+    pdf: "/pdf/itineraries/10-Masuria-e-Podlachia-Dal-Paese-dei-Mille-Laghi-alla-terra-degli-ultimi-bisonti-europei.pdf",
+    image: "/images/it/pellegrinaggi/10.jpg",
   },
   {
-    title: 'Christmas Markets in Krakow',
-    subtitle: 'Krakow, Wieliczka, and Zakopane',
-    places: ['Krakow (Kraków)', 'Wieliczka', 'Zakopane'],
-    transport: ['Plane', 'Bus'],
+    title: "Christmas Markets in Krakow",
+    subtitle: "Krakow, Wieliczka, and Zakopane",
+    places: ["Krakow (Kraków)", "Wieliczka", "Zakopane"],
+    transport: ["Plane", "Bus"],
     days: 4,
-    pdf: '/pdf/itineraries/11-Mercatini-di-Natale-a-Cracovia-insaporiti-dalla-gioia-e-dal-vin-brule-aromatizzato-ai-chiodi-di-garofano.pdf',
-    image: '/images/it/pellegrinaggi/11.jpg',
+    pdf: "/pdf/itineraries/11-Mercatini-di-Natale-a-Cracovia-insaporiti-dalla-gioia-e-dal-vin-brule-aromatizzato-ai-chiodi-di-garofano.pdf",
+    image: "/images/it/pellegrinaggi/11.jpg",
   },
   {
-    title: 'Polin - Jewish Poland',
-    subtitle: 'Krakow, Warsaw, Lublin, and Kazimierz',
-    places: ['Krakow (Kraków)', 'Warsaw (Warszawa)', 'Lublin', 'Kazimierz'],
-    transport: ['Plane', 'Bus'],
+    title: "Polin - Jewish Poland",
+    subtitle: "Krakow, Warsaw, Lublin, and Kazimierz",
+    places: ["Krakow (Kraków)", "Warsaw (Warszawa)", "Lublin", "Kazimierz"],
+    transport: ["Plane", "Bus"],
     days: 8,
-    pdf: '/pdf/itineraries/12-Polin-La-Polonia-Ebraica.pdf',
-    image: '/images/it/pellegrinaggi/12.jpg',
+    pdf: "/pdf/itineraries/12-Polin-La-Polonia-Ebraica.pdf",
+    image: "/images/it/pellegrinaggi/12.jpg",
   },
   {
-    title: 'Slow Tour',
-    subtitle: 'Krakow, Zakopane, Dunajec, and Wieliczka',
-    places: ['Krakow (Kraków)', 'Zakopane', 'Dunajec', 'Wieliczka'],
-    transport: ['Plane', 'Bus'],
+    title: "Slow Tour",
+    subtitle: "Krakow, Zakopane, Dunajec, and Wieliczka",
+    places: ["Krakow (Kraków)", "Zakopane", "Dunajec", "Wieliczka"],
+    transport: ["Plane", "Bus"],
     days: 7,
-    pdf: '/pdf/itineraries/13-Slow-Tour-tra-maestose-montagne-discese-in-zattera-e-architetture-in-legno.pdf',
-    image: '/images/it/pellegrinaggi/13.jpg',
+    pdf: "/pdf/itineraries/13-Slow-Tour-tra-maestose-montagne-discese-in-zattera-e-architetture-in-legno.pdf",
+    image: "/images/it/pellegrinaggi/13.jpg",
   },
   {
-    title: 'Auschwitz-Birkenau',
-    subtitle: 'Krakow, Auschwitz, and Birkenau',
-    places: ['Krakow (Kraków)', 'Auschwitz (Oświęcim)', 'Birkenau'],
-    transport: ['Plane', 'Bus'],
+    title: "Auschwitz-Birkenau",
+    subtitle: "Krakow, Auschwitz, and Birkenau",
+    places: ["Krakow (Kraków)", "Auschwitz (Oświęcim)", "Birkenau"],
+    transport: ["Plane", "Bus"],
     days: 3,
-    pdf: '/pdf/itineraries/14-Auschwitz-Birkenau-dove-si-rivive-la-storia.pdf',
-    image: '/images/it/pellegrinaggi/14.jpg',
+    pdf: "/pdf/itineraries/14-Auschwitz-Birkenau-dove-si-rivive-la-storia.pdf",
+    image: "/images/it/pellegrinaggi/14.jpg",
   },
   {
-    title: 'Splendid Krakow, Stunning Wroclaw and Magical Prague',
-    subtitle: 'Krakow, Wroclaw, and Prague',
-    places: ['Krakow (Kraków)', 'Wroclaw (Wrocław)', 'Prague'],
-    transport: ['Plane', 'Bus'],
+    title: "Splendid Krakow, Stunning Wroclaw and Magical Prague",
+    subtitle: "Krakow, Wroclaw, and Prague",
+    places: ["Krakow (Kraków)", "Wroclaw (Wrocław)", "Prague"],
+    transport: ["Plane", "Bus"],
     days: 6,
-    pdf: '/pdf/itineraries/15-Splendida-Cracovia-stupenda-Breslavia-e-magica-Praga-partiamo.pdf',
-    image: '/images/it/pellegrinaggi/15.jpg',
+    pdf: "/pdf/itineraries/15-Splendida-Cracovia-stupenda-Breslavia-e-magica-Praga-partiamo.pdf",
+    image: "/images/it/pellegrinaggi/15.jpg",
   },
   {
-    title: 'Poland and Lithuania',
-    subtitle: 'Krakow, Warsaw, Vilnius, and Trakai',
-    places: ['Krakow (Kraków)', 'Warsaw (Warszawa)', 'Vilnius', 'Trakai'],
-    transport: ['Plane', 'Bus'],
+    title: "Poland and Lithuania",
+    subtitle: "Krakow, Warsaw, Vilnius, and Trakai",
+    places: ["Krakow (Kraków)", "Warsaw (Warszawa)", "Vilnius", "Trakai"],
+    transport: ["Plane", "Bus"],
     days: 8,
-    pdf: '/pdf/itineraries/16-Polonia-e-Lituania-Nella-stupefacente-Europa-orientale.pdf',
-    image: '/images/it/pellegrinaggi/16.jpg',
+    pdf: "/pdf/itineraries/16-Polonia-e-Lituania-Nella-stupefacente-Europa-orientale.pdf",
+    image: "/images/it/pellegrinaggi/16.jpg",
   },
   {
-    title: 'Via Baltica: The Amber Route',
-    subtitle: 'Gdansk, Kaliningrad, Klaipeda, Riga, and Tallinn',
-    places: ['Gdansk (Gdańsk)', 'Kaliningrad', 'Klaipeda', 'Riga', 'Tallinn'],
-    transport: ['Plane', 'Bus'],
+    title: "Via Baltica: The Amber Route",
+    subtitle: "Gdansk, Kaliningrad, Klaipeda, Riga, and Tallinn",
+    places: ["Gdansk (Gdańsk)", "Kaliningrad", "Klaipeda", "Riga", "Tallinn"],
+    transport: ["Plane", "Bus"],
     days: 10,
-    pdf: '/pdf/itineraries/17-Via-Baltica-Via-Dellambra-Lituania-Lettonia-Estonia-e-Polonia-del-Nord-con-la-leggendaria-Danzica.pdf',
-    image: '/images/it/pellegrinaggi/17.jpg',
+    pdf: "/pdf/itineraries/17-Via-Baltica-Via-Dellambra-Lituania-Lettonia-Estonia-e-Polonia-del-Nord-con-la-leggendaria-Danzica.pdf",
+    image: "/images/it/pellegrinaggi/17.jpg",
   },
   {
-    title: 'Journey Through Poland with Stops in Slovakia and the Czech Republic',
-    subtitle: 'Krakow, Bratislava, Prague, and Brno',
-    places: ['Krakow (Kraków)', 'Bratislava', 'Prague', 'Brno'],
-    transport: ['Plane', 'Bus'],
+    title:
+      "Journey Through Poland with Stops in Slovakia and the Czech Republic",
+    subtitle: "Krakow, Bratislava, Prague, and Brno",
+    places: ["Krakow (Kraków)", "Bratislava", "Prague", "Brno"],
+    transport: ["Plane", "Bus"],
     days: 7,
-    pdf: '/pdf/itineraries/18-Viaggio-in-Polonia-con-tappe-in-Slovacchia-e-Repubblica-Ceca-In-bus-dallItalia.pdf',
-    image: '/images/it/pellegrinaggi/18.jpg',
+    pdf: "/pdf/itineraries/18-Viaggio-in-Polonia-con-tappe-in-Slovacchia-e-Repubblica-Ceca-In-bus-dallItalia.pdf",
+    image: "/images/it/pellegrinaggi/18.jpg",
   },
 ];
 ---
 
 <Layout title="Pilgrimages - Ivotrans" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="Pilgrimages"
     subtitle="Discover our sample pilgrimage itinerary proposals designed for meaningful journeys"
     backgroundImage="/images/pilgrimages/krakow-hero.jpg"
@@ -220,55 +266,63 @@ const itineraries: Array<{
     ))}
   </main>
 
-  <itinerary-popup data-popup-id={itinerary1PopupId} data-popup-top-offset="100">
+  <itinerary-popup
+    data-popup-id={itinerary1PopupId}
+    data-popup-top-offset="100"
+  >
     <EnItinerary1PopupContent />
   </itinerary-popup>
 
-  <itinerary-popup data-popup-id={itinerary2PopupId} data-popup-top-offset="100">
+  <itinerary-popup
+    data-popup-id={itinerary2PopupId}
+    data-popup-top-offset="100"
+  >
     <EnItinerary2PopupContent />
   </itinerary-popup>
 
   <script is:inline>
-    (() => {
-      const closeAllPopups = () => {
-        document.querySelectorAll('itinerary-popup.is-open').forEach((popup) => {
-          popup.classList.remove('is-open');
-        });
-      };
-
-      document.addEventListener('click', (event) => {
-        const target = event.target;
-        if (!(target instanceof Element)) {
-          return;
-        }
-
-        const trigger = target.closest('[data-popup-target]');
-        if (!trigger) {
-          return;
-        }
-
-        const popupTargetId = trigger.getAttribute('data-popup-target');
-        if (!popupTargetId) {
-          return;
-        }
-
-        const popup = document.querySelector(`itinerary-popup[data-popup-id="${CSS.escape(popupTargetId)}"]`);
-        if (!popup) {
-          return;
-        }
-
-        event.preventDefault();
-        closeAllPopups();
-        popup.classList.add('is-open');
+  (() => {
+    const closeAllPopups = () => {
+      document.querySelectorAll("itinerary-popup.is-open").forEach((popup) => {
+        popup.classList.remove("is-open");
       });
-    })();
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const trigger = target.closest("[data-popup-target]");
+      if (!trigger) {
+        return;
+      }
+
+      const popupTargetId = trigger.getAttribute("data-popup-target");
+      if (!popupTargetId) {
+        return;
+      }
+
+      const popup = document.querySelector(
+        `itinerary-popup[data-popup-id="${CSS.escape(popupTargetId)}"]`,
+      );
+      if (!popup) {
+        return;
+      }
+
+      event.preventDefault();
+      closeAllPopups();
+      popup.classList.add("is-open");
+    });
+  })();
   </script>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .main-content {
-    padding-top: 0;
-  }
+.main-content {
+  padding-top: 0;
+}
 </style>

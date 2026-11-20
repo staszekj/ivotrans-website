@@ -4,120 +4,156 @@
  * Supports multiple languages: pl, it, en, es, pt
  */
 interface Props {
-  lang?: 'pl' | 'it' | 'en' | 'es' | 'pt';
+  lang?: "pl" | "it" | "en" | "es" | "pt";
   currentPath?: string;
   transparent?: boolean;
 }
 
-const { lang = 'pl', currentPath = '', transparent = false } = Astro.props;
+const { lang = "pl", currentPath = "", transparent = false } = Astro.props;
 
 // All supported languages with their flags and labels
 const languages = [
-  { code: 'pl', flag: '/images/flag-pl.png', label: 'Polski', home: '/pl/' },
-  { code: 'it', flag: '/images/flag-it.png', label: 'Italiano', home: '/it/' },
-  { code: 'en', flag: '/images/flag-en.png', label: 'English', home: '/en/' },
-  { code: 'es', flag: '/images/flag-es.png', label: 'Español', home: '/es/' },
-  { code: 'pt', flag: '/images/flag-pt.png', label: 'Português', home: '/pt/' },
+  { code: "pl", flag: "/images/flag-pl.png", label: "Polski", home: "/pl/" },
+  { code: "it", flag: "/images/flag-it.png", label: "Italiano", home: "/it/" },
+  { code: "en", flag: "/images/flag-en.png", label: "English", home: "/en/" },
+  { code: "es", flag: "/images/flag-es.png", label: "Español", home: "/es/" },
+  { code: "pt", flag: "/images/flag-pt.png", label: "Português", home: "/pt/" },
 ];
 
 // Navigation items per language
 const navigation: Record<string, { name: string; href: string }[]> = {
   pl: [
-    { name: 'Home', href: '/pl/' },
-    { name: 'O nas', href: '/pl/o-nas/' },
-    { name: 'Nasza oferta', href: '/pl/nasza-oferta/' },
-    { name: 'Destynacje', href: '/pl/destynacje/' },
-    { name: 'Pielgrzymki', href: '/pl/pielgrzymki/' },
-    { name: 'Wycieczki', href: '/pl/wycieczki/' },
-    { name: 'Kontakt', href: '/pl/kontakt/' },
+    { name: "Home", href: "/pl/" },
+    { name: "O nas", href: "/pl/o-nas/" },
+    { name: "Nasza oferta", href: "/pl/nasza-oferta/" },
+    { name: "Destynacje", href: "/pl/destynacje/" },
+    { name: "Pielgrzymki", href: "/pl/pielgrzymki/" },
+    { name: "Wycieczki", href: "/pl/wycieczki/" },
+    { name: "Kontakt", href: "/pl/kontakt/" },
   ],
   it: [
-    { name: 'Home', href: '/it/' },
-    { name: 'Chi siamo', href: '/it/chi-siamo/' },
-    { name: 'Servizi', href: '/it/servizi/' },
-    { name: 'Destinazioni', href: '/it/destinazioni/' },
-    { name: 'Pellegrinaggi', href: '/it/pellegrinaggi/' },
-    { name: 'Tour', href: '/it/tour/' },
-    { name: 'Contatti', href: '/it/contatti/' },
+    { name: "Home", href: "/it/" },
+    { name: "Chi siamo", href: "/it/chi-siamo/" },
+    { name: "Servizi", href: "/it/servizi/" },
+    { name: "Destinazioni", href: "/it/destinazioni/" },
+    { name: "Pellegrinaggi", href: "/it/pellegrinaggi/" },
+    { name: "Tour", href: "/it/tour/" },
+    { name: "Contatti", href: "/it/contatti/" },
   ],
   en: [
-    { name: 'Home', href: '/en/' },
-    { name: 'About us', href: '/en/about-us/' },
-    { name: 'Our services', href: '/en/services/' },
-    { name: 'Destinations', href: '/en/destinations/' },
-    { name: 'Pilgrimages', href: '/en/pilgrimages/' },
-    { name: 'Tours', href: '/en/tours/' },
-    { name: 'Contact', href: '/en/contact/' },
+    { name: "Home", href: "/en/" },
+    { name: "About us", href: "/en/about-us/" },
+    { name: "Our services", href: "/en/services/" },
+    { name: "Destinations", href: "/en/destinations/" },
+    { name: "Pilgrimages", href: "/en/pilgrimages/" },
+    { name: "Tours", href: "/en/tours/" },
+    { name: "Contact", href: "/en/contact/" },
   ],
   es: [
-    { name: 'Home', href: '/es/' },
-    { name: 'Sobre nosotros', href: '/es/sobre-nosotros/' },
-    { name: 'Servicios', href: '/es/servicios/' },
-    { name: 'Destinos', href: '/es/destinos/' },
-    { name: 'Peregrinaciones', href: '/es/peregrinaciones/' },
-    { name: 'Viajes', href: '/es/viajes/' },
-    { name: 'Contacto', href: '/es/contacto/' },
+    { name: "Home", href: "/es/" },
+    { name: "Sobre nosotros", href: "/es/sobre-nosotros/" },
+    { name: "Servicios", href: "/es/servicios/" },
+    { name: "Destinos", href: "/es/destinos/" },
+    { name: "Peregrinaciones", href: "/es/peregrinaciones/" },
+    { name: "Viajes", href: "/es/viajes/" },
+    { name: "Contacto", href: "/es/contacto/" },
   ],
   pt: [
-    { name: 'Home', href: '/pt/' },
-    { name: 'Sobre nós', href: '/pt/sobre-nos/' },
-    { name: 'Serviços', href: '/pt/servicos/' },
-    { name: 'Destinos', href: '/pt/destinos/' },
-    { name: 'Peregrinações', href: '/pt/peregrinacoes/' },
-    { name: 'Excursões', href: '/pt/excursoes/' },
-    { name: 'Contacto', href: '/pt/contacto/' },
+    { name: "Home", href: "/pt/" },
+    { name: "Sobre nós", href: "/pt/sobre-nos/" },
+    { name: "Serviços", href: "/pt/servicos/" },
+    { name: "Destinos", href: "/pt/destinos/" },
+    { name: "Peregrinações", href: "/pt/peregrinacoes/" },
+    { name: "Excursões", href: "/pt/excursoes/" },
+    { name: "Contacto", href: "/pt/contacto/" },
   ],
 };
 
 const contactLabels: Record<string, string> = {
-  pl: 'Kontakt',
-  it: 'Contattaci',
-  en: 'Contact us',
-  es: 'Contacto',
-  pt: 'Contacto',
+  pl: "Kontakt",
+  it: "Contattaci",
+  en: "Contact us",
+  es: "Contacto",
+  pt: "Contacto",
 };
 
 const contactLinks: Record<string, string> = {
-  pl: '/pl/kontakt/',
-  it: '/it/contatti/',
-  en: '/en/contact/',
-  es: '/es/contacto/',
-  pt: '/pt/contacto/',
+  pl: "/pl/kontakt/",
+  it: "/it/contatti/",
+  en: "/en/contact/",
+  es: "/es/contacto/",
+  pt: "/pt/contacto/",
 };
 
 // Page slug mapping between languages (same page in different languages)
 // Key is the page identifier, values are slugs for each language
 const pageMapping: Record<string, Record<string, string>> = {
-  home: { pl: '', it: '', en: '', es: '', pt: '' },
-  about: { pl: 'o-nas', it: 'chi-siamo', en: 'about-us', es: 'sobre-nosotros', pt: 'sobre-nos' },
-  services: { pl: 'nasza-oferta', it: 'servizi', en: 'services', es: 'servicios', pt: 'servicos' },
-  destinations: { pl: 'destynacje', it: 'destinazioni', en: 'destinations', es: 'destinos', pt: 'destinos' },
-  pilgrimages: { pl: 'pielgrzymki', it: 'pellegrinaggi', en: 'pilgrimages', es: 'peregrinaciones', pt: 'peregrinacoes' },
-  tours: { pl: 'wycieczki', it: 'tour', en: 'tours', es: 'viajes', pt: 'excursoes' },
-  contact: { pl: 'kontakt', it: 'contatti', en: 'contact', es: 'contacto', pt: 'contacto' },
+  home: { pl: "", it: "", en: "", es: "", pt: "" },
+  about: {
+    pl: "o-nas",
+    it: "chi-siamo",
+    en: "about-us",
+    es: "sobre-nosotros",
+    pt: "sobre-nos",
+  },
+  services: {
+    pl: "nasza-oferta",
+    it: "servizi",
+    en: "services",
+    es: "servicios",
+    pt: "servicos",
+  },
+  destinations: {
+    pl: "destynacje",
+    it: "destinazioni",
+    en: "destinations",
+    es: "destinos",
+    pt: "destinos",
+  },
+  pilgrimages: {
+    pl: "pielgrzymki",
+    it: "pellegrinaggi",
+    en: "pilgrimages",
+    es: "peregrinaciones",
+    pt: "peregrinacoes",
+  },
+  tours: {
+    pl: "wycieczki",
+    it: "tour",
+    en: "tours",
+    es: "viajes",
+    pt: "excursoes",
+  },
+  contact: {
+    pl: "kontakt",
+    it: "contatti",
+    en: "contact",
+    es: "contacto",
+    pt: "contacto",
+  },
 };
 
 // Find current page identifier based on currentPath
 function getCurrentPageId(path: string, langCode: string): string {
   // Remove language prefix and trailing slash
-  const slug = path.replace(`/${langCode}/`, '').replace(/\/$/, '');
-  
-  if (!slug) return 'home';
-  
+  const slug = path.replace(`/${langCode}/`, "").replace(/\/$/, "");
+
+  if (!slug) return "home";
+
   // Find which page this slug belongs to
   for (const [pageId, slugs] of Object.entries(pageMapping)) {
     if (slugs[langCode] === slug) {
       return pageId;
     }
   }
-  
-  return 'home'; // fallback to home if not found
+
+  return "home"; // fallback to home if not found
 }
 
 // Get the URL for a specific language based on current page
 function getLanguageUrl(targetLang: string, currentPageId: string): string {
   const slug = pageMapping[currentPageId]?.[targetLang];
-  if (slug === undefined || slug === '') {
+  if (slug === undefined || slug === "") {
     return `/${targetLang}/`;
   }
   return `/${targetLang}/${slug}/`;
@@ -126,92 +162,158 @@ function getLanguageUrl(targetLang: string, currentPageId: string): string {
 const currentPageId = getCurrentPageId(currentPath, lang);
 
 const navItems = navigation[lang] || navigation.pl;
-const contactLabel = contactLabels[lang] || 'Contact';
-const contactLink = contactLinks[lang] || '/pl/kontakt/';
+const contactLabel = contactLabels[lang] || "Contact";
+const contactLink = contactLinks[lang] || "/pl/kontakt/";
 
 // Primary languages (always visible as standalone flags)
-const primaryLangs = ['pl', 'it', 'en'];
+const primaryLangs = ["pl", "it", "en"];
 // Secondary languages (in dropdown)
-const secondaryLangs = ['es', 'pt'];
+const secondaryLangs = ["es", "pt"];
 
-const primaryLanguages = languages.filter(l => primaryLangs.includes(l.code));
-const dropdownLanguages = languages.filter(l => secondaryLangs.includes(l.code));
+const primaryLanguages = languages.filter((l) => primaryLangs.includes(l.code));
+const dropdownLanguages = languages.filter((l) =>
+  secondaryLangs.includes(l.code),
+);
 
 // Is current language a primary one?
 const isPrimaryLang = primaryLangs.includes(lang);
 // Current language info for dropdown button (shows EU flag if primary lang is selected)
-const currentDropdownLang = isPrimaryLang 
-  ? { code: 'eu', flag: '/images/flag-eu.png', label: 'Other languages' }
-  : languages.find(l => l.code === lang);
+const currentDropdownLang = isPrimaryLang
+  ? { code: "eu", flag: "/images/flag-eu.png", label: "Other languages" }
+  : languages.find((l) => l.code === lang);
 ---
 
-<nav class:list={["navbar", "navbar-default", "navbar-fixed-top", { "nav-transparent": transparent }]} id="navbar">
+<nav
+  class:list={[
+    "navbar",
+    "navbar-default",
+    "navbar-fixed-top",
+    { "nav-transparent": transparent },
+  ]}
+  id="navbar"
+>
   <div class="menubar main-nav-center">
     <div class="container">
       <div id="logo">
         <a class="logo" href={`/${lang}/`}>
-          <img class="nav-logo" src="/images/logo_white.svg" width="250" alt="Ivotrans" />
+          <img
+            class="nav-logo"
+            src="/images/logo_white.svg"
+            width="250"
+            alt="Ivotrans"
+          >
         </a>
       </div>
-      
+
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <button
+          type="button"
+          class="navbar-toggle"
+          id="menu-toggle"
+          aria-label="Toggle menu"
+        >
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
       </div>
-      
+
       <div id="main-menu" class="navbar-collapse underline-effect">
         <ul class="nav navbar-nav">
           {navItems.map((item) => (
-            <li class:list={["menu-item", { 
-              active: currentPath === item.href || 
-                      (item.href !== `/${lang}/` && currentPath.startsWith(item.href)) ||
-                      (item.href === `/${lang}/` && currentPath === `/${lang}/`)
-            }]}>
-              <a href={item.href} title={item.name}>{item.name}</a>
+            <li
+              class:list={[
+                "menu-item",
+                {
+                  active:
+                    currentPath === item.href ||
+                    (item.href !== `/${lang}/` &&
+                      currentPath.startsWith(item.href)) ||
+                    (item.href === `/${lang}/` && currentPath === `/${lang}/`),
+                },
+              ]}
+            >
+              <a href={item.href} title={item.name}>
+                {item.name}
+              </a>
             </li>
           ))}
-          
+
           <!-- Language selector: Primary flags (PL, IT) + Dropdown for others -->
           <li class="menu-item lang-selector-wrapper">
             <div class="lang-selector">
               <!-- Primary language flags (always visible) -->
               {primaryLanguages.map((language) => (
-                <a 
-                  href={getLanguageUrl(language.code, currentPageId)} 
+                <a
+                  href={getLanguageUrl(language.code, currentPageId)}
                   title={language.label}
-                  class:list={["primary-lang-flag", { active: lang === language.code }]}
+                  class:list={[
+                    "primary-lang-flag",
+                    { active: lang === language.code },
+                  ]}
                 >
-                  <img class="lang-flag" src={language.flag} alt={language.label} />
+                  <img
+                    class="lang-flag"
+                    src={language.flag}
+                    alt={language.label}
+                  />
                 </a>
               ))}
-              
+
               <!-- Dropdown for other languages -->
               <lang-dropdown>
-                <button type="button" class="lang-toggle" aria-expanded="false" aria-haspopup="true">
-                  <img class="lang-flag" src={currentDropdownLang?.flag} alt={currentDropdownLang?.label} />
-                  <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="currentColor">
-                    <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <button
+                  type="button"
+                  class="lang-toggle"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                >
+                  <img
+                    class="lang-flag"
+                    src={currentDropdownLang?.flag}
+                    alt={currentDropdownLang?.label}
+                  >
+                  <!-- biome-ignore lint/a11y/noSvgWithoutTitle: Existing issue -->
+                  <svg
+                    class="lang-arrow"
+                    width="10"
+                    height="6"
+                    viewBox="0 0 10 6"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M1 1l4 4 4-4"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      fill="none"
+                    />
                   </svg>
                 </button>
                 <ul class="lang-menu">
-                  {dropdownLanguages.filter(l => l.code !== lang).map((language) => (
-                    <li>
-                      <a href={getLanguageUrl(language.code, currentPageId)} title={language.label}>
-                        <img class="lang-flag" src={language.flag} alt={language.label} />
-                        <span>{language.label}</span>
-                      </a>
-                    </li>
-                  ))}
+                  {dropdownLanguages
+                    .filter((l) => l.code !== lang)
+                    .map((language) => (
+                      <li>
+                        <a
+                          href={getLanguageUrl(language.code, currentPageId)}
+                          title={language.label}
+                        >
+                          <img
+                            class="lang-flag"
+                            src={language.flag}
+                            alt={language.label}
+                          />
+                          <span>{language.label}</span>
+                        </a>
+                      </li>
+                    ))}
                 </ul>
               </lang-dropdown>
             </div>
           </li>
         </ul>
       </div>
-      
+
       <div class="main-nav-extra-content">
         <div class="header-bttn-wrapper">
           <a href={contactLink} class="tt_button tt_primary_button">
@@ -224,311 +326,312 @@ const currentDropdownLang = isPrimaryLang
 </nav>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mainMenu = document.getElementById('main-menu');
-    const navbar = document.getElementById('navbar');
-    
-    function handleScroll() {
-      if (window.scrollY > 100) {
-        navbar?.classList.add('navbar-shrink');
-      } else {
-        navbar?.classList.remove('navbar-shrink');
-      }
+document.addEventListener("astro:page-load", () => {
+  const menuToggle = document.getElementById("menu-toggle");
+  const mainMenu = document.getElementById("main-menu");
+  const navbar = document.getElementById("navbar");
+
+  function handleScroll() {
+    if (window.scrollY > 100) {
+      navbar?.classList.add("navbar-shrink");
+    } else {
+      navbar?.classList.remove("navbar-shrink");
     }
-    
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    
-    menuToggle?.addEventListener('click', () => {
-      mainMenu?.classList.toggle('open');
-      menuToggle.classList.toggle('active');
-    });
+  }
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
+
+  menuToggle?.addEventListener("click", () => {
+    mainMenu?.classList.toggle("open");
+    menuToggle.classList.toggle("active");
   });
+});
 </script>
 
 <style>
-  /* Navbar - matching Ekko theme */
-  .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 100;
-    transition: all 0.4s ease;
-  }
+/* Navbar - matching Ekko theme */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
 
-  .navbar .menubar {
-    transition: all 0.4s ease;
-  }
+.navbar .menubar {
+  transition: all 0.4s ease;
+}
 
-  /* Default (solid) navbar */
-  .navbar .menubar {
-    background-color: var(--primary-color);
-  }
+/* Default (solid) navbar */
+.navbar .menubar {
+  background-color: var(--primary-color);
+}
 
-  /* Transparent navbar for hero pages */
-  .navbar.nav-transparent .menubar {
-    background-color: transparent;
-  }
+/* Transparent navbar for hero pages */
+.navbar.nav-transparent .menubar {
+  background-color: transparent;
+}
 
-  .navbar.nav-transparent.navbar-shrink .menubar {
-    background-color: var(--primary-color);
-  }
+.navbar.nav-transparent.navbar-shrink .menubar {
+  background-color: var(--primary-color);
+}
 
-  /* Shrink effect on scroll */
-  .navbar.navbar-shrink .menubar {
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-  }
+/* Shrink effect on scroll */
+/* biome-ignore lint/style/noDescendingSpecificity: Existing issue */
+.navbar.navbar-shrink .menubar {
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
 
-  /* Container layout */
-  .navbar .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    transition: all 0.4s ease;
-  }
+/* Container layout */
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: all 0.4s ease;
+}
 
-  .navbar.navbar-shrink .container {
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
+.navbar.navbar-shrink .container {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
 
-  /* Logo */
-  #logo {
-    flex-shrink: 0;
-  }
+/* Logo */
+#logo {
+  flex-shrink: 0;
+}
 
-  #logo .logo {
+#logo .logo {
+  display: block;
+}
+
+#logo .nav-logo {
+  height: 45px;
+  width: auto;
+  max-width: 200px;
+  transition: all 0.4s ease;
+}
+
+.navbar.navbar-shrink #logo .nav-logo {
+  height: 38px;
+}
+
+/* Main Menu */
+#main-menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav.navbar-nav {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item > a {
+  display: block;
+  padding: 12px 14px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Underline effect like Ekko theme */
+.underline-effect .menu-item:not(.wpml-ls-item) > a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--secondary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.underline-effect .menu-item:not(.wpml-ls-item):hover > a::after,
+.underline-effect .menu-item:not(.wpml-ls-item).active > a::after {
+  transform: scaleX(1);
+}
+
+.menu-item:hover > a,
+.menu-item.active > a {
+  color: var(--secondary-color);
+}
+
+/* Language flags */
+.wpml-ls-flag {
+  display: block;
+  width: 22px;
+  height: auto;
+  border-radius: 2px;
+}
+
+/* Language selector wrapper */
+.lang-selector-wrapper {
+  margin-left: 10px;
+}
+
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Primary language flags (PL, IT) */
+.primary-lang-flag {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 3px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.primary-lang-flag:hover {
+  opacity: 1;
+}
+
+.primary-lang-flag.active {
+  opacity: 1;
+}
+
+/* Extra content - Contact button */
+.main-nav-extra-content {
+  flex-shrink: 0;
+  margin-left: 15px;
+}
+
+.header-bttn-wrapper .tt_button {
+  padding: 12px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--secondary-color);
+  color: #fff;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.header-bttn-wrapper .tt_button:hover {
+  background: #fff;
+  color: var(--primary-color);
+}
+
+/* Mobile toggle */
+.navbar-header {
+  display: none;
+}
+
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggle.active .icon-bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggle.active .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active .icon-bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .menu-item > a {
+    padding: 12px 10px;
+    font-size: 12px;
+  }
+  .wpml-ls-flag {
+    width: 18px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-header {
     display: block;
   }
 
-  #logo .nav-logo {
-    height: 45px;
-    width: auto;
-    max-width: 200px;
-    transition: all 0.4s ease;
-  }
-
-  .navbar.navbar-shrink #logo .nav-logo {
-    height: 38px;
-  }
-
-  /* Main Menu */
   #main-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #main-menu.open {
     display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: center;
   }
 
   .nav.navbar-nav {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 0;
+    flex-direction: column;
+    width: 100%;
   }
 
-  .menu-item {
-    position: relative;
+  .menu-item:not(.lang-dropdown-wrapper) > a {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
   }
 
-  .menu-item > a {
-    display: block;
-    padding: 12px 14px;
-    color: #fff;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    white-space: nowrap;
-  }
-
-  /* Underline effect like Ekko theme */
-  .underline-effect .menu-item:not(.wpml-ls-item) > a::after {
-    content: '';
-    position: absolute;
-    bottom: 5px;
-    left: 14px;
-    right: 14px;
-    height: 2px;
-    background: var(--secondary-color);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  .underline-effect .menu-item:not(.wpml-ls-item):hover > a::after,
-  .underline-effect .menu-item:not(.wpml-ls-item).active > a::after {
-    transform: scaleX(1);
-  }
-
-  .menu-item:hover > a,
-  .menu-item.active > a {
-    color: var(--secondary-color);
-  }
-
-  /* Language flags */
-  .wpml-ls-flag {
-    display: block;
-    width: 22px;
-    height: auto;
-    border-radius: 2px;
-  }
-
-  /* Language selector wrapper */
-  .lang-selector-wrapper {
-    margin-left: 10px;
-  }
-
-  .lang-selector {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* Primary language flags (PL, IT) */
-  .primary-lang-flag {
-    display: flex;
-    align-items: center;
-    padding: 4px;
-    border-radius: 3px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-  }
-
-  .primary-lang-flag:hover {
-    opacity: 1;
-  }
-
-  .primary-lang-flag.active {
-    opacity: 1;
-  }
-
-  /* Extra content - Contact button */
-  .main-nav-extra-content {
-    flex-shrink: 0;
-    margin-left: 15px;
-  }
-
-  .header-bttn-wrapper .tt_button {
-    padding: 12px 20px;
-    font-size: 12px;
-    font-weight: 700;
-    background: var(--secondary-color);
-    color: #fff;
-    border: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .header-bttn-wrapper .tt_button:hover {
-    background: #fff;
-    color: var(--primary-color);
-  }
-
-  /* Mobile toggle */
-  .navbar-header {
+  .underline-effect .menu-item > a::after {
     display: none;
   }
 
-  .navbar-toggle {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
+  .lang-selector-wrapper {
+    margin-top: 15px;
+    margin-left: 0;
+    align-self: center;
   }
 
-  .navbar-toggle .icon-bar {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background-color: #fff;
-    transition: all 0.3s ease;
+  .lang-selector {
+    justify-content: center;
   }
 
-  .navbar-toggle.active .icon-bar:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+  .main-nav-extra-content {
+    display: none;
   }
 
-  .navbar-toggle.active .icon-bar:nth-child(2) {
-    opacity: 0;
+  .navbar .container {
+    flex-wrap: wrap;
   }
-
-  .navbar-toggle.active .icon-bar:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-
-  /* Responsive */
-  @media (max-width: 1200px) {
-    .menu-item > a {
-      padding: 12px 10px;
-      font-size: 12px;
-    }
-    .wpml-ls-flag {
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 992px) {
-    .navbar-header {
-      display: block;
-    }
-
-    #main-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: var(--primary-color);
-      flex-direction: column;
-      padding: 20px;
-    }
-
-    #main-menu.open {
-      display: flex;
-    }
-
-    .nav.navbar-nav {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .menu-item:not(.lang-dropdown-wrapper) > a {
-      padding: 15px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      text-align: center;
-    }
-
-    .underline-effect .menu-item > a::after {
-      display: none;
-    }
-
-    .lang-selector-wrapper {
-      margin-top: 15px;
-      margin-left: 0;
-      align-self: center;
-    }
-
-    .lang-selector {
-      justify-content: center;
-    }
-
-    .main-nav-extra-content {
-      display: none;
-    }
-
-    .navbar .container {
-      flex-wrap: wrap;
-    }
-  }
+}
 </style>

@@ -34,45 +34,47 @@ const { name, image, href, description } = Astro.props;
 )}
 
 <style>
-  .destination-card {
-    display: block;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+.destination-card {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
 
-  a.destination-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  }
+a.destination-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
 
-  .destination-image {
-    position: relative;
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-  }
+.destination-image {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
 
-  .destination-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: white;
-  }
+.destination-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+}
 
-  .destination-overlay h3 {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
+.destination-overlay h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
 
-  .destination-overlay p {
-    margin: 0.5rem 0 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
-  }
+.destination-overlay p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
 </style>

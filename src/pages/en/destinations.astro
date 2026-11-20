@@ -1,22 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
 
-const lang = 'en';
-const currentPath = '/en/destinations/';
+const lang = "en";
+const currentPath = "/en/destinations/";
 ---
 
 <Layout title="Destinations" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="Destinations"
     subtitle="Discover the world with Ivotrans - tours and pilgrimages"
     backgroundImage="/images/zdjcienagaleriHOME1.jpg"
   />
-  
+
   <main>
     <section class="intro-section">
       <div class="container">
@@ -24,68 +24,72 @@ const currentPath = '/en/destinations/';
           <div class="content-column">
             <h2>Destinations</h2>
             <p class="intro">
-              Our experience in inbound tourism makes us stand out not only in Poland. As a Tour
-              Operator, we work directly with local suppliers in the following countries: Slovakia,
-              Czech Republic, Austria, Germany and the Baltic States. This allows us to expand our
-              offer with additional places of great historical and cultural interest outside Poland.
-              It also makes it easier to control the quality of services and ensures the smooth
-              running of each tour.
+              Our experience in inbound tourism makes us stand out not only in
+              Poland. As a Tour Operator, we work directly with local suppliers
+              in the following countries: Slovakia, Czech Republic, Austria,
+              Germany and the Baltic States. This allows us to expand our offer
+              with additional places of great historical and cultural interest
+              outside Poland. It also makes it easier to control the quality of
+              services and ensures the smooth running of each tour.
             </p>
           </div>
           <div class="image-column">
-            <img src="/images/destinazioni-mappa.jpg" alt="Ivotrans destinations map" />
+            <img
+              src="/images/destinazioni-mappa.jpg"
+              alt="Ivotrans destinations map"
+            >
           </div>
         </div>
       </div>
     </section>
   </main>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .intro-section {
-    padding: 4rem 0;
-    background: #fff;
-  }
+.intro-section {
+  padding: 4rem 0;
+  background: #fff;
+}
 
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.content-column h2 {
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  margin-bottom: 25px;
+}
+
+.content-column .intro {
+  font-size: 1.15rem;
+  color: var(--text-color);
+  line-height: 1.8;
+}
+
+.image-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 900px) {
   .two-column-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: 1fr;
   }
 
-  .content-column h2 {
-    font-size: 2.5rem;
-    color: var(--heading-color);
-    margin-bottom: 25px;
+  .content-column {
+    text-align: center;
   }
 
-  .content-column .intro {
-    font-size: 1.15rem;
-    color: var(--text-color);
-    line-height: 1.8;
+  .image-column {
+    order: -1;
   }
-
-  .image-column img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 900px) {
-    .two-column-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .content-column {
-      text-align: center;
-    }
-
-    .image-column {
-      order: -1;
-    }
-  }
+}
 </style>

@@ -1,22 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
 
-const lang = 'es';
-const currentPath = '/es/destinos/';
+const lang = "es";
+const currentPath = "/es/destinos/";
 ---
 
 <Layout title="Destinos" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="Destinos"
     subtitle="Descubre el mundo con Ivotrans - tours y peregrinaciones"
     backgroundImage="/images/zdjcienagaleriHOME1.jpg"
   />
-  
+
   <main>
     <section class="intro-section">
       <div class="container">
@@ -24,68 +24,73 @@ const currentPath = '/es/destinos/';
           <div class="content-column">
             <h2>Destinos</h2>
             <p class="intro">
-              Nuestra experiencia en turismo receptivo nos distingue no solo en Polonia. Como Tour
-              Operador, trabajamos directamente con proveedores locales en los siguientes países:
-              Eslovaquia, República Checa, Austria, Alemania y los Países Bálticos. Esta posibilidad
-              nos permite ampliar nuestra oferta con otros lugares de gran interés histórico y
-              cultural fuera de Polonia. Además, facilita el control de los servicios ofrecidos y
-              garantiza el buen desarrollo del tour.
+              Nuestra experiencia en turismo receptivo nos distingue no solo en
+              Polonia. Como Tour Operador, trabajamos directamente con
+              proveedores locales en los siguientes países: Eslovaquia,
+              República Checa, Austria, Alemania y los Países Bálticos. Esta
+              posibilidad nos permite ampliar nuestra oferta con otros lugares
+              de gran interés histórico y cultural fuera de Polonia. Además,
+              facilita el control de los servicios ofrecidos y garantiza el buen
+              desarrollo del tour.
             </p>
           </div>
           <div class="image-column">
-            <img src="/images/destinazioni-mappa.jpg" alt="Mapa de destinos Ivotrans" />
+            <img
+              src="/images/destinazioni-mappa.jpg"
+              alt="Mapa de destinos Ivotrans"
+            >
           </div>
         </div>
       </div>
     </section>
   </main>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .intro-section {
-    padding: 4rem 0;
-    background: #fff;
-  }
+.intro-section {
+  padding: 4rem 0;
+  background: #fff;
+}
 
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.content-column h2 {
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  margin-bottom: 25px;
+}
+
+.content-column .intro {
+  font-size: 1.15rem;
+  color: var(--text-color);
+  line-height: 1.8;
+}
+
+.image-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 900px) {
   .two-column-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: 1fr;
   }
 
-  .content-column h2 {
-    font-size: 2.5rem;
-    color: var(--heading-color);
-    margin-bottom: 25px;
+  .content-column {
+    text-align: center;
   }
 
-  .content-column .intro {
-    font-size: 1.15rem;
-    color: var(--text-color);
-    line-height: 1.8;
+  .image-column {
+    order: -1;
   }
-
-  .image-column img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 900px) {
-    .two-column-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .content-column {
-      text-align: center;
-    }
-
-    .image-column {
-      order: -1;
-    }
-  }
+}
 </style>

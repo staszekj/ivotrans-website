@@ -1,68 +1,71 @@
 class ItineraryPopup extends HTMLElement {
-  private panel: HTMLElement | null = null;
-  private closeButton: HTMLButtonElement | null = null;
-  private modal: HTMLElement | null = null;
-  private renderScheduled = false;
+	private panel: HTMLElement | null = null;
+	private closeButton: HTMLButtonElement | null = null;
+	private modal: HTMLElement | null = null;
+	private renderScheduled = false;
 
-  static get observedAttributes() {
-    return ['class', 'data-popup-top-offset', 'data-popup-top'];
-  }
+	static get observedAttributes() {
+		return ["class", "data-popup-top-offset", "data-popup-top"];
+	}
 
-  connectedCallback() {
-    this.scheduleRender();
-  }
+	connectedCallback() {
+		this.scheduleRender();
+	}
 
-  disconnectedCallback() {
-    this.closeButton?.removeEventListener('click', this.handleCloseRequest);
-    this.modal?.removeEventListener('click', this.handleBackdropClick);
-  }
+	disconnectedCallback() {
+		this.closeButton?.removeEventListener("click", this.handleCloseRequest);
+		this.modal?.removeEventListener("click", this.handleBackdropClick);
+	}
 
-  attributeChangedCallback(name: string) {
-    if (name === 'class') {
-      this.syncAriaState();
-      return;
-    }
+	attributeChangedCallback(name: string) {
+		if (name === "class") {
+			this.syncAriaState();
+			return;
+		}
 
-    this.scheduleRender();
-  }
+		this.scheduleRender();
+	}
 
-  private scheduleRender() {
-    if (this.renderScheduled) {
-      return;
-    }
+	private scheduleRender() {
+		if (this.renderScheduled) {
+			return;
+		}
 
-    this.renderScheduled = true;
-    queueMicrotask(() => {
-      this.renderScheduled = false;
-      if (!this.isConnected) {
-        return;
-      }
-      this.flushRender();
-    });
-  }
+		this.renderScheduled = true;
+		queueMicrotask(() => {
+			this.renderScheduled = false;
+			if (!this.isConnected) {
+				return;
+			}
+			this.flushRender();
+		});
+	}
 
-  private flushRender() {
-    this.applyTopOffsetConfig();
-    this.renderShadow();
+	private flushRender() {
+		this.applyTopOffsetConfig();
+		this.renderShadow();
 
-    this.closeButton?.removeEventListener('click', this.handleCloseRequest);
-    this.closeButton?.addEventListener('click', this.handleCloseRequest);
-    this.modal?.removeEventListener('click', this.handleBackdropClick);
-    this.modal?.addEventListener('click', this.handleBackdropClick);
+		this.closeButton?.removeEventListener("click", this.handleCloseRequest);
+		this.closeButton?.addEventListener("click", this.handleCloseRequest);
+		this.modal?.removeEventListener("click", this.handleBackdropClick);
+		this.modal?.addEventListener("click", this.handleBackdropClick);
 
-    this.syncAriaState();
-  }
+		this.syncAriaState();
+	}
 
-  private applyTopOffsetConfig() {
-    const rawTopOffset = this.getAttribute('data-popup-top-offset') || this.getAttribute('data-popup-top') || '24';
-    const parsed = Number.parseFloat(rawTopOffset);
-    const topOffset = Number.isFinite(parsed) ? Math.max(0, parsed) : 24;
-    this.style.setProperty('--itinerary-popup-top-offset', `${topOffset}px`);
-  }
+	private applyTopOffsetConfig() {
+		const rawTopOffset =
+			this.getAttribute("data-popup-top-offset") ||
+			this.getAttribute("data-popup-top") ||
+			"24";
+		const parsed = Number.parseFloat(rawTopOffset);
+		const topOffset = Number.isFinite(parsed) ? Math.max(0, parsed) : 24;
+		this.style.setProperty("--itinerary-popup-top-offset", `${topOffset}px`);
+	}
 
-  private renderShadow() {
-    const root = this.shadowRoot || this.attachShadow({ mode: 'open' });
-    root.innerHTML = `
+	private renderShadow() {
+		const root = this.shadowRoot || this.attachShadow({ mode: "open" });
+		root.innerHTML = `
       <style>
         :host {
           position: relative;
@@ -186,33 +189,36 @@ class ItineraryPopup extends HTMLElement {
       </div>
     `;
 
-    this.panel = root.querySelector('[data-popup-panel]');
-    this.closeButton = root.querySelector('[data-popup-close]');
-    this.modal = root.querySelector('[data-popup-modal]');
-  }
+		this.panel = root.querySelector("[data-popup-panel]");
+		this.closeButton = root.querySelector("[data-popup-close]");
+		this.modal = root.querySelector("[data-popup-modal]");
+	}
 
-  private handleCloseRequest = () => {
-    this.close();
-  };
+	private handleCloseRequest = () => {
+		this.close();
+	};
 
-  private handleBackdropClick = (event: Event) => {
-    if (event.target === this.modal) {
-      this.close();
-    }
-  };
+	private handleBackdropClick = (event: Event) => {
+		if (event.target === this.modal) {
+			this.close();
+		}
+	};
 
-  private syncAriaState() {
-    this.panel?.setAttribute('aria-hidden', this.classList.contains('is-open') ? 'false' : 'true');
-  }
+	private syncAriaState() {
+		this.panel?.setAttribute(
+			"aria-hidden",
+			this.classList.contains("is-open") ? "false" : "true",
+		);
+	}
 
-  private close() {
-    this.classList.remove('is-open');
-    this.syncAriaState();
-  }
+	private close() {
+		this.classList.remove("is-open");
+		this.syncAriaState();
+	}
 }
 
-if (!customElements.get('itinerary-popup')) {
-  customElements.define('itinerary-popup', ItineraryPopup);
+if (!customElements.get("itinerary-popup")) {
+	customElements.define("itinerary-popup", ItineraryPopup);
 }
 
 export { ItineraryPopup };

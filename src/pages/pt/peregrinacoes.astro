@@ -1,184 +1,234 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
-import Wyjazd from '../../components/Wyjazd.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import Wyjazd from "../../components/Wyjazd.astro";
 
-const lang = 'pt';
-const currentPath = '/pt/peregrinacoes/';
-const transparentPixel = '/images/it/pellegrinaggi/transparent.png';
+const lang = "pt";
+const currentPath = "/pt/peregrinacoes/";
+const transparentPixel = "/images/it/pellegrinaggi/transparent.png";
 
 const itineraries = [
   {
-    title: 'Apaixone-se por Cracovia',
-    subtitle: 'Cracovia, Wieliczka, Wadowice e Auschwitz',
-    places: ['Cracovia (Kraków)', 'Wieliczka', 'Wadowice', 'Auschwitz (Oświęcim)'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Apaixone-se por Cracovia",
+    subtitle: "Cracovia, Wieliczka, Wadowice e Auschwitz",
+    places: [
+      "Cracovia (Kraków)",
+      "Wieliczka",
+      "Wadowice",
+      "Auschwitz (Oświęcim)",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 4,
-    pdf: '/pdf/itineraries/1-Innamorarsi-di-Cracovia-in-4-giorni-e-3-notti.pdf',
-    image: '/images/it/pellegrinaggi/01.jpg',
+    pdf: "/pdf/itineraries/1-Innamorarsi-di-Cracovia-in-4-giorni-e-3-notti.pdf",
+    image: "/images/it/pellegrinaggi/01.jpg",
   },
   {
-    title: 'As quatro capitais',
-    subtitle: 'Cracóvia, Varsóvia, Gdansk e Wroclaw',
-    places: ['Cracovia (Kraków)', 'Varsovia (Warszawa)', 'Gdansk (Gdańsk)', 'Wroclaw (Wrocław)'],
-    transport: ['Avião', 'Ônibus'],
+    title: "As quatro capitais",
+    subtitle: "Cracóvia, Varsóvia, Gdansk e Wroclaw",
+    places: [
+      "Cracovia (Kraków)",
+      "Varsovia (Warszawa)",
+      "Gdansk (Gdańsk)",
+      "Wroclaw (Wrocław)",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 6,
-    pdf: '/pdf/itineraries/2-Le-quattro-capitali.pdf',
-    image: '/images/it/pellegrinaggi/02.jpg',
+    pdf: "/pdf/itineraries/2-Le-quattro-capitali.pdf",
+    image: "/images/it/pellegrinaggi/02.jpg",
   },
   {
-    title: 'A maravilhosa Polônia do sul',
-    subtitle: 'Cracóvia, Zakopane e os grandes símbolos do sul da Polônia',
-    places: ['Cracovia (Kraków)', 'Zakopane', 'Wieliczka', 'Auschwitz (Oświęcim)', 'Czestochowa (Częstochowa)'],
-    transport: ['Avião', 'Ônibus'],
+    title: "A maravilhosa Polônia do sul",
+    subtitle: "Cracóvia, Zakopane e os grandes símbolos do sul da Polônia",
+    places: [
+      "Cracovia (Kraków)",
+      "Zakopane",
+      "Wieliczka",
+      "Auschwitz (Oświęcim)",
+      "Czestochowa (Częstochowa)",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 7,
-    pdf: '/pdf/itineraries/3-Meravigliosa-Polonia-del-sud-influente-Varsavia-vibrante-Breslavia-e-splendida-Cracovia.pdf',
-    image: '/images/it/pellegrinaggi/03.jpg',
+    pdf: "/pdf/itineraries/3-Meravigliosa-Polonia-del-sud-influente-Varsavia-vibrante-Breslavia-e-splendida-Cracovia.pdf",
+    image: "/images/it/pellegrinaggi/03.jpg",
   },
   {
-    title: 'A maravilhosa Polônia do norte',
-    subtitle: 'Varsóvia, Toruń, Malbork e Gdansk',
-    places: ['Varsovia (Warszawa)', 'Torun (Toruń)', 'Malbork', 'Gdansk (Gdańsk)', 'Sopot'],
-    transport: ['Avião', 'Ônibus'],
+    title: "A maravilhosa Polônia do norte",
+    subtitle: "Varsóvia, Toruń, Malbork e Gdansk",
+    places: [
+      "Varsovia (Warszawa)",
+      "Torun (Toruń)",
+      "Malbork",
+      "Gdansk (Gdańsk)",
+      "Sopot",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 6,
-    pdf: '/pdf/itineraries/4-Meravigliosa-Polonia-del-nord-da-Varsavia-verso-il-Mar-Baltico.pdf',
-    image: '/images/it/pellegrinaggi/04.jpg',
+    pdf: "/pdf/itineraries/4-Meravigliosa-Polonia-del-nord-da-Varsavia-verso-il-Mar-Baltico.pdf",
+    image: "/images/it/pellegrinaggi/04.jpg",
   },
   {
-    title: 'Grande tour pela Polônia',
-    subtitle: 'Cracóvia, Varsóvia, Gdansk, Wroclaw e Poznan',
-    places: ['Cracovia (Kraków)', 'Varsovia (Warszawa)', 'Gdansk (Gdańsk)', 'Wroclaw (Wrocław)', 'Poznan (Poznań)'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Grande tour pela Polônia",
+    subtitle: "Cracóvia, Varsóvia, Gdansk, Wroclaw e Poznan",
+    places: [
+      "Cracovia (Kraków)",
+      "Varsovia (Warszawa)",
+      "Gdansk (Gdańsk)",
+      "Wroclaw (Wrocław)",
+      "Poznan (Poznań)",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 9,
-    pdf: '/pdf/itineraries/5-Grand-tour-della-Polonia-in-9-giorni-e-8-notti.pdf',
-    image: '/images/it/pellegrinaggi/05.jpg',
+    pdf: "/pdf/itineraries/5-Grand-tour-della-Polonia-in-9-giorni-e-8-notti.pdf",
+    image: "/images/it/pellegrinaggi/05.jpg",
   },
   {
-    title: 'Nos passos de São João Paulo II',
-    subtitle: 'Cracóvia, Wadowice, Częstochowa, Łagiewniki e Kalwaria',
-    places: ['Cracovia (Kraków)', 'Wadowice', 'Czestochowa (Częstochowa)', 'Lagiewniki (Łagiewniki)', 'Kalwaria'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Nos passos de São João Paulo II",
+    subtitle: "Cracóvia, Wadowice, Częstochowa, Łagiewniki e Kalwaria",
+    places: [
+      "Cracovia (Kraków)",
+      "Wadowice",
+      "Czestochowa (Częstochowa)",
+      "Lagiewniki (Łagiewniki)",
+      "Kalwaria",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 9,
-    pdf: '/pdf/itineraries/6-Sulle-orme-del-Santo-Giovanni-Paolo-II-qui-a-Wadowice-e-cominciato-tutto.pdf',
-    image: '/images/it/pellegrinaggi/06.jpg',
+    pdf: "/pdf/itineraries/6-Sulle-orme-del-Santo-Giovanni-Paolo-II-qui-a-Wadowice-e-cominciato-tutto.pdf",
+    image: "/images/it/pellegrinaggi/06.jpg",
   },
   {
-    title: 'Polônia religiosa',
-    subtitle: 'Cracóvia, Częstochowa, Łagiewniki, Licheń e Toruń',
-    places: ['Cracovia (Kraków)', 'Czestochowa (Częstochowa)', 'Lagiewniki (Łagiewniki)', 'Lichen (Licheń)', 'Torun (Toruń)'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Polônia religiosa",
+    subtitle: "Cracóvia, Częstochowa, Łagiewniki, Licheń e Toruń",
+    places: [
+      "Cracovia (Kraków)",
+      "Czestochowa (Częstochowa)",
+      "Lagiewniki (Łagiewniki)",
+      "Lichen (Licheń)",
+      "Torun (Toruń)",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 7,
-    pdf: '/pdf/itineraries/7-Polonia-Religiosa-Sulle-orme-dei-Santi-e-Beati-Polacchi.pdf',
-    image: '/images/it/pellegrinaggi/07.jpg',
+    pdf: "/pdf/itineraries/7-Polonia-Religiosa-Sulle-orme-dei-Santi-e-Beati-Polacchi.pdf",
+    image: "/images/it/pellegrinaggi/07.jpg",
   },
   {
-    title: 'Páscoa na Polônia',
-    subtitle: 'Cracóvia, Wieliczka, Zakopane e Wadowice',
-    places: ['Cracovia (Kraków)', 'Wieliczka', 'Zakopane', 'Wadowice'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Páscoa na Polônia",
+    subtitle: "Cracóvia, Wieliczka, Zakopane e Wadowice",
+    places: ["Cracovia (Kraków)", "Wieliczka", "Zakopane", "Wadowice"],
+    transport: ["Avião", "Ônibus"],
     days: 6,
-    pdf: '/pdf/itineraries/8-Pasqua-in-Polonia-Mistero-della-Fede.pdf',
-    image: '/images/it/pellegrinaggi/08.jpg',
+    pdf: "/pdf/itineraries/8-Pasqua-in-Polonia-Mistero-della-Fede.pdf",
+    image: "/images/it/pellegrinaggi/08.jpg",
   },
   {
-    title: 'Pérolas do Renascimento',
-    subtitle: 'Cracóvia, Zamość, Kazimierz Dolny e Lublin',
-    places: ['Cracovia (Kraków)', 'Zamosc (Zamość)', 'Kazimierz Dolny', 'Lublin'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Pérolas do Renascimento",
+    subtitle: "Cracóvia, Zamość, Kazimierz Dolny e Lublin",
+    places: [
+      "Cracovia (Kraków)",
+      "Zamosc (Zamość)",
+      "Kazimierz Dolny",
+      "Lublin",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 7,
-    pdf: '/pdf/itineraries/9-Le-perle-del-rinascimento-e-non-solo.pdf',
-    image: '/images/it/pellegrinaggi/09.png',
+    pdf: "/pdf/itineraries/9-Le-perle-del-rinascimento-e-non-solo.pdf",
+    image: "/images/it/pellegrinaggi/09.png",
   },
   {
-    title: 'Masuria e Podlaquia',
-    subtitle: 'Varsóvia, Masuria, Białowieża e Supraśl',
-    places: ['Varsovia (Warszawa)', 'Masuria (Mazury)', 'Bialowieza (Białowieża)', 'Suprasl (Supraśl)'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Masuria e Podlaquia",
+    subtitle: "Varsóvia, Masuria, Białowieża e Supraśl",
+    places: [
+      "Varsovia (Warszawa)",
+      "Masuria (Mazury)",
+      "Bialowieza (Białowieża)",
+      "Suprasl (Supraśl)",
+    ],
+    transport: ["Avião", "Ônibus"],
     days: 7,
-    pdf: '/pdf/itineraries/10-Masuria-e-Podlachia-Dal-Paese-dei-Mille-Laghi-alla-terra-degli-ultimi-bisonti-europei.pdf',
-    image: '/images/it/pellegrinaggi/10.jpg',
+    pdf: "/pdf/itineraries/10-Masuria-e-Podlachia-Dal-Paese-dei-Mille-Laghi-alla-terra-degli-ultimi-bisonti-europei.pdf",
+    image: "/images/it/pellegrinaggi/10.jpg",
   },
   {
-    title: 'Mercados de Natal em Cracovia',
-    subtitle: 'Cracovia, Wieliczka e Zakopane',
-    places: ['Cracovia (Kraków)', 'Wieliczka', 'Zakopane'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Mercados de Natal em Cracovia",
+    subtitle: "Cracovia, Wieliczka e Zakopane",
+    places: ["Cracovia (Kraków)", "Wieliczka", "Zakopane"],
+    transport: ["Avião", "Ônibus"],
     days: 4,
-    pdf: '/pdf/itineraries/11-Mercatini-di-Natale-a-Cracovia-insaporiti-dalla-gioia-e-dal-vin-brule-aromatizzato-ai-chiodi-di-garofano.pdf',
-    image: '/images/it/pellegrinaggi/11.jpg',
+    pdf: "/pdf/itineraries/11-Mercatini-di-Natale-a-Cracovia-insaporiti-dalla-gioia-e-dal-vin-brule-aromatizzato-ai-chiodi-di-garofano.pdf",
+    image: "/images/it/pellegrinaggi/11.jpg",
   },
   {
-    title: 'Polin, a Polônia judaica',
-    subtitle: 'Cracóvia, Varsóvia, Lublin e Kazimierz',
-    places: ['Cracovia (Kraków)', 'Varsovia (Warszawa)', 'Lublin', 'Kazimierz'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Polin, a Polônia judaica",
+    subtitle: "Cracóvia, Varsóvia, Lublin e Kazimierz",
+    places: ["Cracovia (Kraków)", "Varsovia (Warszawa)", "Lublin", "Kazimierz"],
+    transport: ["Avião", "Ônibus"],
     days: 8,
-    pdf: '/pdf/itineraries/12-Polin-La-Polonia-Ebraica.pdf',
-    image: '/images/it/pellegrinaggi/12.jpg',
+    pdf: "/pdf/itineraries/12-Polin-La-Polonia-Ebraica.pdf",
+    image: "/images/it/pellegrinaggi/12.jpg",
   },
   {
-    title: 'Slow Tour',
-    subtitle: 'Cracovia, Zakopane, Dunajec e Wieliczka',
-    places: ['Cracovia (Kraków)', 'Zakopane', 'Dunajec', 'Wieliczka'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Slow Tour",
+    subtitle: "Cracovia, Zakopane, Dunajec e Wieliczka",
+    places: ["Cracovia (Kraków)", "Zakopane", "Dunajec", "Wieliczka"],
+    transport: ["Avião", "Ônibus"],
     days: 7,
-    pdf: '/pdf/itineraries/13-Slow-Tour-tra-maestose-montagne-discese-in-zattera-e-architetture-in-legno.pdf',
-    image: '/images/it/pellegrinaggi/13.jpg',
+    pdf: "/pdf/itineraries/13-Slow-Tour-tra-maestose-montagne-discese-in-zattera-e-architetture-in-legno.pdf",
+    image: "/images/it/pellegrinaggi/13.jpg",
   },
   {
-    title: 'Auschwitz-Birkenau',
-    subtitle: 'Cracovia, Auschwitz e Birkenau',
-    places: ['Cracovia (Kraków)', 'Auschwitz (Oświęcim)', 'Birkenau'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Auschwitz-Birkenau",
+    subtitle: "Cracovia, Auschwitz e Birkenau",
+    places: ["Cracovia (Kraków)", "Auschwitz (Oświęcim)", "Birkenau"],
+    transport: ["Avião", "Ônibus"],
     days: 3,
-    pdf: '/pdf/itineraries/14-Auschwitz-Birkenau-dove-si-rivive-la-storia.pdf',
-    image: '/images/it/pellegrinaggi/14.jpg',
+    pdf: "/pdf/itineraries/14-Auschwitz-Birkenau-dove-si-rivive-la-storia.pdf",
+    image: "/images/it/pellegrinaggi/14.jpg",
   },
   {
-    title: 'Esplêndida Cracóvia, incrível Wroclaw e mágica Praga',
-    subtitle: 'Cracóvia, Wroclaw e Praga',
-    places: ['Cracovia (Kraków)', 'Wroclaw (Wrocław)', 'Praga'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Esplêndida Cracóvia, incrível Wroclaw e mágica Praga",
+    subtitle: "Cracóvia, Wroclaw e Praga",
+    places: ["Cracovia (Kraków)", "Wroclaw (Wrocław)", "Praga"],
+    transport: ["Avião", "Ônibus"],
     days: 6,
-    pdf: '/pdf/itineraries/15-Splendida-Cracovia-stupenda-Breslavia-e-magica-Praga-partiamo.pdf',
-    image: '/images/it/pellegrinaggi/15.jpg',
+    pdf: "/pdf/itineraries/15-Splendida-Cracovia-stupenda-Breslavia-e-magica-Praga-partiamo.pdf",
+    image: "/images/it/pellegrinaggi/15.jpg",
   },
   {
-    title: 'Polônia e Lituânia',
-    subtitle: 'Cracóvia, Varsóvia, Vilnius e Trakai',
-    places: ['Cracovia (Kraków)', 'Varsovia (Warszawa)', 'Vilnius', 'Trakai'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Polônia e Lituânia",
+    subtitle: "Cracóvia, Varsóvia, Vilnius e Trakai",
+    places: ["Cracovia (Kraków)", "Varsovia (Warszawa)", "Vilnius", "Trakai"],
+    transport: ["Avião", "Ônibus"],
     days: 8,
-    pdf: '/pdf/itineraries/16-Polonia-e-Lituania-Nella-stupefacente-Europa-orientale.pdf',
-    image: '/images/it/pellegrinaggi/16.jpg',
+    pdf: "/pdf/itineraries/16-Polonia-e-Lituania-Nella-stupefacente-Europa-orientale.pdf",
+    image: "/images/it/pellegrinaggi/16.jpg",
   },
   {
-    title: 'Via Báltica, Rota do Âmbar',
-    subtitle: 'Gdansk, Kaliningrado, Klaipėda, Riga e Tallinn',
-    places: ['Gdansk (Gdańsk)', 'Kaliningrado', 'Klaipeda', 'Riga', 'Tallinn'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Via Báltica, Rota do Âmbar",
+    subtitle: "Gdansk, Kaliningrado, Klaipėda, Riga e Tallinn",
+    places: ["Gdansk (Gdańsk)", "Kaliningrado", "Klaipeda", "Riga", "Tallinn"],
+    transport: ["Avião", "Ônibus"],
     days: 10,
-    pdf: '/pdf/itineraries/17-Via-Baltica-Via-Dellambra-Lituania-Lettonia-Estonia-e-Polonia-del-Nord-con-la-leggendaria-Danzica.pdf',
-    image: '/images/it/pellegrinaggi/17.jpg',
+    pdf: "/pdf/itineraries/17-Via-Baltica-Via-Dellambra-Lituania-Lettonia-Estonia-e-Polonia-del-Nord-con-la-leggendaria-Danzica.pdf",
+    image: "/images/it/pellegrinaggi/17.jpg",
   },
   {
-    title: 'Viagem pela Polônia com paradas na Eslováquia e República Tcheca',
-    subtitle: 'Cracóvia, Bratislava, Praga e Brno',
-    places: ['Cracovia (Kraków)', 'Bratislava', 'Praga', 'Brno'],
-    transport: ['Avião', 'Ônibus'],
+    title: "Viagem pela Polônia com paradas na Eslováquia e República Tcheca",
+    subtitle: "Cracóvia, Bratislava, Praga e Brno",
+    places: ["Cracovia (Kraków)", "Bratislava", "Praga", "Brno"],
+    transport: ["Avião", "Ônibus"],
     days: 7,
-    pdf: '/pdf/itineraries/18-Viaggio-in-Polonia-con-tappe-in-Slovacchia-e-Repubblica-Ceca-In-bus-dallItalia.pdf',
-    image: '/images/it/pellegrinaggi/18.jpg',
+    pdf: "/pdf/itineraries/18-Viaggio-in-Polonia-con-tappe-in-Slovacchia-e-Repubblica-Ceca-In-bus-dallItalia.pdf",
+    image: "/images/it/pellegrinaggi/18.jpg",
   },
 ];
 ---
 
 <Layout title="Peregrinações - Ivotrans" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="Peregrinações"
     subtitle="Descubra nossas propostas de programas de peregrinação, cuidadosamente elaboradas para jornadas com propósito"
     backgroundImage="/images/pilgrimages/krakow-hero.jpg"
@@ -198,12 +248,12 @@ const itineraries = [
       />
     ))}
   </main>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .main-content {
-    padding-top: 0;
-  }
+.main-content {
+  padding-top: 0;
+}
 </style>
