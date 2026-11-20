@@ -1,22 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
 
-const lang = 'it';
-const currentPath = '/it/destinazioni/';
+const lang = "it";
+const currentPath = "/it/destinazioni/";
 ---
 
 <Layout title="Destinazioni" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="Destinazioni"
     subtitle="Scopri il mondo con Ivotrans - tour e pellegrinaggi"
-    backgroundImage="/images/zdjcienagaleriHOME1.jpg"
+    backgroundImage="/images/it/pellegrinaggi/03.jpg"
   />
-  
+
   <main>
     <section class="intro-section">
       <div class="container">
@@ -24,63 +24,73 @@ const currentPath = '/it/destinazioni/';
           <div class="content-column">
             <h2>Destinazioni</h2>
             <p class="intro">
-              La nostra esperienza nel settore del turismo ricettivo ci distingue non solo in Polonia. Come Tour Operator lavoriamo a diretto contatto con i fornitori locali nei seguenti paesi: Slovacchia, Rep.Ceca, Austria, Germania e Paesi Baltici. Tale possibilità ci permette di ampliare la  nostra offerta  con altri siti di maggior interesse storico e culturale al di fuori della Polonia. Inoltre, rende più  facile il controllo dei servizi offerti e garantisce un buon svolggimento del tour.
+              La nostra esperienza nel settore del turismo ricettivo ci
+              distingue non solo in Polonia. Come Tour Operator lavoriamo a
+              diretto contatto con i fornitori locali nei seguenti paesi:
+              Slovacchia, Rep.Ceca, Austria, Germania e Paesi Baltici. Tale
+              possibilità ci permette di ampliare la nostra offerta con altri
+              siti di maggior interesse storico e culturale al di fuori della
+              Polonia. Inoltre, rende più facile il controllo dei servizi
+              offerti e garantisce un buon svolggimento del tour.
             </p>
           </div>
           <div class="image-column">
-            <img src="/images/destinazioni-mappa.jpg" alt="Mappa delle destinazioni Ivotrans" />
+            <img
+              src="/images/destinazioni-mappa.jpg"
+              alt="Mappa delle destinazioni Ivotrans"
+            >
           </div>
         </div>
       </div>
     </section>
   </main>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .intro-section {
-    padding: 4rem 0;
-    background: #fff;
-  }
+.intro-section {
+  padding: 4rem 0;
+  background: #fff;
+}
 
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.content-column h2 {
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  margin-bottom: 25px;
+}
+
+.content-column .intro {
+  font-size: 1.15rem;
+  color: var(--text-color);
+  line-height: 1.8;
+}
+
+.image-column img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 900px) {
   .two-column-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: 1fr;
   }
 
-  .content-column h2 {
-    font-size: 2.5rem;
-    color: var(--heading-color);
-    margin-bottom: 25px;
+  .content-column {
+    text-align: center;
   }
 
-  .content-column .intro {
-    font-size: 1.15rem;
-    color: var(--text-color);
-    line-height: 1.8;
+  .image-column {
+    order: -1;
   }
-
-  .image-column img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  @media (max-width: 900px) {
-    .two-column-layout {
-      grid-template-columns: 1fr;
-    }
-
-    .content-column {
-      text-align: center;
-    }
-
-    .image-column {
-      order: -1;
-    }
-  }
+}
 </style>

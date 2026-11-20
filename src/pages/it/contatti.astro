@@ -15,7 +15,7 @@ const currentPath = "/it/contatti/";
   <PageHeader
     title="Contatti"
     subtitle="Contattaci - saremo lieti di rispondere alle tue domande"
-    backgroundImage="/images/zdjcienagaleriHOME4.jpg"
+    backgroundImage="/images/it/pellegrinaggi/02.jpg"
   />
 
   <main>
@@ -49,7 +49,7 @@ const currentPath = "/it/contatti/";
               telefon="+48 12 376 71 55"
               zdjecie="/images/team/sylwia.png"
             />
-            
+
             <Osoba
               imie="Elżbieta Jagiella"
               stanowisko="Specialista contabilità"
@@ -135,8 +135,7 @@ const currentPath = "/it/contatti/";
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-            >
-            </iframe>
+            > </iframe>
           </div>
         </div>
       </div>
@@ -147,87 +146,87 @@ const currentPath = "/it/contatti/";
 </Layout>
 
 <style>
-  .contact-info-section {
-    padding: 4rem 0;
-    background: var(--bg-light);
-  }
+.contact-info-section {
+  padding: 4rem 0;
+  background: var(--bg-light);
+}
 
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.company-info h2 {
+  color: var(--primary-color);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-info address {
+  font-style: normal;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.main-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: white;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.contact-btn:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.contact-btn .icon {
+  color: var(--secondary-color);
+}
+
+.team-section {
+  padding: 4rem 0;
+}
+
+.team-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+}
+
+.team-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
   .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+    grid-template-columns: 1fr;
   }
-
-  .company-info h2 {
-    color: var(--primary-color);
-    font-size: 1.75rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .company-info address {
-    font-style: normal;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-
-  .main-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 1.5rem;
-    background: white;
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.2s;
-  }
-
-  .contact-btn:hover {
-    background: var(--primary-color);
-    color: white;
-  }
-
-  .contact-btn .icon {
-    color: var(--secondary-color);
-  }
-
-  .team-section {
-    padding: 4rem 0;
-  }
-
-  .team-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 3rem;
-  }
-
-  .team-rows {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .team-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .contact-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+}
 </style>

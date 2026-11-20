@@ -1,62 +1,64 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import PageHeader from "../../components/PageHeader.astro";
 
-const lang = 'it';
-const currentPath = '/it/servizi/';
+const lang = "it";
+const currentPath = "/it/servizi/";
 
 const organizziamo = [
   {
-    icon: '👥',
-    title: 'Viaggi di gruppo di cui anche per i piccoli gruppi e comitive.'
+    icon: "👥",
+    title: "Viaggi di gruppo di cui anche per i piccoli gruppi e comitive.",
   },
   {
-    icon: '🎯',
-    title: 'Viaggi su misura per gruppi precostituiti, associazioni culturali, cral, aziende'
+    icon: "🎯",
+    title:
+      "Viaggi su misura per gruppi precostituiti, associazioni culturali, cral, aziende",
   },
   {
-    icon: '⛪',
-    title: 'Pellegrinaggi'
+    icon: "⛪",
+    title: "Pellegrinaggi",
   },
   {
-    icon: '🎓',
-    title: 'Viaggi d`istruzione per le scuole'
-  }
+    icon: "🎓",
+    title: "Viaggi d`istruzione per le scuole",
+  },
 ];
 
 const altriServizi = [
   {
-    icon: '🏨',
-    title: 'Prenotazioni alberghiere in Polonia e in Europa'
+    icon: "🏨",
+    title: "Prenotazioni alberghiere in Polonia e in Europa",
   },
   {
-    icon: '🚌',
-    title: 'Noleggio di vari mezzi di trasporto'
+    icon: "🚌",
+    title: "Noleggio di vari mezzi di trasporto",
   },
   {
-    icon: '✈️',
-    title: 'Acquisto dei biglietti per viaggi in aereo, autobus o treno'
+    icon: "✈️",
+    title: "Acquisto dei biglietti per viaggi in aereo, autobus o treno",
   },
   {
-    icon: '🎟️',
-    title: 'Prenotazione biglietti d`ingresso ai musei, concerti, teatri ed altri eventi'
+    icon: "🎟️",
+    title:
+      "Prenotazione biglietti d`ingresso ai musei, concerti, teatri ed altri eventi",
   },
   {
-    icon: '🗣️',
-    title: 'Prenotazione guide turistiche in diverse lingue ed interpreti'
-  }
+    icon: "🗣️",
+    title: "Prenotazione guide turistiche in diverse lingue ed interpreti",
+  },
 ];
 ---
 
 <Layout title="I nostri servizi" lang={lang}>
   <Header lang={lang} currentPath={currentPath} />
-  
-  <PageHeader 
+
+  <PageHeader
     title="I nostri servizi"
     subtitle="Servizi turistici completi per gruppi organizzati"
-    backgroundImage="/images/zdjcienagaleriHOME2.jpg"
+    backgroundImage="/images/it/pellegrinaggi/05.jpg"
   />
 
   <main>
@@ -65,12 +67,14 @@ const altriServizi = [
         <div class="intro-content">
           <h2>Servizi</h2>
           <p class="intro">
-            Dato che la Vostra soddisfazione è  la nostra priorità i nostri servizi sono accuratamente scelti col giusto rapporto qualità / prezzo.
+            Dato che la Vostra soddisfazione è la nostra priorità i nostri
+            servizi sono accuratamente scelti col giusto rapporto qualità /
+            prezzo.
           </p>
         </div>
       </div>
     </section>
-    
+
     <section class="services-section">
       <div class="container">
         <h2>Organizziamo</h2>
@@ -98,95 +102,96 @@ const altriServizi = [
         </div>
       </div>
     </section>
-
   </main>
-  
+
   <Footer lang={lang} />
 </Layout>
 
 <style>
-  .intro-section {
-    padding: 4rem 0;
-    background: var(--bg-light);
-  }
+.intro-section {
+  padding: 4rem 0;
+  background: var(--bg-light);
+}
 
-  .intro-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
+.intro-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-  .intro-content h2 {
-    font-size: 2.5rem;
-    color: var(--heading-color);
-    margin-bottom: 25px;
-  }
+.intro-content h2 {
+  font-size: 2.5rem;
+  color: var(--heading-color);
+  margin-bottom: 25px;
+}
 
-  .intro-content .intro {
-    font-size: 1.15rem;
-    color: var(--text-color);
-    line-height: 1.8;
-    margin-bottom: 20px;
-  }
+.intro-content .intro {
+  font-size: 1.15rem;
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
 
-  .intro-content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    color: var(--text-color);
-  }
+.intro-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
 
-  .services-section {
-    padding: 4rem 0;
-  }
+.services-section {
+  padding: 4rem 0;
+}
 
-  .services-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 3rem;
-  }
+.services-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+}
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
 
-  .service-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center;
-  }
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-color);
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  text-align: center;
+}
 
-  .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  }
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
 
-  .service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
 
-  .service-card h3 {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    margin-bottom: 0;
-    line-height: 1.4;
-  }
+.service-card h3 {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
 
-  .service-card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    margin: 0;
-  }
+.service-card p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  margin: 0;
+}
 
-  .services-alt {
-    background: var(--bg-light);
-  }
+.services-alt {
+  background: var(--bg-light);
+}
 </style>
